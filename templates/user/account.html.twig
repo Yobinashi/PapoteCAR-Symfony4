@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Account | {{ parent() }} {% endblock %}
+
+{% block body %}
+
+    Welcome {{ app.user.firstname }}
+
+    <a href="{{ path('logout') }}">Logout</a>
+{% endblock %}
