@@ -57,7 +57,6 @@ class UserController extends Controller
             'error'         => $error
         ]);
 
-        var_dump('COUCOUCOUCOCUCOUC');
     }
 
     /**
