@@ -1,1 +1,0 @@
-# papotecar_swatalpha
