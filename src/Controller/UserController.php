@@ -56,6 +56,8 @@ class UserController extends Controller
             'last_username' => $lastUsername,
             'error'         => $error
         ]);
+
+        var_dump('COUCOUCOUCOCUCOUC');
     }
 
     /**
