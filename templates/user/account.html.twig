@@ -6,5 +6,16 @@
 
     Welcome {{ app.user.firstname }}
 
+
     <a href="{{ path('logout') }}">Logout</a>
+    <a href="{{ path('home') }}">Home</a>
+
+
+    <ul>
+        <li>FIRSTNAME = {{ app.user.firstname }}</li>
+        <li>LASTNAME = {{ app.user.lastname }}</li>
+        <li>EMAIL = {{ app.user.email }}</li>
+    </ul>
+
+    <a href="{{ path('suppAccount', {'id':app.user.id}) }}">Supp</a>
 {% endblock %}

@@ -6,6 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -41,13 +42,14 @@ class UserController extends Controller
             'last_username' => $lastUsername,
             'error'         => $error
         ]);
-        var_dump('COUCOUCOUCOCUCOUC');
+
     }
     /**
      * @Route("/logout", name="logout")
      */
     public function logout(){
     }
+
     /**
      * @Route("/account", name="account")
      */
@@ -56,5 +58,37 @@ class UserController extends Controller
             $this->redirectToRoute('login');
         }
         return $this->render('user/account.html.twig');
+    }
+
+
+    /**
+     * @Route("/suppAccount", name="suppAccount")
+     */
+    public function suppAccount(EntityManagerInterface $em){
+    $userRepo = $em->getRepository(Member::class);
+
+    $user = $userRepo->find($this->getUser()->getId());
+
+    if($user->getId() === $this->getUser()->getId()) {
+
+
+        try {
+
+            $session = $this->get('session');
+            $session = new Session();
+            $session->invalidate();
+            
+            $em->remove($this->getUser());
+            $em->flush();
+
+            $this->addFlash('success', 'Account successfully deleted');
+            return $this->redirectToRoute('home');
+
+        } catch (\PDOException $e) {
+            return $this->redirectToRoute('account');
+        }
+    }
+
+
     }
 }
