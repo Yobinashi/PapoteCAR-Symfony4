@@ -17,5 +17,6 @@
         <li>EMAIL = {{ app.user.email }}</li>
     </ul>
 
-    <a href="{{ path('suppAccount', {'id':app.user.id}) }}">Supp</a>
+    <a href="{{ path('suppAccount') }}">Supp</a>
+    <a href="{{ path('editAccount') }}">Edit</a>
 {% endblock %}

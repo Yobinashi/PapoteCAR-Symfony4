@@ -62,11 +62,11 @@ class UserController extends Controller
 
 
     /**
-     * @Route("/suppAccount", name="suppAccount")
+     * @Route("/account/delete", name="suppAccount")
      */
     public function suppAccount(EntityManagerInterface $em){
-    $userRepo = $em->getRepository(Member::class);
 
+    $userRepo = $em->getRepository(Member::class);
     $user = $userRepo->find($this->getUser()->getId());
 
     if($user->getId() === $this->getUser()->getId()) {
@@ -77,7 +77,7 @@ class UserController extends Controller
             $session = $this->get('session');
             $session = new Session();
             $session->invalidate();
-            
+
             $em->remove($this->getUser());
             $em->flush();
 
@@ -90,5 +90,32 @@ class UserController extends Controller
     }
 
 
+    }
+
+    /**
+     * @Route("/account/edit", name="editAccount")
+     */
+    public function editAccount(EntityManagerInterface $em, Request $req, UserPasswordEncoderInterface $enc){
+
+        if($this->getUser()){
+            $member = $this->getUser();
+
+            $registerForm = $this->createForm(RegisterType::class, $member);
+            $registerForm->handleRequest($req);
+            $encoded= $enc->encodePassword($member, $member->getPassword());
+            $member->setPassword($encoded);
+
+            if($registerForm->isSubmitted() && $registerForm->isValid()){
+                $em->persist($member);
+                $em->flush();
+                return $this->redirectToRoute("home");
+            }
+        }else{
+            return $this->redirectToRoute('home');
+        }
+
+
+
+        return $this->render('user/register.html.twig', ["registerForm"=>$registerForm->createView()]);
     }
 }
