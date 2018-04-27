@@ -39,4 +39,27 @@ class RunController extends Controller
 
 }
 
+
+    /**
+     * @Route("/run/delete/{id}", name="deleteRun")
+     */
+    public function suppRun(EntityManagerInterface $em, $id){
+        $run = $em->getRepository(Run::class)->find($id);
+
+        if($this->getUser()) {
+            if ($run->getDriver() === $this->getUser()) {
+                $em->remove($run);
+                $em->flush();
+                $this->addFlash('success', 'This run has been removed, an email has been sent to pasengers');
+                return $this->redirectToRoute('account');
+            }else{
+                $this->addFlash('danger', 'You can\'t remove this run');
+                return $this->redirectToRoute('account');
+            }
+        }else{
+            return $this->redirectToRoute('home');
+        }
+
+    }
+
 }

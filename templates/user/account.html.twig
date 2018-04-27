@@ -30,6 +30,8 @@
 
         <p>DEPART = {{ run.departure.cityName }}</p>
         <p>ARRIVEE = {{ run.arrival.cityName }}</p>
+
+        <button><a href="{{ path('deleteRun', {'id': run.id}) }}">SUPP</a></button>
         <hr>
         {% else %}
 
