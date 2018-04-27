@@ -62,4 +62,34 @@ class RunController extends Controller
 
     }
 
+    /**
+     * @Route("/run/edit/{id}", name="editRun")
+     */
+    public function editRun(EntityManagerInterface $em, Request $req, $id){
+        if($this->getUser()){
+            $run = $em->getRepository(Run::class)->find($id);
+
+            if($run->getDriver() === $this->getUser()){
+
+                //créer et traite le formulaire de modification de trajet
+                $form = $this->createForm(RunType::class, $run);
+                $form->handleRequest($req);
+
+                if($form->isSubmitted() && $form->isValid()){
+                    $em->flush();
+                    $this->addFlash('success', 'Run updated successfully');
+                    return $this->redirectToRoute('account');
+                }
+
+                return $this->render('run/addRun.html.twig', ['runForm'=> $form->createView()]);
+
+            }else{
+                $this->addFlash('danger', 'You can\'t update this run');
+                return $this->redirectToRoute('account');
+            }
+        }else{
+            return $this->redirectToRoute('home');
+        }
+    }
+
 }
