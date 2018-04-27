@@ -33,6 +33,11 @@ class City
      */
     private $arrivalRuns;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $cityName;
+
     public function __construct()
     {
         $this->departureRuns = new ArrayCollection();
@@ -115,6 +120,18 @@ class City
                 $arrivalRun->setArrival(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCityName(): ?string
+    {
+        return $this->cityName;
+    }
+
+    public function setCityName(string $cityName): self
+    {
+        $this->cityName = $cityName;
 
         return $this;
     }
