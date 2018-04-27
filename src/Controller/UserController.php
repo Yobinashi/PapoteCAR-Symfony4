@@ -18,15 +18,20 @@ class UserController extends Controller
      */
     public function register(Request $req, EntityManagerInterface $em, UserPasswordEncoderInterface $enc){
         $member = new Member();
+
+        //créer et traite le formulaire
         $registerForm = $this->createForm(RegisterType::class, $member);
         $registerForm->handleRequest($req);
 
+
         if($registerForm->isSubmitted() && $registerForm->isValid()){
 
+            //encode le mdp si le formulaire a bien été traité et est validé
             $encoded= $enc->encodePassword($member, $registerForm->get('password')->getData());
             $member->setPassword($encoded);
             $member->setRoles(["ROLE_USER"]);
 
+            //ajoute en bdd
             $em->persist($member);
             $em->flush();
             return $this->redirectToRoute("home");
@@ -62,6 +67,7 @@ class UserController extends Controller
             $this->redirectToRoute('login');
         }
 
+        //trouve tous les trajets ajoutés par le current user qui ne sont pas encore arrivés
         $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($this->getUser());
         return $this->render('user/account.html.twig',['runs'=> $runs]);
     }
@@ -71,29 +77,35 @@ class UserController extends Controller
      * @Route("/account/delete", name="suppAccount")
      */
     public function suppAccount(EntityManagerInterface $em){
+        if($this->getUser()) {
+            //trouve l'utilisateur associé
+            $userRepo = $em->getRepository(Member::class);
+            $user = $userRepo->find($this->getUser()->getId());
 
-    $userRepo = $em->getRepository(Member::class);
-    $user = $userRepo->find($this->getUser()->getId());
-
-    if($user->getId() === $this->getUser()->getId()) {
+            if ($user->getId() === $this->getUser()->getId()) {
 
 
-        try {
+                try {
 
-            $session = $this->get('session');
-            $session = new Session();
-            $session->invalidate();
+                    //vide la session en vue de la deconnexion, avant la suppression du user
+                    $session = $this->get('session');
+                    $session = new Session();
+                    $session->invalidate();
 
-            $em->remove($this->getUser());
-            $em->flush();
+                    //supprime l'utilisateur
+                    $em->remove($this->getUser());
+                    $em->flush();
 
-            $this->addFlash('success', 'Account successfully deleted');
+                    $this->addFlash('success', 'Account successfully deleted');
+                    return $this->redirectToRoute('home');
+
+                } catch (\PDOException $e) {
+                    return $this->redirectToRoute('account');
+                }
+            }
+        }else{
             return $this->redirectToRoute('home');
-
-        } catch (\PDOException $e) {
-            return $this->redirectToRoute('account');
         }
-    }
 
 
     }
@@ -105,14 +117,18 @@ class UserController extends Controller
     {
         if($this->getUser()){
 
+            //trouve l'user à éditer et hydrate une variable $member avec les info
             $member = $em->getRepository(Member::class)->find($this->getUser()->getId());
-            $registerForm = $this->createForm(RegisterType::class, $member);
 
+            //donne au formulaire les infos de $member afin de préremplir les champs et traite le formulaire
+            $registerForm = $this->createForm(RegisterType::class, $member);
             $registerForm->handleRequest($req);
 
 
                 if($registerForm->isSubmitted() && $registerForm->isValid()){
 
+                    //si le user a rempli le champ "password", le change
+                    //s'il n'a pas rempli le champs, le laisse comme à l'origine
                     if(!$registerForm->get('password')->getData() === null){
                         $encoded= $enc->encodePassword($member, $registerForm->get('password')->getData());
                         $member->setPassword($encoded);
@@ -127,16 +143,6 @@ class UserController extends Controller
             }else{
                 return $this->redirectToRoute('home');
             }
-
-    }
-
-
-    /**
-     * @Route("/account/my-runs", name="my_runs")
-     */
-    public function runsWhereIamDriver(){
-
-
 
     }
 }

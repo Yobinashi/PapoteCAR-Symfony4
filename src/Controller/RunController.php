@@ -18,10 +18,12 @@ class RunController extends Controller
     {
         if ($this->getUser()) {
             $run = new Run();
+            //créer et traite le formulaire d'ajout de trajet
             $form = $this->createForm(RunType::class, $run);
             $form->handleRequest($req);
 
             if ($form->isSubmitted() && $form->isValid()) {
+                //si le form est validé, set le driver avec le current user
                 $run->setDriver($this->getUser());
                 $em->persist($run);
                 $em->flush();
