@@ -21,4 +21,18 @@
     <a href="{{ path('editAccount') }}">Edit</a>
 
     <h3><a href="{{ path('addRun') }}">Add Run</a></h3>
+
+    <h2> Runs where I drive</h2>
+
+    {% for run in runs %}
+
+        <h4>{{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h4>
+
+        <p>DEPART = {{ run.departure.cityName }}</p>
+        <p>ARRIVEE = {{ run.arrival.cityName }}</p>
+        <hr>
+        {% else %}
+
+        <p> No runs where you drive !</p>
+    {% endfor %}
 {% endblock %}

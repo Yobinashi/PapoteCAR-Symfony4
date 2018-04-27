@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Member;
 use App\Entity\Run;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -19,32 +20,16 @@ class RunRepository extends ServiceEntityRepository
         parent::__construct($registry, Run::class);
     }
 
-//    /**
-//     * @return Run[] Returns an array of Run objects
-//     */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+    public function selectRunsByDriversWhereDepartureSupNow(Member $user){
+        $qb = $this->createQueryBuilder('r');
 
-    /*
-    public function findOneBySomeField($value): ?Run
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $qb->andWhere("r.departureSchedule > :now");
+        $qb->andWhere("r.driver = :driver");
+        $qb->setParameter(':driver', $user);
+        $qb->setParameter(':now', new \DateTime());
+        $qb->addOrderBy('r.departureSchedule', 'ASC');
+
+        $query = $qb->getQuery();
+        return $query->getResult();
     }
-    */
 }

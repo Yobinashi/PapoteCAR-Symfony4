@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 use App\Entity\Member;
+use App\Entity\Run;
 use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -56,11 +57,13 @@ class UserController extends Controller
     /**
      * @Route("/account", name="account")
      */
-    public function account(){
+    public function account(EntityManagerInterface $em){
         if(!$this->getUser()){
             $this->redirectToRoute('login');
         }
-        return $this->render('user/account.html.twig');
+
+        $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($this->getUser());
+        return $this->render('user/account.html.twig',['runs'=> $runs]);
     }
 
 
@@ -124,6 +127,16 @@ class UserController extends Controller
             }else{
                 return $this->redirectToRoute('home');
             }
+
+    }
+
+
+    /**
+     * @Route("/account/my-runs", name="my_runs")
+     */
+    public function runsWhereIamDriver(){
+
+
 
     }
 }
