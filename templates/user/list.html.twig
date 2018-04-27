@@ -6,7 +6,7 @@
     <h1> USERS </h1>
     <ul>
     {% for user in users %}
-      <li>{{ user.firstname }} {{ user.lastname }}</li>
+      <li><a href="{{ path('userProfile', {'id':user.id}) }}">{{ user.firstname }} {{ user.lastname }}</a></li>
     {% else %}
         No users
     {% endfor %}

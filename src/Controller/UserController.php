@@ -156,4 +156,17 @@ class UserController extends Controller
 
 
     }
+
+    /**
+     * @Route("/user/profile/{id}", name="userProfile")
+     */
+    public function userProfile($id, EntityManagerInterface $em){
+        $user = $em->getRepository(Member::class)->find($id);
+        if($this->getUser() && $this->getUser()->getId() == $id){
+            return $this->redirectToRoute('account');
+        }else{
+            return $this->render('user/userProfile.html.twig', ['user'=>$user]);
+        }
+
+    }
 }

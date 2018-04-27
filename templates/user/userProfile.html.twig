@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ user.firstname }}{{ user.lastname | upper }}{% endblock %}
+
+{% block body %}
+<h2>{{ user.firstname }}{{ user.lastname | upper }} </h2>
+{% endblock %}
+
+
+
