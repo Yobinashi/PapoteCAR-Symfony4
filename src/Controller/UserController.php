@@ -19,10 +19,13 @@ class UserController extends Controller
         $member = new Member();
         $registerForm = $this->createForm(RegisterType::class, $member);
         $registerForm->handleRequest($req);
-        $encoded= $enc->encodePassword($member, $member->getPassword());
-        $member->setPassword($encoded);
-        $member->setRoles(["ROLE_USER"]);
+
         if($registerForm->isSubmitted() && $registerForm->isValid()){
+
+            $encoded= $enc->encodePassword($member, $registerForm->get('password')->getData());
+            $member->setPassword($encoded);
+            $member->setRoles(["ROLE_USER"]);
+
             $em->persist($member);
             $em->flush();
             return $this->redirectToRoute("home");
@@ -95,27 +98,32 @@ class UserController extends Controller
     /**
      * @Route("/account/edit", name="editAccount")
      */
-    public function editAccount(EntityManagerInterface $em, Request $req, UserPasswordEncoderInterface $enc){
-
+    public function editAccount(EntityManagerInterface $em, Request $req, UserPasswordEncoderInterface $enc)
+    {
         if($this->getUser()){
-            $member = $this->getUser();
 
+            $member = $em->getRepository(Member::class)->find($this->getUser()->getId());
             $registerForm = $this->createForm(RegisterType::class, $member);
+
             $registerForm->handleRequest($req);
-            $encoded= $enc->encodePassword($member, $member->getPassword());
-            $member->setPassword($encoded);
 
-            if($registerForm->isSubmitted() && $registerForm->isValid()){
-                $em->persist($member);
-                $em->flush();
-                return $this->redirectToRoute("home");
+
+                if($registerForm->isSubmitted() && $registerForm->isValid()){
+
+                    if(!$registerForm->get('password')->getData() === null){
+                        $encoded= $enc->encodePassword($member, $registerForm->get('password')->getData());
+                        $member->setPassword($encoded);
+
+                    }
+
+                    $em->flush();
+                    return $this->redirectToRoute("home");
+                }
+
+                return $this->render('user/register.html.twig', ["registerForm"=>$registerForm->createView()]);
+            }else{
+                return $this->redirectToRoute('home');
             }
-        }else{
-            return $this->redirectToRoute('home');
-        }
 
-
-
-        return $this->render('user/register.html.twig', ["registerForm"=>$registerForm->createView()]);
     }
 }

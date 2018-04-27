@@ -3,5 +3,8 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    {{ form(registerForm) }}
+
+    {{ form_start(registerForm, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(registerForm) }}
+    {{ form_end(registerForm) }}
 {% endblock %}

@@ -9,7 +9,10 @@
     <a href="{{ path('register') }}">Register</a>
     <a href="{{ path('login') }}">Login</a>
     {% else %}
-        <a href="{{ path('logout') }}">Logout</a>
+
         <h2>WELCOME {{ app.user.firstname }}</h2>
+        <a href="{{ path('logout') }}">Logout</a>
+        <a href="{{ path('account') }}">My Account</a>
+
     {% endif %}
 {% endblock %}
