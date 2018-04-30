@@ -4,8 +4,13 @@
 {% block body %}
     <h2> LES RUNS MA GUEULE</h2>
 {% for run in runs  %}
-    <h3>{{ run.driver.firstame }} {{ run.driver.lastname }} | {{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h3>
+    <h3>{{ run.driver.firstname }} {{ run.driver.lastname }} | {{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h3>
     {{ run.departure.cityName }} -> {{ run.arrival.cityName }}
+
+  Place restantes: {{ run.places }}
+    <a href="{{ path('reserveRun',{'id' : run.id}) }}">RESERVER</a>
+
+    <a href="{{ path('detailRun', {'id': run.id}) }}">DETAIL</a>
 <hr>
 {% else %}
     No runs found

@@ -110,4 +110,24 @@ class RunController extends Controller
 
     }
 
+
+    /**
+     * @Route("/run/reserve/{id}", name="reserveRun")
+     */
+    public function reserveRun(EntityManagerInterface $em, $id){
+
+        if($this->getUser()){
+            $run = $em->getRepository(Run::class)->find($id);
+
+            $run->setPlaces($run->getPlaces()-1);
+            $run->addPasenger($this->getUser());
+            $em->persist($run);
+            $em->flush();
+            return $this->redirectToRoute('listRuns');
+        }
+
+
+
+    }
+
 }

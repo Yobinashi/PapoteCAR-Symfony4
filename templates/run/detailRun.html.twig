@@ -3,4 +3,13 @@
 {% block body %}
 
     <h1>{{ run.departure.cityName }} -> {{ run.arrival.cityName }}</h1>
+
+    Pasengers:
+    <ul>
+    {% for pasenger in run.pasengers %}
+       <li> {{ pasenger.firstname }}</li>
+    {% else %}
+    {% endfor %}
+
+    </ul>
 {% endblock %}
