@@ -92,4 +92,22 @@ class RunController extends Controller
         }
     }
 
+
+    /**
+     * @Route("/run/{id}", name="detailRun")
+     */
+    public function detailRun(EntityManagerInterface $em, Request $req, $id){
+        $run = $em->getRepository(Run::class)->find($id);
+        return $this->render('run/detailRun.html.twig', ['run'=> $run]);
+    }
+
+    /**
+     * @Route("/runs", name="listRuns")
+     */
+    public function listRuns(EntityManagerInterface $em){
+        $runs = $em->getRepository(Run::class)->findAll();
+        return $this->render('run/listRuns.html.twig', ['runs'=> $runs]);
+
+    }
+
 }

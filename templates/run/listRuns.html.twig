@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <h2> LES RUNS MA GUEULE</h2>
+{% for run in runs  %}
+    <h3>{{ run.driver.firstame }} {{ run.driver.lastname }} | {{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h3>
+    {{ run.departure.cityName }} -> {{ run.arrival.cityName }}
+<hr>
+{% else %}
+    No runs found
+{% endfor %}
+
+{% endblock %}

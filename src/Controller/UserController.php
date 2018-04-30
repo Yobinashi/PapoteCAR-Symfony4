@@ -162,10 +162,11 @@ class UserController extends Controller
      */
     public function userProfile($id, EntityManagerInterface $em){
         $user = $em->getRepository(Member::class)->find($id);
+        $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($user);
         if($this->getUser() && $this->getUser()->getId() == $id){
             return $this->redirectToRoute('account');
         }else{
-            return $this->render('user/userProfile.html.twig', ['user'=>$user]);
+            return $this->render('user/userProfile.html.twig', ['user'=>$user, 'runs'=> $runs]);
         }
 
     }
