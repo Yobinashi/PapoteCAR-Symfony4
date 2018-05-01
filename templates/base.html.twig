@@ -3,20 +3,78 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-    {% for label, messages in app.flashes %}
-        {% for message in messages %}
-            <div class="alert alert-{{ label }}">
-                {{ message }}
-            </div>
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
         {% endfor %}
-    {% endfor %}
-    {% block body %}
 
-    {% endblock %}
+    <!--<a href="{{ path('users') }}">Our Users</a>-->
+
+        <header class="header-home">
+            <div class="title-button-header">
+                <div class="title-header">
+                    <a href="{{ path('home') }}">
+                        <img src="{{ asset('img/logo.png') }}" alt="le logo de PapoteCAR"> <!-- chemin vers ACCUEIL ici -->
+                    </a>
+                    <h1>Papote<span>car</span></h1>
+                </div>
+                <form action="{{ path('addRun') }}">
+                        <button>Proposer un trajet</button> <!-- Diriger vers le formulaire Création de trajet-->
+                </form>
+            </div>
+            {% if not app.user %}
+                <div id="connect">
+                    <a href="{{ path('login') }}">Se connecter</a> <!-- chemin vers formulaire INSCRIPTION ici -->
+                    <span> | </span>
+                    <a href="{{ path('register') }}">S'inscrire</a> <!-- chemin vers formulaire CONNEXION ici -->
+                </div>
+            {% else %}
+                <div id="user-connected">
+                    <div id="user-img" style="background-image:url(http://placehold.it/50)"></div>
+                    <div class="menu">
+                        <img class="burger" src="{{ asset('img/menu.png') }}" alt="icon burger du menu utilisateur" size="100">
+                        <ul class="nav">
+                            <li><a href="tableau.html">Tableau de bord</a></li>
+                            <li class="border-top"><a href="{{ path('addRun') }}">Proposer un trajet</a></li>
+                            <li class="border-top"><a href="{{ path('listRuns') }}">Rechercher un trajet</a></li>
+                            <li class="border-top"><a href="{{ path('account') }}">Mon profil</a></li>
+                            <li class="border-top"><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+        </header>
+
+        {% block body %}
+
+        {% endblock %}
+
         {% block javascripts %}{% endblock %}
+
+        <footer>
+			<div class="container-footer">
+				<div>
+					<img src="{{ asset('img/logo-blanc.png') }}" alt="le logo PapoteCAR en Blanc">
+					<p>PapoteCAR, 2018&copy;</p>
+				</div>
+				<ul>
+					<li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">A propos</a></li>
+                    {% if not app.user %}
+					<li><a href="{{ path('login') }}">Se connecter</a></li>
+                    <li><a href="{{ path('register') }}">S'inscrire'</a></li>
+                    {% endif %}
+				</ul>
+			</div>
+        </footer>
+        
+        <script src="{{ asset('js/script.js') }}"></script>
     </body>
 </html>

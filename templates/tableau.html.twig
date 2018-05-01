@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord{% endblock %}
+
+{% block body %}
+
+<main class="dashboard">
+        <h2>Tableau de bord</h2>
+        <ul class="nav-dashboard">
+            
+            <li><a 
+                class="{{ app.request.get('_route') == 'ridecourt' ? 'active' }}" 
+                href="{{path('ridecourt')}}">Trajets en cours
+            </a></li>
+            <li><a 
+                class="{{ app.request.get('_route') == 'searchride' ? 'active' }}" 
+                href="{{path('searchride')}}">Trajets en cours
+            </a></li>
+            <li><a href="">Les longs trajets</a></li>
+            <li><a href="">Les commentaires</a></li>
+        </ul>
+        <div class="main-dashboard">
+            <div class="column-profil">
+                <div class="img-profil" style="background-image:url(http://placehold.it/150)"></div>
+                {% if not app.user %}
+                    <form action="{{ path('login') }}">
+                        <button>Inscrivez-vous</button> <!-- Diriger vers le formulaire Création de trajet-->
+                    </form>
+                {% else %}
+                    <p class="note-profil">4 / 5</p>
+                    <div class="p-profil">
+                        <p class="name-profil">NOM Prénom</p>
+                        <p class="email-profil">email@email.com</p>
+                    </div>
+                    <button>Modifier votre profil</button>
+                {% endif %}
+            </div>
+            <div class="main-trip">
+                
+                {% block content %}
+
+                {% endblock %}
+
+            </div>
+        </div>
+    </main>
+    
+
+{% endblock %}

@@ -1,20 +1,188 @@
 {% extends 'base.html.twig' %}
+{% import 'macros/form_search.html.twig' as form %}
 
-{% block title %}Hello{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <h1>HOMEUH</h1>
+<main>
+        <!-- FORM SECTION TOP -->
+        <section class="form-top">
+            <div class="title-form-top">
+                <img src="{{ asset('img/logo-blanc.png') }}" alt="le logo PapoteCAR en Blanc">
+                <h2>à plusieurs la route est plus fun</h2>
+            </div>
 
-    {% if not app.user %}
-    <a href="{{ path('register') }}">Register</a>
-    <a href="{{ path('login') }}">Login</a>
-    {% else %}
+            {{ form.formSearch() }}
 
-        <h2>WELCOME {{ app.user.firstname }}</h2>
-        <a href="{{ path('logout') }}">Logout</a>
-        <a href="{{ path('account') }}">My Account</a>
-        <a href="{{ path('listRuns') }}"> RUNS </a>
+        </section>
+        <!-- END FORM SECTION TOP -->
+        <!-- BENEFITS SECTION -->
+        <section class="benefits">
+            <article>
+                <img src="{{ asset('img/ecolo.png') }}" alt="Feuille représentant l'écologie">
+                <h3>écologique</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget lobortis tellus. Praesent non odio a purus tincidunt tempus vitae et eros. Etiam aliquet nisi leo, ut rutrum urna varius finibus. Suspendisse ac erat elit. Maecenas at nulla efficitur, venenatis urna a, elementum ligula. Integer consequat convallis elit a venenatis.
+                </p>
+            </article>
+            <article>
+                <img src="{{ asset('img/socio.png') }}" alt="Groupe de personnes repésentants la sociabilité">
+                <h3>sociable</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget lobortis tellus. Praesent non odio a purus tincidunt tempus vitae et eros. Etiam aliquet nisi leo, ut rutrum urna varius finibus. Suspendisse ac erat elit. Maecenas at nulla efficitur, venenatis urna a, elementum ligula. Integer consequat convallis elit a venenatis.					
+                </p>
+            </article>
+            <article>
+                <img src="{{ asset('img/economie.png') }}" alt="Signe de l'euro, pour l'économie">
+                <h3>économique</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget lobortis tellus. Praesent non odio a purus tincidunt tempus vitae et eros. Etiam aliquet nisi leo, ut rutrum urna varius finibus. Suspendisse ac erat elit. Maecenas at nulla efficitur, venenatis urna a, elementum ligula. Integer consequat convallis elit a venenatis.					
+                </p>
+            </article>
+        </section>
+        <!-- END BENEFITS SECTION -->
+        <!-- PROPOSAL SECTION -->
+        <section class="proposal">
+            <article class="proposal-path">
+                <div>
+                    <img src="{{ asset('img/stresse.png') }}" alt="Photo d'une femme qui mord son volant">
+                </div>
+                <div>
+                    <h4>Détendez vous avec d'autres papoteurs, ils sont super sympas</h4>
+                    <form action="{{ path('addRun') }}">
+                        <button>Proposer un trajet</button> <!-- Diriger vers le formulaire Création de trajet-->
+                    </form>
+                </div>
+            </article>
+            <article class="proposal-trip">
+                <div class="proposal-trip-container">
+                    <h4>Un road trip ?</h4>
+                    <!-- ForEach sur distance ORDER BY DESC LIMIT 3 -->
+                    <a href="#"> <!-- Lien vers l'annonce -->
+                        <div class="suggestion">
+                            <div>
+                                <p>Paris</p>
+                                <p>Toulouse</p>
+                            </div>
+                            <p class="proposal-price">
+                                35 €
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="suggestion">
+                            <div>
+                                <p>Bordeaux</p>
+                                <p>Lyon</p>
+                            </div>
+                            <p class="proposal-price">
+                                28 €
+                            </p>
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="suggestion">
+                            <div>
+                                <p>Paris</p>
+                                <p>Annecy</p>
+                            </div>
+                            <p class="proposal-price">
+                                42 €
+                            </p>
+                        </div>
+                    </a>
+                    <!-- EndForEach -->
+                    <button>Voir les longs trajets</button> <!-- Envoyer sur une page spécial évasion ou connexion -->
+                </div>
+                <img src="{{ asset('img/auto-stop.png') }}" alt="Photo d'un homme qui fait du stop avec un message qui dit [Ailleurs]">
+            </article>
+        </section>
+        <!-- END PROPOSAL SECTION -->
+        <!-- TEAM SECTION -->
+        <section class="team">
+            <div class="container-team">
+                <div class="title-h2">
+                    <div class="title-h2-inline">
+                        <div>
+                            <img src="{{ asset('img/logo.png') }}" alt="Le logo PapoteCAR en couleur">
+                        </div>
+                        <h2>Mais qui sommes <span>nous</span> ?</h2>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div>
+                        <img src="{{ asset('img/emmanuel.png') }}" alt="Photo d'emmanuel">
+                        <h3>Emmanuel</h3>
+                        <p class="member-assignment">Le cartographe</p>
+                        <p>Le boss</p>
+                        <p>des opérations</p>
+                    </div>
+                    <div>
+                        <img src="{{ asset('img/laetitia.png') }}" alt="Photo de laetitia">
+                        <h3>Laetitia</h3>
+                        <p class="member-assignment">La pro du créneau</p>
+                        <p>Développeuse</p>
+                        <p>Experte bdd</p>
+                    </div>
+                    <div>
+                        <img src="{{ asset('img/ali.png') }}" alt="Photo de ali">
+                        <h3>Ali</h3>
+                        <p class="member-assignment">Le sans permis</p>
+                        <p>Développeur</p>
+                        <p>Ingénieur</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div>
+                        <img src="{{ asset('img/mickael.png') }}" alt="Photo de mickael">
+                        <h3>Mickael</h3>
+                        <p class="member-assignment">Le routard prudent</p>
+                        <p>Développeur</p>
+                        <p>Expert Windev</p>
+                    </div>
+                    <div>
+                        <img src="{{ asset('img/nicolas.png') }}" alt="Photo de nicolas">
+                        <h3>Nicolas</h3>
+                        <p class="member-assignment">Le pilote infernal</p>
+                        <p>Développeur</p>
+                        <p>Expert JAVA</p>
+                    </div>
+                    <div>
+                        <img src="{{ asset('img/valentin.png') }}" alt="Photo de valentin">
+                        <h3>Valentin</h3>
+                        <p class="member-assignment">Le fou du volant</p>
+                        <p>Intégrateur</p>
+                        <p>Pas développeur</p>
+                    </div>
+                    <div>
+                        <img src="{{ asset('img/jordan.png') }}" alt="Photo de jordan">
+                        <h3>Jordan</h3>
+                        <p class="member-assignment">Le clown conducteur</p>
+                        <p>Développeur</p>
+                        <p>Full stack</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--  END TEAM SECTION -->
+        <!--  FORM SECTION BOTTOM -->
+        <section class="form-bottom">
+            <div class="title-h2">
+                <div class="title-h2-inline">
+                    <div>
+                        <img src="{{ asset('img/logo.png') }}" alt="Le logo PapoteCAR en couleur">
+                    </div>
+                    <h2>Prêt à <span>prendre la route</span> ?</h2>
+                </div>
+            </div>
+            
+            {{ form.formSearch() }}
 
-    {% endif %}
-    <a href="{{ path('users') }}">Our Users</a>
+            <p>OU</p>
+            <form action="{{ path('addRun') }}">
+                    <button>Proposer un trajet</button> <!-- Diriger vers le formulaire Création de trajet-->
+            </form> 
+        </section>
+        <!--  END FORM SECTION BOTTOM -->
+    </main>
 {% endblock %}

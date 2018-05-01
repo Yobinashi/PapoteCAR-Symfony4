@@ -1,0 +1,41 @@
+{% extends 'tableau.html.twig' %}
+
+{% block content %}
+    <h3>Trajets en cours</h3>
+    <!-- ETIQUETTES -->
+    <a class="trip" href="#">
+        <button class="delete">X</button> <!-- SUPPRESSION -->
+        <div class="img-rider">
+            <div class="img-profil-rider" style="background-image:url(http://placehold.it/100)"></div>
+            <p>Conducteur(.trice)</p>
+        </div>
+        <div class="name-step">
+            <p class="name">NOM Prénom</p>
+            <p class="phone">Contact : <span>06 47 71 24 48</span></p>
+            <p class="city">Paris <span>--></span> Toulouse</p>
+        </div>
+        <div class="date-ride">
+            <p class="day">15</p>
+            <p class="month">janvier</p>
+            <p class="hour">17<span>H</span>30</p>
+        </div>
+    </a>
+    <!-- ETIQUETTES -->
+    <a class="trip" href="#">
+        <button class="delete">X</button> <!-- SUPPRESSION -->
+        <div class="img-rider">
+            <div class="img-profil-rider" style="background-image:url(http://placehold.it/100)"></div>
+            <p class="conducteur">Conducteur(.trice)</p>
+        </div>
+        <div class="name-step">
+            <p class="name">NOM Prénom</p>
+            <p class="phone">Contact : <span>06 47 71 24 48</span></p>
+            <p class="city">Toulouse <span>--></span> Saint-Sébastien</p>
+        </div>
+        <div class="date-ride">
+            <p class="day">30</p>
+            <p class="month">Septembre</p>
+            <p class="hour">20<span>H</span>00</p>
+        </div>
+    </a>
+{% endblock %}

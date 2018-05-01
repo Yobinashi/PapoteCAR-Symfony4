@@ -1,0 +1,19 @@
+
+
+{% macro formSearch() %}
+    <form action="#" class="form-search" method="GET"> <!-- Action : page avec le résultat - Method : get -->
+        <div class="input-icon">
+            <img src="{{ asset('img/localisation.png') }}" alt="Une icone pour le départ">
+            <input type="text" name="departure" placeholder="d'où partez-vous?">
+        </div>
+        <div class="input-icon">
+            <img src="{{ asset('img/destination.png') }}" alt="Une icone pour la destination">
+            <input type="text" name="arrival" placeholder="où allez-vous ?">
+        </div>
+        <div class="input-icon">
+            <img src="{{ asset('img/calendar.png') }}" alt="Une icone de calendrier">
+            <input type="date" name="departure-schedule" placeholder="date de départ">
+        </div>
+        <button>Rechercher</button> <!-- Diriger vers la recherche -->
+    </form>
+{% endmacro %}

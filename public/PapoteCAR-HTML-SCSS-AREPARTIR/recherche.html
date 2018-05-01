@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>PapoteCAR</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="title-button-header">
+                <div class="title-header">
+                    <a href="index.html">
+                        <img src="img/logo.png" alt="le logo de PapoteCAR"> <!-- chemin vers ACCUEIL ici -->
+                    </a>
+                    <h1>Papote<span>car</span></h1>
+                </div>
+                <form action="proposer.html">
+                        <button>Proposer un trajet</button> <!-- Diriger vers le formulaire Création de trajet-->
+                </form>
+            </div>
+
+            <div class="connect" hidden>
+                <a href="inscription.html">S'inscrire</a> <!-- chemin vers formulaire INSCRIPTION ici -->
+                <span> | </span>
+                <a href="connexion.html">Se connecter</a> <!-- chemin vers formulaire CONNEXION ici -->
+            </div>
+
+            <div id="user-connected">
+                <div id="user-img" style="background-image:url(http://placehold.it/50)"></div>
+                <div class="menu">
+                    <img class="burger" src="img/menu.png" alt="icon burger du menu utilisateur" size="100">
+                    <ul class="nav">
+                        <li><a href="">Tableau de bord</a></li>
+                        <li class="border-top"><a href="">Proposer un trajet</a></li>
+                        <li class="border-top"><a href="">Rechercher un trajet</a></li>
+                        <li class="border-top"><a href="">Mon profil</a></li>
+                        <li class="border-top"><a href="">Se déconnecter</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <h2>Tableau de bord</h2>
+            <ul class="nav-dashboard">
+                <li><a href="tableau.html">Trajets en cours</a></li>
+                <li><a class="active" href="recherche.html">Rechercher un trajet</a></li>
+                <li><a href="">Les longs trajets</a></li>
+                <li><a href="">Les commentaires</a></li>
+            </ul>
+            <div class="main-dashboard">
+                <div class="column-profil">
+                    <div class="img-profil" style="background-image:url(http://placehold.it/150)"></div>
+                    <p class="note-profil">4 / 5</p>
+                    <div class="p-profil">
+                        <p class="name-profil">NOM Prénom</p>
+                        <p class="email-profil">email@email.com</p>
+                    </div>
+                    <button>Modifier votre profil</button>
+                </div>
+                <div class="main-trip">
+                    <h3>Rechercher un trajet</h3>
+                    <form action="#" class="form-search" method="GET"> <!-- Action : page avec le résultat - Method : get -->
+                        <div class="input-icon">
+                            <img src="img/localisation.png" alt="Une icone pour le départ">
+                            <input type="text" name="departure" placeholder="d'où partez-vous?">
+                        </div>
+                        <div class="input-icon">
+                            <img src="img/destination.png" alt="Une icone pour la destination">
+                            <input type="text" name="arrival" placeholder="où allez-vous ?">
+                        </div>
+                        <div class="input-icon">
+                            <img src="img/calendar.png" alt="Une icone de calendrier">
+                            <input type="date" name="departure-schedule" placeholder="date de départ">
+                        </div>
+                        <button>Rechercher</button> <!-- Diriger vers la recherche -->
+                    </form>
+                    <!-- ETIQUETTES -->
+                    <a class="trip" href="#">
+                        <div class="img-rider">
+                            <div class="img-profil-rider" style="background-image:url(http://placehold.it/100)"></div>
+                            <p>Conducteur(.trice)</p>
+                        </div>
+                        <div class="name-step">
+                            <p class="name">NOM Prénom</p>
+                            <p class="phone">Nbr de places restantes : <span>3</span></p>
+                            <p class="city">Paris <span>--></span> Toulouse</p>
+                        </div>
+                        <div class="date-ride">
+                            <p class="day">15</p>
+                            <p class="month">janvier</p>
+                            <p class="hour">17<span>H</span>30</p>
+                        </div>
+                    </a>
+                    <!-- ETIQUETTES -->
+                    <a class="trip" href="#">
+                        <div class="img-rider">
+                            <div class="img-profil-rider" style="background-image:url(http://placehold.it/100)"></div>
+                            <p class="conducteur">Conducteur(.trice)</p>
+                        </div>
+                        <div class="name-step">
+                            <p class="name">NOM Prénom</p>
+                            <p class="phone">Nbr de places restantes : <span>2</span></p>
+                            <p class="city">Toulouse <span>--></span> Saint-Sébastien</p>
+                        </div>
+                        <div class="date-ride">
+                            <p class="day">30</p>
+                            <p class="month">Septembre</p>
+                            <p class="hour">20<span>H</span>00</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container-footer">
+                <div>
+                    <img src="img/Logo-blanc.png" alt="le logo PapoteCAR en Blanc">
+                    <p>PapoteCAR, 2018&copy;</p>
+                </div>
+                <ul>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">A propos</a></li>
+                    <li><a href="#">S'inscrire</a></li>
+                    <li><a href="#">Se connecter</a></li>
+                </ul>
+            </div>
+        </footer>
+    </body>
+
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>PapoteCAR</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+
+	<body>
+		<header class="header-home">
+			<div class="title-button-header">
+				<div class="title-header">
+					<a href="index.html">
+						<img src="img/logo.png" alt="le logo de PapoteCAR"> <!-- chemin vers ACCUEIL ici -->
+					</a>
+					<h1>Papote<span>car</span></h1>
+				</div>
+				<form action="proposer.html">
+						<button>Proposer un trajet</button> <!-- Diriger vers le formulaire Création de trajet-->
+				</form>
+			</div>
+			<div id="connect">
+				<a href="inscription.html">S'inscrire</a> <!-- chemin vers formulaire INSCRIPTION ici -->
+				<span> | </span>
+				<a href="connexion.html">Se connecter</a> <!-- chemin vers formulaire CONNEXION ici -->
+			</div>
+			
+		</header>
+
+		<main>
+			<!-- FORM SECTION TOP -->
+			<section class="form-top">
+				<div class="title-form-top">
+					<img src="img/Logo-blanc.png" alt="le logo PapoteCAR en Blanc">
+					<h2>à plusieurs la route est plus fun</h2>
+				</div>
+				<form action="#" class="form-search" method="GET"> <!-- Action : page avec le résultat - Method : get -->
+					<div class="input-icon">
+						<img src="img/localisation.png" alt="Une icone pour le départ">
+						<input type="text" name="departure" placeholder="d'où partez-vous?">
+					</div>
+					<div class="input-icon">
+						<img src="img/destination.png" alt="Une icone pour la destination">
+						<input type="text" name="arrival" placeholder="où allez-vous ?">
+					</div>
+					<div class="input-icon">
+						<img src="img/calendar.png" alt="Une icone de calendrier">
+						<input type="date" name="departure-schedule" placeholder="date de départ">
+					</div>
+					<button>Trouver un Papoteur</button> <!-- Diriger vers la recherche -->
+				</form>
+			</section>
+			<!-- END FORM SECTION TOP -->
+			<!-- BENEFITS SECTION -->
+			<section class="benefits">
+				<article>
+					<img src="img/ecolo.png" alt="Feuille représentant l'écologie">
+					<h3>écologique</h3>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget lobortis tellus. Praesent non odio a purus tincidunt tempus vitae et eros. Etiam aliquet nisi leo, ut rutrum urna varius finibus. Suspendisse ac erat elit. Maecenas at nulla efficitur, venenatis urna a, elementum ligula. Integer consequat convallis elit a venenatis.
+					</p>
+				</article>
+				<article>
+					<img src="img/socio.png" alt="Groupe de personnes repésentants la sociabilité">
+					<h3>sociable</h3>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget lobortis tellus. Praesent non odio a purus tincidunt tempus vitae et eros. Etiam aliquet nisi leo, ut rutrum urna varius finibus. Suspendisse ac erat elit. Maecenas at nulla efficitur, venenatis urna a, elementum ligula. Integer consequat convallis elit a venenatis.					
+					</p>
+				</article>
+				<article>
+					<img src="img/economie.png" alt="Signe de l'euro, pour l'économie">
+					<h3>économique</h3>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget lobortis tellus. Praesent non odio a purus tincidunt tempus vitae et eros. Etiam aliquet nisi leo, ut rutrum urna varius finibus. Suspendisse ac erat elit. Maecenas at nulla efficitur, venenatis urna a, elementum ligula. Integer consequat convallis elit a venenatis.					
+					</p>
+				</article>
+			</section>
+			<!-- END BENEFITS SECTION -->
+			<!-- PROPOSAL SECTION -->
+			<section class="proposal">
+				<article class="proposal-path">
+					<div>
+						<img src="img/stresse.png" alt="Photo d'une femme qui mord son volant">
+					</div>
+					<div>
+						<h4>Détendez vous avec d'autres papoteurs, ils sont super sympas</h4>
+						<form action="proposer.html">
+							<button>Proposer un trajet</button> <!-- Diriger vers le formulaire Création de trajet-->
+						</form>
+					</div>
+				</article>
+				<article class="proposal-trip">
+					<div class="proposal-trip-container">
+						<h4>Un road trip ?</h4>
+						<!-- ForEach sur distance ORDER BY DESC LIMIT 3 -->
+						<a href="#"> <!-- Lien vers l'annonce -->
+							<div class="suggestion">
+								<div>
+									<p>Paris</p>
+									<p>Toulouse</p>
+								</div>
+								<p class="proposal-price">
+									35 €
+								</p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="suggestion">
+								<div>
+									<p>Bordeaux</p>
+									<p>Lyon</p>
+								</div>
+								<p class="proposal-price">
+									28 €
+								</p>
+							</div>
+						</a>
+						<a href="#">
+							<div class="suggestion">
+								<div>
+									<p>Paris</p>
+									<p>Annecy</p>
+								</div>
+								<p class="proposal-price">
+									42 €
+								</p>
+							</div>
+						</a>
+						<!-- EndForEach -->
+						<button>Voir les longs trajets</button> <!-- Envoyer sur une page spécial évasion ou connexion -->
+					</div>
+					<img src="img/auto-stop.png" alt="Photo d'un homme qui fait du stop avec un message qui dit [Ailleurs]">
+				</article>
+			</section>
+			<!-- END PROPOSAL SECTION -->
+			<!-- TEAM SECTION -->
+			<section class="team">
+				<div class="container-team">
+					<div class="title-h2">
+						<div class="title-h2-inline">
+							<div>
+								<img src="img/logo.png" alt="Le logo PapoteCAR en couleur">
+							</div>
+							<h2>Mais qui sommes <span>nous</span> ?</h2>
+						</div>
+					</div>
+					<div class="team-member">
+						<div>
+							<img src="img/emmanuel.png" alt="Photo d'emmanuel">
+							<h3>Emmanuel</h3>
+							<p class="member-assignment">Le cartographe</p>
+							<p>Le boss</p>
+							<p>des opérations</p>
+						</div>
+						<div>
+							<img src="img/laetitia.png" alt="Photo de laetitia">
+							<h3>Laetitia</h3>
+							<p class="member-assignment">La pro du créneau</p>
+							<p>Développeuse</p>
+							<p>Experte bdd</p>
+						</div>
+						<div>
+							<img src="img/ali.png" alt="Photo de ali">
+							<h3>Ali</h3>
+							<p class="member-assignment">Le sans permis</p>
+							<p>Développeur</p>
+							<p>Ingénieur</p>
+						</div>
+					</div>
+					<div class="team-member">
+						<div>
+							<img src="img/mickael.png" alt="Photo de mickael">
+							<h3>Mickael</h3>
+							<p class="member-assignment">Le routard prudent</p>
+							<p>Développeur</p>
+							<p>Expert Windev</p>
+						</div>
+						<div>
+							<img src="img/nicolas.png" alt="Photo de nicolas">
+							<h3>Nicolas</h3>
+							<p class="member-assignment">Le pilote infernal</p>
+							<p>Développeur</p>
+							<p>Expert JAVA</p>
+						</div>
+						<div>
+							<img src="img/valentin.png" alt="Photo de valentin">
+							<h3>Valentin</h3>
+							<p class="member-assignment">Le fou du volant</p>
+							<p>Intégrateur</p>
+							<p>Pas développeur</p>
+						</div>
+						<div>
+							<img src="img/jordan.png" alt="Photo de jordan">
+							<h3>Jordan</h3>
+							<p class="member-assignment">Le clown conducteur</p>
+							<p>Développeur</p>
+							<p>Full stack</p>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--  END TEAM SECTION -->
+			<!--  FORM SECTION BOTTOM -->
+			<section class="form-bottom">
+				<div class="title-h2">
+					<div class="title-h2-inline">
+						<div>
+							<img src="img/logo.png" alt="Le logo PapoteCAR en couleur">
+						</div>
+						<h2>Prêt à <span>prendre la route</span> ?</h2>
+					</div>
+				</div>
+				<form action="#" class="form-search" method="GET"> <!-- Action : page avec le résultat - Method : get -->
+					<div class="input-icon">
+						<img src="img/localisation.png" alt="Une icone pour le départ">
+						<input type="text" name="departure" placeholder="d'où partez-vous?">
+					</div>
+					<div class="input-icon">
+						<img src="img/destination.png" alt="Une icone pour la destination">
+						<input type="text" name="arrival" placeholder="où allez-vous ?">
+					</div>
+					<div class="input-icon">
+						<img src="img/calendar.png" alt="Une icone de calendrier">
+						<input type="date" name="departure-schedule" placeholder="date de départ">
+					</div>
+					<button>Trouver un Papoteur</button> <!-- Diriger vers la recherche -->
+				</form>
+				<p>OU</p>
+				<button>Proposer un trajet</button> <!-- Diriger vers le formulaire Création de trajet-->
+			</section>
+			<!--  END FORM SECTION BOTTOM -->
+		</main>
+
+		<footer>
+			<div class="container-footer">
+				<div>
+					<img src="img/Logo-blanc.png" alt="le logo PapoteCAR en Blanc">
+					<p>PapoteCAR, 2018&copy;</p>
+				</div>
+				<ul>
+					<li><a href="#">Mentions légales</a></li>
+					<li><a href="#">A propos</a></li>
+					<li><a href="#">S'inscrire</a></li>
+					<li><a href="#">Se connecter</a></li>
+				</ul>
+			</div>
+		</footer>
+	</body>
+
+	<script src="script.js"></script>
+
+</html>
