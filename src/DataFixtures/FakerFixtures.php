@@ -33,6 +33,8 @@ class FakerFixtures extends Fixture implements FixtureInterface
     public function load(ObjectManager $manager)
     {
 
+        $cityTab = ["Nantes","Tours","Paris", "Angers", "Lyon", "Marseille", "Toulouse", "Toulon", "Brest", "Avignon"];
+
         // On configure dans quelles langues nous voulons nos données
         $faker = Faker\Factory::create('fr_FR');
 
@@ -66,7 +68,11 @@ class FakerFixtures extends Fixture implements FixtureInterface
             // city
             $city = new City();
             $city->setZipcode($faker->numberBetween($min = 10000, $max = 99999));
-            $city->setCityName($faker->city(3));
+            //$city->setCityName($faker->city(3));
+            // permet d'afficher aléatoirement une ville sélectionnée dans le tableau
+            $nbRand = rand(0,9);
+            shuffle($cityTab);
+            $city->setCityName($cityTab[$nbRand]);
 
             $manager->persist($city);
 
