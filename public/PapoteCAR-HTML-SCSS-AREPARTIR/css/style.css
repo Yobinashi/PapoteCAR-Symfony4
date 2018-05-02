@@ -181,10 +181,10 @@ input:focus {
   -ms-border-radius: 5px;
   border-radius: 5px;
   border: 0.5px solid #88DB15;
-  -webkit-box-shadow: 0px 0px 3px #88DB15;
-  -moz-box-shadow: 0px 0px 3px #88DB15;
-  -ms-box-shadow: 0px 0px 3px #88DB15;
-  box-shadow: 0px 0px 3px #88DB15; }
+  -webkit-box-shadow: 0px 0px 10px #88DB15;
+  -moz-box-shadow: 0px 0px 10px #88DB15;
+  -ms-box-shadow: 0px 0px 10px #88DB15;
+  box-shadow: 0px 0px 10px #88DB15; }
 
 input[placeholder] {
   text-transform: none; }
@@ -247,12 +247,6 @@ button:hover {
   padding-left: 30px;
   max-width: 150px; }
 
-.firstname {
-  text-transform: uppercase; }
-
-.lastname {
-  text-transform: capitalize; }
-
 /* END GENERAL */
 /* HEADER */
 header {
@@ -279,7 +273,7 @@ header {
     color: #1b1b1b; }
   header #user-connected {
     position: relative; }
-    header #user-connected .user-img {
+    header #user-connected #user-img {
       -webkit-border-radius: 50%;
       -moz-border-radius: 50%;
       -ms-border-radius: 50%;
@@ -299,10 +293,10 @@ header {
       -ms-border-radius: 5px;
       border-radius: 5px;
       border: 0.5px solid #88DB15;
-      -webkit-box-shadow: 0px 0px 3px #88DB15;
-      -moz-box-shadow: 0px 0px 3px #88DB15;
-      -ms-box-shadow: 0px 0px 3px #88DB15;
-      box-shadow: 0px 0px 3px #88DB15; }
+      -webkit-box-shadow: 0px 0px 10px #88DB15;
+      -moz-box-shadow: 0px 0px 10px #88DB15;
+      -ms-box-shadow: 0px 0px 10px #88DB15;
+      box-shadow: 0px 0px 10px #88DB15; }
     header #user-connected .menu:hover .nav {
       max-height: 400px; }
 
@@ -599,9 +593,6 @@ footer {
         font-size: 3.5rem;
         color: #E6146C;
         margin: 0px; }
-      .dashboard .main-dashboard .column-profil .not-note {
-        color: #CCCCCC;
-        font-style: italic; }
       .dashboard .main-dashboard .column-profil .img-profil {
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;

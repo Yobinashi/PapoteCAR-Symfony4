@@ -14,25 +14,36 @@
             </a></li>
             <li><a 
                 class="{{ app.request.get('_route') == 'searchride' ? 'active' }}" 
-                href="{{path('searchride')}}">Trajets en cours
+                href="{{path('searchride')}}">Rechercher un trajet
             </a></li>
             <li><a href="">Les longs trajets</a></li>
             <li><a href="">Les commentaires</a></li>
         </ul>
         <div class="main-dashboard">
             <div class="column-profil">
-                <div class="img-profil" style="background-image:url(http://placehold.it/150)"></div>
+                {% if app.user.picture != null %}
+                    <div class="img-profil" style="background-image:url( '{{ app.user.picture }}' )"></div>
+                {% else %}
+                    <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                {% endif %}
                 {% if not app.user %}
                     <form action="{{ path('login') }}">
                         <button>Inscrivez-vous</button> <!-- Diriger vers le formulaire Création de trajet-->
                     </form>
                 {% else %}
-                    <p class="note-profil">4 / 5</p>
-                    <div class="p-profil">
-                        <p class="name-profil">NOM Prénom</p>
-                        <p class="email-profil">email@email.com</p>
-                    </div>
-                    <button>Modifier votre profil</button>
+                {% if app.user.note != null %}
+                    <p class="note-profil">{{ app.user.note }} / 5</p>
+                {% else %}
+                    <p class="not-note">pas de note</p>
+                {% endif %}
+                <div class="p-profil">
+                    <p class="name-profil">
+                        <span class="firstname">{{ app.user.firstname }} </span>
+                        <span class="lastname"> {{ app.user.lastname }}</span>
+                    </p>
+                    <p class="email-profil">{{ app.user.email }}</p>
+                </div>
+                <button>Modifier votre profil</button>
                 {% endif %}
             </div>
             <div class="main-trip">
