@@ -18,6 +18,7 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\member", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $writer;
 
