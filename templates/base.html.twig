@@ -37,7 +37,7 @@
                 </div>
             {% else %}
                 <div id="user-connected">
-                    <div id="user-img" style="background-image:url(http://placehold.it/50)"></div>
+                    <div id="user-img" style="background-image:url('{{ app.user.picture }}')"></div>
                     <div class="menu">
                         <img class="burger" src="{{ asset('img/menu.png') }}" alt="icon burger du menu utilisateur" size="100">
                         <ul class="nav">

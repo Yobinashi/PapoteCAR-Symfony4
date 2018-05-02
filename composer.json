@@ -13,7 +13,6 @@
         "symfony/form": "^4.0",
         "symfony/framework-bundle": "^4.0",
         "symfony/lts": "^4@dev",
-        "symfony/maker-bundle": "^1.4",
         "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "^4.0",
         "symfony/twig-bundle": "^4.0",
@@ -21,7 +20,10 @@
         "symfony/yaml": "^4.0"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.0"
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
+        "fzaninotto/faker": "^1.7",
+        "symfony/dotenv": "^4.0",
+        "symfony/maker-bundle": "^1.4"
     },
     "config": {
         "preferred-install": {
