@@ -50,7 +50,6 @@ class FakerFixtures extends Fixture implements FixtureInterface
             //$member->setPassword($encoded);
             $member->setTel(0000000000);
             $member->setPicture($faker->imageUrl(400,400,"people"));
-            $member->setNote($faker->numberBetween($min = 1, $max = 5));
             $member->setVehicle($faker->text);
             $member->setRoles(["ROLE_USER"]);
             //$member->setComments($faker->realText(1000));
@@ -62,6 +61,7 @@ class FakerFixtures extends Fixture implements FixtureInterface
             $comment->setContent($faker->realText());
             $comment->setWriter($member);
             $comment->setTarget($member);
+            $comment->setNote($faker->numberBetween($min = 1, $max = 5));
 
             $manager->persist($comment);
 

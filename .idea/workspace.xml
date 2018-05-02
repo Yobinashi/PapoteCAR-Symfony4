@@ -4,6 +4,8 @@
     <list default="true" id="6ab9c0d1-b1ce-492f-935e-38bbb053c7b6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php" afterPath="$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Member.php" afterPath="$PROJECT_DIR$/src/Entity/Member.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +22,8 @@
       <file leaf-file-name="FakerFixtures.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="71" column="85" lean-forward="false" selection-start-line="71" selection-start-column="85" selection-end-line="71" selection-end-column="85" />
+            <state relative-caret-position="192">
+              <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
               <folding>
                 <element signature="e#6#96#0#PHP" expanded="true" />
                 <element signature="e#127#147#0#PHP" expanded="true" />
@@ -33,7 +35,7 @@
       <file leaf-file-name="base.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
+            <state relative-caret-position="936">
               <caret line="39" column="91" lean-forward="false" selection-start-line="39" selection-start-column="91" selection-end-line="39" selection-end-column="91" />
               <folding />
             </state>
@@ -72,9 +74,20 @@
       <file leaf-file-name="Comment.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="480">
+              <caret line="32" column="18" lean-forward="false" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+              <folding>
+                <element signature="e#554#613#0#PHP" expanded="false" />
+                <element signature="e#709#770#0#PHP" expanded="false" />
+                <element signature="e#776#854#0#PHP" expanded="false" />
+                <element signature="e#860#976#0#PHP" expanded="false" />
+                <element signature="e#982#1060#0#PHP" expanded="false" />
+                <element signature="e#1066#1182#0#PHP" expanded="false" />
+                <element signature="e#1188#1261#0#PHP" expanded="false" />
+                <element signature="e#1267#1373#0#PHP" expanded="false" />
+                <element signature="e#1379#1459#0#PHP" expanded="false" />
+                <element signature="e#1465#1584#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,10 +95,15 @@
       <file leaf-file-name="Member.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entity/Member.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7032">
-              <caret line="299" column="0" lean-forward="false" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
+            <state relative-caret-position="648">
+              <caret line="48" column="17" lean-forward="false" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
               <folding>
-                <element signature="e#1019#1078#0#PHP" expanded="false" />
+                <element signature="e#3490#3570#0#PHP" expanded="false" />
+                <element signature="e#3576#3696#0#PHP" expanded="false" />
+                <element signature="e#3702#3782#0#PHP" expanded="false" />
+                <element signature="e#3788#3908#0#PHP" expanded="false" />
+                <element signature="e#3914#3989#0#PHP" expanded="false" />
+                <element signature="e#3995#4105#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -113,7 +131,6 @@
         <option value="$PROJECT_DIR$/config/packages/security.yaml" />
         <option value="$PROJECT_DIR$/src/Repository/MemberRepository.php" />
         <option value="$PROJECT_DIR$/templates/user/register.html.twig" />
-        <option value="$PROJECT_DIR$/src/Entity/Member.php" />
         <option value="$PROJECT_DIR$/src/Form/RegisterType.php" />
         <option value="$PROJECT_DIR$/composer.lock" />
         <option value="$PROJECT_DIR$/templates/run/addRun.html.twig" />
@@ -130,6 +147,8 @@
         <option value="$PROJECT_DIR$/templates/user/account.html.twig" />
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/src/Entity/Member.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php" />
       </list>
     </option>
@@ -302,8 +321,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -351,18 +370,19 @@
       <workItem from="1525107675026" duration="172000" />
       <workItem from="1525250104616" duration="2624000" />
       <workItem from="1525253423781" duration="5171000" />
-      <workItem from="1525262341246" duration="739000" />
+      <workItem from="1525262341246" duration="820000" />
+      <workItem from="1525263871827" duration="187000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79908000" />
+    <option name="totallyTimeSpent" value="80176000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21858217" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22180451" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -654,16 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Member.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7032">
-          <caret line="299" column="0" lean-forward="false" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
-          <folding>
-            <element signature="e#1019#1078#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -681,14 +691,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/user/account.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -699,16 +701,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
+        <state relative-caret-position="936">
           <caret line="39" column="91" lean-forward="false" selection-start-line="39" selection-start-column="91" selection-end-line="39" selection-end-column="91" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="48" column="17" lean-forward="false" selection-start-line="48" selection-start-column="17" selection-end-line="48" selection-end-column="17" />
+          <folding>
+            <element signature="e#3490#3570#0#PHP" expanded="false" />
+            <element signature="e#3576#3696#0#PHP" expanded="false" />
+            <element signature="e#3702#3782#0#PHP" expanded="false" />
+            <element signature="e#3788#3908#0#PHP" expanded="false" />
+            <element signature="e#3914#3989#0#PHP" expanded="false" />
+            <element signature="e#3995#4105#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="18" lean-forward="false" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding>
+            <element signature="e#554#613#0#PHP" expanded="false" />
+            <element signature="e#709#770#0#PHP" expanded="false" />
+            <element signature="e#776#854#0#PHP" expanded="false" />
+            <element signature="e#860#976#0#PHP" expanded="false" />
+            <element signature="e#982#1060#0#PHP" expanded="false" />
+            <element signature="e#1066#1182#0#PHP" expanded="false" />
+            <element signature="e#1188#1261#0#PHP" expanded="false" />
+            <element signature="e#1267#1373#0#PHP" expanded="false" />
+            <element signature="e#1379#1459#0#PHP" expanded="false" />
+            <element signature="e#1465#1584#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="71" column="85" lean-forward="false" selection-start-line="71" selection-start-column="85" selection-end-line="71" selection-end-column="85" />
+        <state relative-caret-position="192">
+          <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
           <folding>
             <element signature="e#6#96#0#PHP" expanded="true" />
             <element signature="e#127#147#0#PHP" expanded="true" />
