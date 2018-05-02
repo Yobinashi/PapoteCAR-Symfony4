@@ -28,6 +28,11 @@ class Comment
     private $target;
 
     /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $note;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $content;
@@ -57,6 +62,18 @@ class Comment
     public function setTarget(?member $target): self
     {
         $this->target = $target;
+
+        return $this;
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(float $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }
