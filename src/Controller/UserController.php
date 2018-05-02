@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+
 use App\Entity\Member;
 use App\Entity\Run;
 use App\Form\RegisterType;
@@ -11,6 +12,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
 class UserController extends Controller
 {
     /**
@@ -38,6 +40,7 @@ class UserController extends Controller
         }
         return $this->render('user/register.html.twig', ["registerForm"=>$registerForm->createView()]);
     }
+
     /**
      * @Route("/login", name="login")
      */
