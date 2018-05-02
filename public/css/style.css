@@ -500,6 +500,8 @@ footer {
         padding-left: 15px; }
       .connect-form form > div a {
         text-align: right; }
+    .connect-form form .register {
+      text-align: center; }
     .connect-form form .input-image {
       display: flex;
       align-items: center; }
