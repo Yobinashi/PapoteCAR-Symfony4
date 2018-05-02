@@ -47,6 +47,7 @@ class FakerFixtures extends Fixture implements FixtureInterface
             //$encoded= $enc->encodePassword($member, $registerForm->get('password')->getData());
             //$member->setPassword($encoded);
             $member->setTel(0000000000);
+            $member->setPicture($faker->imageUrl(400,400,"people"));
             $member->setNote($faker->numberBetween($min = 1, $max = 5));
             $member->setVehicle($faker->text);
             $member->setRoles(["ROLE_USER"]);
@@ -65,7 +66,7 @@ class FakerFixtures extends Fixture implements FixtureInterface
             // city
             $city = new City();
             $city->setZipcode($faker->numberBetween($min = 10000, $max = 99999));
-            $city->setCityName($faker->city);
+            $city->setCityName($faker->city(3));
 
             $manager->persist($city);
 
@@ -84,7 +85,11 @@ class FakerFixtures extends Fixture implements FixtureInterface
         $manager->flush();
     }
 
-    // pour lancer faker -> php bin/console doctrine:fixtures:load
+    // installer faker:
+    //-> composer req --dev make doctrine/doctrine-fixtures-bundle
+    //->  composer req --dev fzaninotto/faker
+    // pour lancer faker:
+    //-> php bin/console doctrine:fixtures:load
 
 
 
