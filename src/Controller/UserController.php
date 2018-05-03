@@ -46,7 +46,7 @@ class UserController extends Controller
      */
     public function login(Request $request, AuthenticationUtils $auth){
         if($this->getUser()){
-            return $this->redirectToRoute('account');
+            return $this->redirectToRoute('ridecourt');
         }
         $error = $auth->getLastAuthenticationError();
         $lastUsername = $auth->getLastUsername();

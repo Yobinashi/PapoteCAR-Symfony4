@@ -1,7 +1,7 @@
 {% extends 'tableau.html.twig' %}
 
 {% block content %}
-    <h3>Trajets en cours</h3>
+    <h3>Runs you drive</h3>
     {% for run in runs %}
         <a class="trip" href="#">
             <div class="img-rider">
@@ -23,4 +23,28 @@
 
         No runs
     {% endfor %}
+
+    <h3>Runs you have reserved</h3>
+    {% for run in app.user.reservedRuns %}
+        <a class="trip" href="#">
+            <div class="img-rider">
+                <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                <p>Conducteur(.trice)</p>
+            </div>
+            <div class="name-step">
+                <p class="name">{{ run.driver.lastname | upper }} {{ run.driver.firstname }}</p>
+                <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
+                <p class="city">{{ run.departure.cityName }}<span>--></span> T{{ run.arrival.cityName }}</p>
+            </div>
+            <div class="date-ride">
+                <p class="day">{{ run.departureSchedule.format('d') }}</p>
+                <p class="month">{{ run.departureSchedule.format('F') }}</p>
+                <p class="hour">{{ run.departureSchedule.format('H') }}<span>H</span>{{ run.departureSchedule.format('i') }}</p>
+            </div>
+        </a>
+    {% else %}
+
+        No runs
+    {% endfor %}
+
 {% endblock %}
