@@ -4,23 +4,25 @@
 
 {% block body %}
 
-    Welcome {{ app.user.firstname }}
+    <h1>Bienvenue {{ app.user.lastname }} <span>{{ app.user.firstname }}</span></h1>
 
-
-    <a href="{{ path('logout') }}">Logout</a>
-    <a href="{{ path('home') }}">Home</a>
+    <div class="account-liens">
+        <a href="{{ path('home') }}">Home</a> |
+        <a href="{{ path('logout') }}">Deconnexion</a> |
+        <a href="{{ path('suppAccount') }}">Supprimer le compte</a> |
+        <a href="{{ path('editAccount') }}">Editer</a>
+    </div>
 
 
     <ul>
-        <li>FIRSTNAME = {{ app.user.firstname }}</li>
-        <li>LASTNAME = {{ app.user.lastname }}</li>
-        <li>EMAIL = {{ app.user.email }}</li>
+        <li>Nom: {{ app.user.firstname }}</li>
+        <li>Prenom: {{ app.user.lastname }}</li>
+        <li>Email: {{ app.user.email }}</li>
+        <li>Tel: {{ app.user.tel }}</li>
+        <li>Vehicule: {{ app.user.vehicle }}</li>
     </ul>
 
-    <a href="{{ path('suppAccount') }}">Supp</a>
-    <a href="{{ path('editAccount') }}">Edit</a>
-
-    <h3><a href="{{ path('addRun') }}">Add Run</a></h3>
+    <h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>
 
     <h2> Runs where I drive</h2>
 

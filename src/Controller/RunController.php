@@ -92,7 +92,6 @@ class RunController extends Controller
         }
     }
 
-
     /**
      * @Route("/run/{id}", name="detailRun")
      */
@@ -109,7 +108,6 @@ class RunController extends Controller
         return $this->render('tableau/search_ride.html.twig', ['runs'=> $runs]);
 
     }
-
 
     /**
      * @Route("/run/reserve/{id}", name="reserveRun")
