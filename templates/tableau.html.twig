@@ -21,7 +21,7 @@
         </ul>
 
         <div class="main-dashboard">
-            {% if app.user %}
+
             <div class="column-profil">
 
                 {% if app.user.picture != null %}
@@ -29,13 +29,13 @@
                 {% else %}
                     <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
                 {% endif %}
+
                 {% if not app.user %}
                     <form action="{{ path('login') }}">
                         <button>Inscrivez-vous</button>
                     </form>
                 {% else %}
                     <p class="not-note">pas de note</p>
-
 
                 <div class="p-profil">
                     <p class="name-profil">

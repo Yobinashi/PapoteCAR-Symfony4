@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <main class="dashboard">
+    <main class="dashboard account-main">
 
         <h1 id="account-title">Bienvenue {{ app.user.lastname }} <span>{{ app.user.firstname }}</span></h1>
 
@@ -16,13 +16,22 @@
         </div>
 
         <div class="account-detail">
-            <ul>
-                <li>Nom: {{ app.user.firstname }}</li>
-                <li>Prenom: {{ app.user.lastname }}</li>
-                <li>Email: {{ app.user.email }}</li>
-                <li>Tel: {{ app.user.tel }}</li>
-                <li>Vehicule: {{ app.user.vehicle }}</li>
-            </ul>
+            <div class="account-img">
+                {% if app.user.picture != null %}
+                    <div class="img-profil" style="background-image:url( '{{ app.user.picture }}' )"></div>
+                {% else %}
+                    <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                {% endif %}
+            </div>
+            <div class="account-list">
+                <ul>
+                    <li><span class="account-span">Nom:</span> {{ app.user.firstname }}</li>
+                    <li><span class="account-span">Prenom:</span> {{ app.user.lastname }}</li>
+                    <li><span class="account-span">Email:</span> {{ app.user.email }}</li>
+                    <li><span class="account-span">Tel:</span> {{ app.user.tel }}</li>
+                    <li><span class="account-span">Vehicule:</span> {{ app.user.vehicle }}</li>
+                </ul>
+            </div>
         </div>
 
         <h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>
