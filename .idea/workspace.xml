@@ -8,6 +8,7 @@
 =======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
 >>>>>>> e22203051af79cc7c896db4531b2589abe30d7a9
@@ -16,6 +17,9 @@
       <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Member.php" afterPath="$PROJECT_DIR$/src/Entity/Member.php" />
 >>>>>>> 8ec69387271d41e9b8c7751be2d2a4ccfb801e88
+=======
+      <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" />
+>>>>>>> 75b0f1f405001bc8268cb9dd45035b91f7d3d865
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,6 +35,7 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file leaf-file-name="list.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/user/list.html.twig">
           <provider selected="true" editor-type-id="text-editor">
@@ -41,10 +46,13 @@
 =======
       <file leaf-file-name="FakerFixtures.php" pinned="false" current-in-tab="true">
 >>>>>>> 8ec69387271d41e9b8c7751be2d2a4ccfb801e88
+=======
+      <file leaf-file-name="FakerFixtures.php" pinned="false" current-in-tab="false">
+>>>>>>> 75b0f1f405001bc8268cb9dd45035b91f7d3d865
         <entry file="file://$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="192">
-              <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
+              <caret line="60" column="53" lean-forward="false" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
               <folding>
                 <element signature="e#6#96#0#PHP" expanded="true" />
                 <element signature="e#127#147#0#PHP" expanded="true" />
@@ -118,9 +126,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Comment.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Comment.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             <state relative-caret-position="306">
@@ -156,17 +165,20 @@
 =======
             <state relative-caret-position="480">
               <caret line="32" column="18" lean-forward="false" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+=======
+            <state relative-caret-position="408">
+              <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+>>>>>>> 75b0f1f405001bc8268cb9dd45035b91f7d3d865
               <folding>
-                <element signature="e#554#613#0#PHP" expanded="false" />
-                <element signature="e#709#770#0#PHP" expanded="false" />
-                <element signature="e#776#854#0#PHP" expanded="false" />
-                <element signature="e#860#976#0#PHP" expanded="false" />
-                <element signature="e#982#1060#0#PHP" expanded="false" />
-                <element signature="e#1066#1182#0#PHP" expanded="false" />
-                <element signature="e#1188#1261#0#PHP" expanded="false" />
-                <element signature="e#1267#1373#0#PHP" expanded="false" />
-                <element signature="e#1379#1459#0#PHP" expanded="false" />
-                <element signature="e#1465#1584#0#PHP" expanded="false" />
+                <element signature="e#748#809#0#PHP" expanded="false" />
+                <element signature="e#815#893#0#PHP" expanded="false" />
+                <element signature="e#899#1015#0#PHP" expanded="false" />
+                <element signature="e#1021#1099#0#PHP" expanded="false" />
+                <element signature="e#1105#1221#0#PHP" expanded="false" />
+                <element signature="e#1227#1300#0#PHP" expanded="false" />
+                <element signature="e#1306#1412#0#PHP" expanded="false" />
+                <element signature="e#1418#1498#0#PHP" expanded="false" />
+                <element signature="e#1504#1623#0#PHP" expanded="false" />
               </folding>
 >>>>>>> 8ec69387271d41e9b8c7751be2d2a4ccfb801e88
             </state>
@@ -246,8 +258,8 @@
         <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/templates/base.html.twig" />
         <option value="$PROJECT_DIR$/src/Entity/Member.php" />
-        <option value="$PROJECT_DIR$/src/Entity/Comment.php" />
         <option value="$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php" />
+        <option value="$PROJECT_DIR$/src/Entity/Comment.php" />
       </list>
     </option>
   </component>
@@ -340,7 +352,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1123" />
@@ -483,12 +495,17 @@
 =======
       <workItem from="1525253423781" duration="5171000" />
       <workItem from="1525262341246" duration="820000" />
+<<<<<<< HEAD
       <workItem from="1525263871827" duration="187000" />
 >>>>>>> 8ec69387271d41e9b8c7751be2d2a4ccfb801e88
+=======
+      <workItem from="1525263871827" duration="918000" />
+>>>>>>> 75b0f1f405001bc8268cb9dd45035b91f7d3d865
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="73129000" />
@@ -501,6 +518,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+=======
+    <option name="totallyTimeSpent" value="80907000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+>>>>>>> 75b0f1f405001bc8268cb9dd45035b91f7d3d865
     <editor active="true" />
     <layout>
 <<<<<<< HEAD
@@ -1016,6 +1039,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="60" column="53" lean-forward="false" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
+          <folding>
+            <element signature="e#6#96#0#PHP" expanded="true" />
+            <element signature="e#127#147#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Member.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
@@ -1033,30 +1067,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Entity/Comment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="18" lean-forward="false" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+        <state relative-caret-position="408">
+          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding>
-            <element signature="e#554#613#0#PHP" expanded="false" />
-            <element signature="e#709#770#0#PHP" expanded="false" />
-            <element signature="e#776#854#0#PHP" expanded="false" />
-            <element signature="e#860#976#0#PHP" expanded="false" />
-            <element signature="e#982#1060#0#PHP" expanded="false" />
-            <element signature="e#1066#1182#0#PHP" expanded="false" />
-            <element signature="e#1188#1261#0#PHP" expanded="false" />
-            <element signature="e#1267#1373#0#PHP" expanded="false" />
-            <element signature="e#1379#1459#0#PHP" expanded="false" />
-            <element signature="e#1465#1584#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DataFixtures/FakerFixtures.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="60" column="53" lean-forward="true" selection-start-line="60" selection-start-column="53" selection-end-line="60" selection-end-column="53" />
-          <folding>
-            <element signature="e#6#96#0#PHP" expanded="true" />
-            <element signature="e#127#147#0#PHP" expanded="true" />
+            <element signature="e#748#809#0#PHP" expanded="false" />
+            <element signature="e#815#893#0#PHP" expanded="false" />
+            <element signature="e#899#1015#0#PHP" expanded="false" />
+            <element signature="e#1021#1099#0#PHP" expanded="false" />
+            <element signature="e#1105#1221#0#PHP" expanded="false" />
+            <element signature="e#1227#1300#0#PHP" expanded="false" />
+            <element signature="e#1306#1412#0#PHP" expanded="false" />
+            <element signature="e#1418#1498#0#PHP" expanded="false" />
+            <element signature="e#1504#1623#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
