@@ -19,8 +19,8 @@ class RunType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('departure', TextType::class)
-            ->add('arrival', TextType::class)
+            ->add('departure', TextType::class, ['mapped' => false])
+            ->add('arrival', TextType::class, ['mapped' => false])
             //new DateTime permet de mettre une valeur par defaut égale à l'actuelle sur le formulaire
             ->add('departureSchedule', DateTimeType::class, ['data'=> new \DateTime()])
             //créé un select ['affichage' => 'valeur']
