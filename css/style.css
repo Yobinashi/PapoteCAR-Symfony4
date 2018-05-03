@@ -108,17 +108,6 @@ body {
   justify-content: center;
   align-items: center; }
 
-.alert {
-  height: 80px; }
-
-.alert-success {
-  background-color: #d6efb4;
-  color: #88DB15; }
-
-.alert-success {
-  background-color: #efb4b4;
-  color: #c71b1b; }
-
 .container, header, .benefits, .proposal, .team .container-team, footer .container-footer, .dashboard .main-dashboard {
   width: 70%; }
 
@@ -176,7 +165,7 @@ h4 {
 a {
   color: #88DB15; }
 
-input, .connect-form form > div select, .connect-form form > div > div > div select {
+input, .connect-form form > div select, .connect-form form > div #run > div select {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -186,7 +175,7 @@ input, .connect-form form > div select, .connect-form form > div > div > div sel
   outline: none;
   font-size: 1.6rem; }
 
-input:focus, .connect-form form > div select:focus {
+input:focus, .connect-form form > div select:focus, .connect-form form > div #run > div select:focus {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -197,19 +186,19 @@ input:focus, .connect-form form > div select:focus {
   -ms-box-shadow: 0px 0px 3px #88DB15;
   box-shadow: 0px 0px 3px #88DB15; }
 
-input[placeholder], .connect-form form > div select[placeholder] {
+input[placeholder], .connect-form form > div select[placeholder], .connect-form form > div #run > div select[placeholder] {
   text-transform: none; }
 
-input[type="date"], .connect-form form > div select[type="date"] {
+input[type="date"], .connect-form form > div select[type="date"], .connect-form form > div #run > div select[type="date"] {
   width: 130px;
   color: rgba(0, 0, 0, 0.6); }
 
-input[type="time"], .connect-form form > div select[type="time"] {
+input[type="time"], .connect-form form > div select[type="time"], .connect-form form > div #run > div select[type="time"] {
   width: 70px;
   color: rgba(0, 0, 0, 0.6);
   margin-right: 0px; }
 
-input[name="place"], .connect-form form > div select[name="place"] {
+input[name="place"], .connect-form form > div select[name="place"], .connect-form form > div #run > div select[name="place"] {
   width: 30px; }
 
 .input-icon, .connect-form form .checked {
@@ -254,7 +243,7 @@ button:hover {
         max-width: 100px;
         padding-right: 20px; }
 
-.form-search .input-icon input, .form-search .connect-form form .checked input, .connect-form form .form-search .checked input, .form-search .input-icon .connect-form form > div select, .connect-form form > div .form-search .input-icon select, .form-search .connect-form form > div .checked select, .connect-form form > div .form-search .checked select {
+.form-search .input-icon input, .form-search .connect-form form .checked input, .connect-form form .form-search .checked input, .form-search .input-icon .connect-form form > div select, .connect-form form > div .form-search .input-icon select, .form-search .connect-form form > div .checked select, .connect-form form > div .form-search .checked select, .form-search .input-icon .connect-form form > div #run > div select, .connect-form form > div #run > div .form-search .input-icon select, .form-search .connect-form form > div .checked #run > div select, .form-search .connect-form form > div #run > div .checked select, .connect-form form > div .form-search .checked #run > div select, .connect-form form > div #run > div .form-search .checked select {
   padding-left: 30px;
   max-width: 150px; }
 
@@ -513,39 +502,30 @@ footer {
       display: flex;
       flex-direction: column;
       margin: 0px 0px 20px 0px; }
-      .connect-form form > div input, .connect-form form > div select, .connect-form form > div > div > div select {
+      .connect-form form > div input, .connect-form form > div select, .connect-form form > div #run > div select {
         padding-left: 15px; }
       .connect-form form > div a {
         text-align: right; }
       .connect-form form > div select {
-        display: inline-block;
-        margin: 0px 2px; }
-      .connect-form form > div select[name="run[places]"] {
-        margin: 0px;
-        width: 50px; }
-      .connect-form form > div #run_departureSchedule_time {
-        margin-bottom: 0px; }
-      .connect-form form > div #run_price {
-        width: 100px; }
-      .connect-form form > div > div {
-        margin: 5px auto;
+        margin: 10px 2px; }
+      .connect-form form > div #run {
+        margin: 50px auto;
         width: 330px;
         display: flex;
         flex-direction: column; }
-        .connect-form form > div > div .input-date-time {
+        .connect-form form > div #run .input-date-time {
           display: flex;
           align-items: center; }
-        .connect-form form > div > div #run_departureSchedule {
-          margin-bottom: 0px; }
-        .connect-form form > div > div > div {
+        .connect-form form > div #run > div {
           display: flex;
+          flex-direction: column;
           margin: 0px 0px 20px 0px; }
-          .connect-form form > div > div > div input, .connect-form form > div > div > div select {
+          .connect-form form > div #run > div input, .connect-form form > div #run > div select {
             padding-left: 15px; }
-          .connect-form form > div > div > div a {
+          .connect-form form > div #run > div a {
             text-align: right; }
-          .connect-form form > div > div > div select {
-            margin: 2px 2px; }
+          .connect-form form > div #run > div select {
+            margin: 10px 2px; }
     .connect-form form .register {
       text-align: center; }
     .connect-form form .input-image {
@@ -563,9 +543,9 @@ footer {
         cursor: pointer; }
       .connect-form form .input-image label:hover {
         text-decoration: underline; }
-      .connect-form form .input-image input[type=file], .connect-form form > div .input-image select[type=file] {
+      .connect-form form .input-image input[type=file], .connect-form form > div .input-image select[type=file], .connect-form form > div .input-image #run > div select[type=file], .connect-form form > div #run > div .input-image select[type=file] {
         display: none; }
-      .connect-form form .input-image input:focus, .connect-form form > div .input-image select:focus {
+      .connect-form form .input-image input:focus, .connect-form form > div .input-image select:focus, .connect-form form > div .input-image #run > div select:focus, .connect-form form > div #run > div .input-image select:focus {
         border: none; }
       .connect-form form .input-image #choose-img {
         -webkit-border-radius: 50%;
@@ -580,11 +560,11 @@ footer {
       display: flex;
       flex-direction: row;
       align-items: center; }
-      .connect-form form .checked input, .connect-form form > div .checked select {
+      .connect-form form .checked input, .connect-form form > div .checked select, .connect-form form > div .checked #run > div select, .connect-form form > div #run > div .checked select {
         width: 17px;
         height: 17px;
         margin-right: 20px; }
-      .connect-form form .checked input:focus, .connect-form form > div .checked select:focus {
+      .connect-form form .checked input:focus, .connect-form form > div .checked select:focus, .connect-form form > div .checked #run > div select:focus, .connect-form form > div #run > div .checked select:focus {
         border: none; }
     .connect-form form button {
       margin-top: 10px;
