@@ -38,9 +38,12 @@ class UserController extends Controller
             $em->persist($member);
             $em->flush();
 
+            //récupére les credentials apres le register, et se log automatiquement
             $token = new UsernamePasswordToken($member, null, 'main', $member->getRoles());
             $this->container->get('security.token_storage')->setToken($token);
             $this->container->get('session')->set('_security_main', serialize($token));
+
+            //redirecte vers tableau de bord
             return $this->redirectToRoute("ridecourt");
         }
         return $this->render('user/register.html.twig', ["registerForm"=>$registerForm->createView()]);
