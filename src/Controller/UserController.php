@@ -44,7 +44,9 @@ class UserController extends Controller
                 $this->getParameter('img_upload'),
                 $fileName
             );
+
             $member->setPicture($fileName);
+
 
             $em->persist($member);
             //ajoute en bdd

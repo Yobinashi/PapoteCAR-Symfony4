@@ -45,12 +45,19 @@
                     {#{% endif %}#}
                     <div class="p-profil">
                         <p class="name-profil">
-                            <span class="firstname">{{ app.user.firstname }} </span>
+                            <span class="firstname">{{ app.user.firstname }} </span> -
                             <span class="lastname"> {{ app.user.lastname }}</span>
                         </p>
+                        <span class="account-span">Email:</span>
                         <p class="email-profil">{{ app.user.email }}</p>
+                        <span class="account-span">Tel:</span>
+                        <p class="email-profil">{{ app.user.tel }}</p>
+                        <span class="account-span">Vehicule:</span>
+                        <p class="email-profil">{{ app.user.vehicle }}</p>
                     </div>
-                    <button>Modifier votre profil</button>
+                    <form action="{{ path('editAccount') }}">
+                        <button>Modifier votre profil</button>
+                    </form>
                 {% endif %}
             </div>
             <div class="main-trip">

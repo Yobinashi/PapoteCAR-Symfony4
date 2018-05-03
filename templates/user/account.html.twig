@@ -11,7 +11,7 @@
         <div class="account-liens">
             <a href="{{ path('home') }}">Home</a> |
             <a href="{{ path('logout') }}">Deconnexion</a> |
-            <a href="{{ path('suppAccount') }}">Supprimer le compte</a> |
+            <a href="{{ path('suppAccount') }}"><span style="color:#ff614a">Supprimer le compte</span></a> |
             <a href="{{ path('editAccount') }}">Editer / Modifier</a>
         </div>
 
@@ -40,22 +40,24 @@
 
         <!--<h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>-->
 
-        <h2> Runs where I drive</h2>
+        <div class="account-runs">
+            <h2> Runs where I drive</h2>
 
-        {% for run in runs %}
+            {% for run in runs %}
 
-            <h4>{{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h4>
+                <h4>{{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h4>
 
-            <p>DEPART = {{ run.departure.cityName }}</p>
-            <p>ARRIVEE = {{ run.arrival.cityName }}</p>
+                <p>DEPART = {{ run.departure.cityName }}</p>
+                <p>ARRIVEE = {{ run.arrival.cityName }}</p>
 
-            <button><a href="{{ path('deleteRun', {'id': run.id}) }}">SUPP</a></button>
-            <button><a href="{{ path('editRun', {'id': run.id}) }}">EDIT</a></button>
-            <hr>
-            {% else %}
+                <button><a href="{{ path('deleteRun', {'id': run.id}) }}">SUPP</a></button>
+                <button><a href="{{ path('editRun', {'id': run.id}) }}">EDIT</a></button>
+                <hr>
+                {% else %}
 
-            <p> No runs where you drive !</p>
-        {% endfor %}
+                <p> No runs where you drive !</p>
+            {% endfor %}
+        </div>
 
     </main>
 

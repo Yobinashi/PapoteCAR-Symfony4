@@ -801,3 +801,11 @@ footer {
 .account-list{
   flex: auto;
 }
+
+.account-span{
+  color: #E6146C;
+}
+
+.account-runs{
+  margin-top: 40px;
+}

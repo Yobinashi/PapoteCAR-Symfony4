@@ -28,7 +28,9 @@ class RegisterType extends AbstractType
                 'second_options' => ['label' => 'Répéter le Mot de passe']
             ])
             ->add('tel')
-            ->add('picture', FileType::class)
+            ->add('picture', FileType::class, array(
+                'data_class' => null
+            ))
             ->add('vehicle')
             ->add('submit', SubmitType::class, ["label"=>"Créer mon profil"])
         ;
