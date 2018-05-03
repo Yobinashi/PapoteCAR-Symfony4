@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="6ab9c0d1-b1ce-492f-935e-38bbb053c7b6" name="Default" comment="">
 <<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
@@ -21,6 +22,9 @@
       <change beforePath="$PROJECT_DIR$/src/Entity/Comment.php" afterPath="$PROJECT_DIR$/src/Entity/Comment.php" />
 >>>>>>> 75b0f1f405001bc8268cb9dd45035b91f7d3d865
     </list>
+=======
+    <list default="true" id="6ab9c0d1-b1ce-492f-935e-38bbb053c7b6" name="Default" comment="" />
+>>>>>>> 27868b828c6c849811ad5bd83fd524c4d8f78b2c
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -352,7 +356,7 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1123" />
@@ -496,15 +500,20 @@
       <workItem from="1525253423781" duration="5171000" />
       <workItem from="1525262341246" duration="820000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1525263871827" duration="187000" />
 >>>>>>> 8ec69387271d41e9b8c7751be2d2a4ccfb801e88
 =======
       <workItem from="1525263871827" duration="918000" />
 >>>>>>> 75b0f1f405001bc8268cb9dd45035b91f7d3d865
+=======
+      <workItem from="1525263871827" duration="1180000" />
+>>>>>>> 27868b828c6c849811ad5bd83fd524c4d8f78b2c
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -525,6 +534,12 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
 >>>>>>> 75b0f1f405001bc8268cb9dd45035b91f7d3d865
     <editor active="true" />
+=======
+    <option name="totallyTimeSpent" value="81169000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+>>>>>>> 27868b828c6c849811ad5bd83fd524c4d8f78b2c
     <layout>
 <<<<<<< HEAD
 <<<<<<< HEAD
