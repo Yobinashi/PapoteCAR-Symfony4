@@ -6,6 +6,13 @@
 
      <main class="connect-form">
         <h2>Ajouter un trajet</h2>
-         {{ form(runForm) }}
+        {{ form_start(runForm) }}
+        {{ form_row(runForm.departure, { 'label': '* Ville de départ' }) }}
+        {{ form_row(runForm.arrival, { 'label': '* Ville d\'arrivée' }) }}
+        {{ form_row(runForm.departureSchedule, { 'label': '* Date et heure du départ' }) }}
+        {{ form_row(runForm.places, { 'label': '* Nbr de places' }) }}
+        {{ form_row(runForm.price, { 'label': '* Prix par personnes en €' }) }}
+        {{ form_row(runForm.submit) }}
+        {{ form_end(runForm) }}
     </main>
 {% endblock %}

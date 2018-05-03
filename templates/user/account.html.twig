@@ -18,14 +18,14 @@
         <div class="account-detail">
             <div class="account-img">
                 {% if app.user.picture != null %}
-                    <div class="img-profil" style="background-image:url( '{{ app.user.picture }}' )"></div>
+                    <div class="account-img-profil" style="background-image:url( '{{ app.user.picture }}' )"></div>
                 {% else %}
-                    <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                    <div class="account-img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
                 {% endif %}
             </div>
             <div class="account-list">
                 <ul>
-                    <li><span class="account-span">Nom:</span> {{ app.user.firstname }}</li>
+                    <li><span class="account-span">Nom:</span> {{ app.user.firstname | upper }}</li>
                     <li><span class="account-span">Prenom:</span> {{ app.user.lastname }}</li>
                     <li><span class="account-span">Email:</span> {{ app.user.email }}</li>
                     <li><span class="account-span">Tel:</span> {{ app.user.tel }}</li>
@@ -34,7 +34,11 @@
             </div>
         </div>
 
-        <h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>
+        <form action="{{ path('editAccount') }}">
+            <button>Modifiez votre profil</button>
+        </form>
+
+        <!--<h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>-->
 
         <h2> Runs where I drive</h2>
 
