@@ -4,41 +4,46 @@
 
 {% block body %}
 
-    <h1 id="account-title">Bienvenue {{ app.user.lastname }} <span>{{ app.user.firstname }}</span></h1>
+    <main class="dashboard">
 
-    <div class="account-liens">
-        <a href="{{ path('home') }}">Home</a> |
-        <a href="{{ path('logout') }}">Deconnexion</a> |
-        <a href="{{ path('suppAccount') }}">Supprimer le compte</a> |
-        <a href="{{ path('editAccount') }}">Editer / Modifier</a>
-    </div>
+        <h1 id="account-title">Bienvenue {{ app.user.lastname }} <span>{{ app.user.firstname }}</span></h1>
 
-    <div class="account-detail">
-        <ul>
-            <li>Nom: {{ app.user.firstname }}</li>
-            <li>Prenom: {{ app.user.lastname }}</li>
-            <li>Email: {{ app.user.email }}</li>
-            <li>Tel: {{ app.user.tel }}</li>
-            <li>Vehicule: {{ app.user.vehicle }}</li>
-        </ul>
-    </div>
+        <div class="account-liens">
+            <a href="{{ path('home') }}">Home</a> |
+            <a href="{{ path('logout') }}">Deconnexion</a> |
+            <a href="{{ path('suppAccount') }}">Supprimer le compte</a> |
+            <a href="{{ path('editAccount') }}">Editer / Modifier</a>
+        </div>
 
-    <h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>
+        <div class="account-detail">
+            <ul>
+                <li>Nom: {{ app.user.firstname }}</li>
+                <li>Prenom: {{ app.user.lastname }}</li>
+                <li>Email: {{ app.user.email }}</li>
+                <li>Tel: {{ app.user.tel }}</li>
+                <li>Vehicule: {{ app.user.vehicle }}</li>
+            </ul>
+        </div>
 
-    <h2> Runs where I drive</h2>
+        <h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>
 
-    {% for run in runs %}
+        <h2> Runs where I drive</h2>
 
-        <h4>{{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h4>
+        {% for run in runs %}
 
-        <p>DEPART = {{ run.departure.cityName }}</p>
-        <p>ARRIVEE = {{ run.arrival.cityName }}</p>
+            <h4>{{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h4>
 
-        <button><a href="{{ path('deleteRun', {'id': run.id}) }}">SUPP</a></button>
-        <button><a href="{{ path('editRun', {'id': run.id}) }}">EDIT</a></button>
-        <hr>
-        {% else %}
+            <p>DEPART = {{ run.departure.cityName }}</p>
+            <p>ARRIVEE = {{ run.arrival.cityName }}</p>
 
-        <p> No runs where you drive !</p>
-    {% endfor %}
+            <button><a href="{{ path('deleteRun', {'id': run.id}) }}">SUPP</a></button>
+            <button><a href="{{ path('editRun', {'id': run.id}) }}">EDIT</a></button>
+            <hr>
+            {% else %}
+
+            <p> No runs where you drive !</p>
+        {% endfor %}
+
+    </main>
+
 {% endblock %}
