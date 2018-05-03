@@ -4,7 +4,11 @@
 
 {% block body %}
     <main class="connect-form">
-        <h2>INSCRIPTION</h2>
+        {% if app.user == null %}
+            <h2>INSCRIPTION</h2>
+        {% else %}
+            <h2>MODIFICATION</h2>
+        {% endif %}
         {{ form_start(registerForm, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_row(registerForm.firstname, { 'label': '* Nom' }) }}
         {{ form_row(registerForm.lastname, { 'label': '* Prénom' }) }}
