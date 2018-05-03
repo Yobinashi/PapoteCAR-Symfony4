@@ -106,7 +106,7 @@ class RunController extends Controller
      */
     public function listRuns(EntityManagerInterface $em){
         $runs = $em->getRepository(Run::class)->findAll();
-        return $this->render('run/listRuns.html.twig', ['runs'=> $runs]);
+        return $this->render('tableau/search_ride.html.twig', ['runs'=> $runs]);
 
     }
 
@@ -124,6 +124,9 @@ class RunController extends Controller
             $em->persist($run);
             $em->flush();
             return $this->redirectToRoute('listRuns');
+        }else{
+            $this->addFlash('warning', 'You have to be logged in to book a run');
+            $this->redirectToRoute('login');
         }
 
 

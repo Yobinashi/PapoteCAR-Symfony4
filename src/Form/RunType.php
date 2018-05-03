@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\City;
 use App\Entity\Run;
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -18,6 +19,8 @@ class RunType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('departure', TextType::class)
+            ->add('arrival', TextType::class)
             //new DateTime permet de mettre une valeur par defaut égale à l'actuelle sur le formulaire
             ->add('departureSchedule', DateTimeType::class, ['data'=> new \DateTime()])
             //créé un select ['affichage' => 'valeur']
@@ -26,16 +29,9 @@ class RunType extends AbstractType
                 '2'=> 2,
                 '3'=> 3,
                 '4'=> 4
-                                                                            ]])
+            ]])
             ->add('price', NumberType::class)
-            //departure et arrival sont des objets de type City. EntityType demande a symfo d'aller chercher en bdd
-                //toutes les entrées de City et les display en 'select'. Choice_label permet de choisir ce que va
-                //afficher le select a l'utilisateur, ici, le cityName
-            ->add('departure', EntityType::class,['class'=> City::class,
-                'choice_label'=> 'cityName'])
-            ->add('arrival',EntityType::class,['class'=> City::class,
-                'choice_label'=> 'cityName'])
-            ->add('submit', SubmitType::class, ["label"=>"Propose your run"])
+            ->add('submit', SubmitType::class, ["label"=>"Proposer le trajet"])
         ;
     }
 

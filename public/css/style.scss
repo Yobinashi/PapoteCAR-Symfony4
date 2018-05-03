@@ -573,9 +573,45 @@
 				a {
 					text-align: right;
 				}
-
+				
+				select {
+					@extend input;
+					margin: 10px 2px;
+				}
+				
+				> div {
+					margin: 50px auto;
+					width: 330px;
+					display: flex;
+					flex-direction: column;
+		
+					.input-date-time {
+						display: flex;
+						align-items: center;
+					}
+		
+					> div {
+						display: flex;
+						flex-direction: column;
+						margin: 0px 0px 20px 0px;
+						
+						input {
+							padding-left: 15px;
+						}
+						a {
+							text-align: right;
+						}
+						
+						select {
+							@extend input;
+							margin: 10px 2px;
+						}
+						
+					}
+				}
 			}
 
+			
 			.register {
 				text-align: center;
 			}

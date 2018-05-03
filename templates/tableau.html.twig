@@ -19,8 +19,11 @@
             <li><a href="">Les longs trajets</a></li>
             <li><a href="">Les commentaires</a></li>
         </ul>
+
         <div class="main-dashboard">
+            {% if app.user %}
             <div class="column-profil">
+
                 {% if app.user.picture != null %}
                     <div class="img-profil" style="background-image:url( '{{ app.user.picture }}' )"></div>
                 {% else %}
@@ -31,11 +34,9 @@
                         <button>Inscrivez-vous</button> <!-- Diriger vers le formulaire Création de trajet-->
                     </form>
                 {% else %}
-                {% if app.user.note != null %}
-                    <p class="note-profil">{{ app.user.note }} / 5</p>
-                {% else %}
                     <p class="not-note">pas de note</p>
                 {% endif %}
+
                 <div class="p-profil">
                     <p class="name-profil">
                         <span class="firstname">{{ app.user.firstname }} </span>
@@ -54,6 +55,7 @@
 
             </div>
         </div>
+
     </main>
     
 
