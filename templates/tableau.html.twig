@@ -23,30 +23,35 @@
         <div class="main-dashboard">
             {% if app.user %}
             <div class="column-profil">
-
-                {% if app.user.picture != null %}
-                    <div class="img-profil" style="background-image:url( '{{ app.user.picture }}' )"></div>
+                {% if not app.user %}
+                        <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
                 {% else %}
-                    <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                    {% if app.user.picture != null %}
+                        <div class="img-profil" style="background-image:url( '{{ app.user.picture }}' )"></div>
+                    {% else %}
+                        <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                    {% endif %}
                 {% endif %}
+
+
                 {% if not app.user %}
                     <form action="{{ path('login') }}">
                         <button>Inscrivez-vous</button>
                     </form>
                 {% else %}
-                    <p class="not-note">pas de note</p>
-
-
-                <div class="p-profil">
-                    <p class="name-profil">
-                        <span class="firstname">{{ app.user.firstname }} </span>
-                        <span class="lastname"> {{ app.user.lastname }}</span>
-                    </p>
-                    <p class="email-profil">{{ app.user.email }}</p>
-                </div>
-                <form action="{{ path('editAccount') }}">
-                    <button>Modifiez votre profil</button>
-                </form>
+                    {% if app.user.note != null %}
+                        <p class="note-profil">{{ app.user.note }} / 5</p> <!-- VOIR LA REQUETE -->
+                    {% else %}
+                        <p class="not-note">pas de note</p>
+                    {% endif %}
+                    <div class="p-profil">
+                        <p class="name-profil">
+                            <span class="firstname">{{ app.user.firstname }} </span>
+                            <span class="lastname"> {{ app.user.lastname }}</span>
+                        </p>
+                        <p class="email-profil">{{ app.user.email }}</p>
+                    </div>
+                    <button>Modifier votre profil</button>
                 {% endif %}
             </div>
             <div class="main-trip">

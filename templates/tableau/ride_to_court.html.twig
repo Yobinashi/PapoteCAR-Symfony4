@@ -3,7 +3,7 @@
 {% block content %}
     <h3>Runs you drive</h3>
     {% for run in runs %}
-        <a class="trip" href="#">
+        <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
             <div class="img-rider">
                 <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
                 <p>Conducteur(.trice)</p>
