@@ -34,7 +34,7 @@ class RunController extends Controller
 
             return $this->render('run/addRun.html.twig', ["runForm" => $form->createView()]);
         } else{
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('login');
         }
 
 }

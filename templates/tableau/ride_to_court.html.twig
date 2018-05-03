@@ -6,8 +6,11 @@
     <a class="trip" href="#">
         <button class="delete">X</button> <!-- SUPPRESSION -->
         <div class="img-rider">
-            <div class="img-profil-rider" style="background-image:url(http://placehold.it/100)"></div>
-            <p>Conducteur(.trice)</p>
+            {% if app.user.picture != null %}
+                <div class="img-profil-rider" style="background-image:url('{{ app.user.picture }}')"></div>
+            {% else %}
+                <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+            {% endif %}
         </div>
         <div class="name-step">
             <p class="name">NOM Prénom</p>

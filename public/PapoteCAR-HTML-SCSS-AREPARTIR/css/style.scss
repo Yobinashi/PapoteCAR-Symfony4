@@ -169,13 +169,6 @@
 			}
 		}
 	}
-
-	.firstname {
-		text-transform: uppercase;
-	}
-	.lastname {
-		text-transform: capitalize;
-	}
 	
 
 
@@ -229,7 +222,7 @@
 			@extend .flex-center;
 			position: relative;
 
-			.user-img {
+			#user-img {
 				@include border-radius(50%);
 				background-size: cover;
 				background-position: center;
@@ -698,11 +691,7 @@
 					color: $rose;
 					margin: 0px;
 				}
-				.not-note {
-					color: $greyBorder;
-					font-style: italic; 
-				}
-
+				
 				.img-profil {
 					@include border-radius(50%);
 					background-size: cover;
@@ -799,7 +788,6 @@
 					.phone {
 						color: $greyDark;
 						font-size: 1rem;
-
 						span {
 							color: $black;
 							font-size: 1.6rem;
