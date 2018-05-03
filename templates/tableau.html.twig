@@ -21,13 +21,12 @@
         </ul>
 
         <div class="main-dashboard">
-            {% if app.user %}
             <div class="column-profil">
                 {% if not app.user %}
                         <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
                 {% else %}
                     {% if app.user.picture != null %}
-                        <div class="img-profil" style="background-image:url( '{{ app.user.picture }}' )"></div>
+                        <div class="img-profil" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
                     {% else %}
                         <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
                     {% endif %}
@@ -39,11 +38,11 @@
                         <button>Inscrivez-vous</button>
                     </form>
                 {% else %}
-                    {% if app.user.note != null %}
-                        <p class="note-profil">{{ app.user.note }} / 5</p> <!-- VOIR LA REQUETE -->
-                    {% else %}
-                        <p class="not-note">pas de note</p>
-                    {% endif %}
+                    {#{% if app.user.note != null %}#}
+                        {#<p class="note-profil">{{ app.user.note }} / 5</p> <!-- VOIR LA REQUETE -->#}
+                    {#{% else %}#}
+                        {#<p class="not-note">pas de note</p>#}
+                    {#{% endif %}#}
                     <div class="p-profil">
                         <p class="name-profil">
                             <span class="firstname">{{ app.user.firstname }} </span>
