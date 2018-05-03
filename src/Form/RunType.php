@@ -19,12 +19,8 @@ class RunType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            //departure et arrival sont des objets de type City. EntityType demande a symfo d'aller chercher en bdd
-                //toutes les entrées de City et les display en 'select'. Choice_label permet de choisir ce que va
-                //afficher le select a l'utilisateur, ici, le cityName
-            ->add('departure', TextType::class)
-            ->add('arrival', TextType::class)
-        //new DateTime permet de mettre une valeur par defaut égale à l'actuelle sur le formulaire
+            ->add('departure', TextType::class, ['mapped' => false])
+            ->add('arrival', TextType::class, ['mapped' => false])
             ->add('departureSchedule', DateTimeType::class, ['data'=> new \DateTime()])
             //créé un select ['affichage' => 'valeur']
             ->add('places', ChoiceType::class, ['choices'=>[

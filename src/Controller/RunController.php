@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\City;
 use App\Entity\Run;
 use App\Form\RunType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -22,14 +23,25 @@ class RunController extends Controller
             $form = $this->createForm(RunType::class, $run);
             $form->handleRequest($req);
 
+
+
             if ($form->isSubmitted() && $form->isValid()) {
+
+
                 //si le form est validé, set le driver avec le current user
+                $departure = $em->getRepository(City::class)->findOneBy(['cityName'=> $form->get('departure')->getData()]);
+                $arrival = $em->getRepository(City::class)->findOneBy(['cityName'=>$form->get('arrival')->getData()]);
+
+
                 $run->setDriver($this->getUser());
+                $run->setDeparture($departure);
+                $run->setArrival($arrival);
+
                 $em->persist($run);
                 $em->flush();
 
                 $this->addFlash('success', 'Your run has been successfully added');
-                return $this->redirectToRoute('account');
+                return $this->redirectToRoute('ridecourt');
             }
 
             return $this->render('run/addRun.html.twig', ["runForm" => $form->createView()]);

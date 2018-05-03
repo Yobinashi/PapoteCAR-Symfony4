@@ -13,7 +13,7 @@
             <p>Conducteur(.trice)</p>
         </div>
         <div class="name-step">
-            <p class="name">{{ run.driver.lastname | upper }} {{ run.driver.firstname }}</p>
+            <p class="name"><span class="firstname">{{ run.driver.firstname | upper }}</span> <span class="lastname">{{ run.driver.lastname }}</p>
             <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
             <p class="city">{{ run.departure.cityName }}<span>--></span> T{{ run.arrival.cityName }}</p>
         </div>
