@@ -25,6 +25,7 @@ class RunRepository extends ServiceEntityRepository
 
         $qb->andWhere("r.departureSchedule > :now");
         $qb->andWhere("r.driver = :driver");
+
         $qb->setParameter(':driver', $user);
         $qb->setParameter(':now', new \DateTime());
         $qb->addOrderBy('r.departureSchedule', 'ASC');

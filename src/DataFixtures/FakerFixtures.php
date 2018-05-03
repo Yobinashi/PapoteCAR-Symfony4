@@ -33,6 +33,8 @@ class FakerFixtures extends Fixture implements FixtureInterface
     public function load(ObjectManager $manager)
     {
 
+        $cityTab = ["Nantes","Tours","Paris", "Angers", "Lyon", "Marseille", "Toulouse", "Toulon", "Brest", "Avignon"];
+
         // On configure dans quelles langues nous voulons nos données
         $faker = Faker\Factory::create('fr_FR');
 
@@ -47,7 +49,7 @@ class FakerFixtures extends Fixture implements FixtureInterface
             //$encoded= $enc->encodePassword($member, $registerForm->get('password')->getData());
             //$member->setPassword($encoded);
             $member->setTel(0000000000);
-            $member->setNote($faker->numberBetween($min = 1, $max = 5));
+            $member->setPicture($faker->imageUrl(400,400,"people"));
             $member->setVehicle($faker->text);
             $member->setRoles(["ROLE_USER"]);
             //$member->setComments($faker->realText(1000));
@@ -59,13 +61,18 @@ class FakerFixtures extends Fixture implements FixtureInterface
             $comment->setContent($faker->realText());
             $comment->setWriter($member);
             $comment->setTarget($member);
+            $comment->setNote($faker->numberBetween($min = 1, $max = 5));
 
             $manager->persist($comment);
 
             // city
             $city = new City();
             $city->setZipcode($faker->numberBetween($min = 10000, $max = 99999));
-            $city->setCityName($faker->city);
+            //$city->setCityName($faker->city(3));
+            // permet d'afficher aléatoirement une ville sélectionnée dans le tableau
+            $nbRand = rand(0,9);
+            shuffle($cityTab);
+            $city->setCityName($cityTab[$nbRand]);
 
             $manager->persist($city);
 
@@ -84,7 +91,11 @@ class FakerFixtures extends Fixture implements FixtureInterface
         $manager->flush();
     }
 
-    // pour lancer faker -> php bin/console doctrine:fixtures:load
+    // installer faker:
+    //-> composer req --dev make doctrine/doctrine-fixtures-bundle
+    //->  composer req --dev fzaninotto/faker
+    // pour lancer faker:
+    //-> php bin/console doctrine:fixtures:load
 
 
 

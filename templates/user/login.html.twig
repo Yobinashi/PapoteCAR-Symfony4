@@ -18,14 +18,9 @@
                 <div class="input-icon">
                     <label for="password">Mot de passe</label>
                     <input type="password" id="password" name="_password" />
-                    <input type="hidden" name="_target_path" value="/account" />
+                    <input type="hidden" name="_target_path" value="/tableau-de-bord/trajet-en-cours" />
                     <a href="#">mot de passe oublié ?</a>
                 </div>
-                {#
-                    If you want to control the URL the user
-                    is redirected to on success (more details below)
-                    <input type="hidden" name="_target_path" value="/account" />
-                #}
         
                 <button type="submit">login</button> <!-- Diriger vers la recherche -->
                 <p class="register">Vous n'avez pas de compte ? <a href="{{ path('register') }}">S'inscrire</a> </p>

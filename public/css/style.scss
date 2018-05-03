@@ -591,6 +591,7 @@
 				
 				select {
 					@extend input;
+<<<<<<< HEAD
 					display: inline-block;
 					margin: 0px 2px;
 				}
@@ -610,6 +611,13 @@
 				
 				> div {
 					margin: 5px auto;
+=======
+					margin: 10px 2px;
+				}
+				
+				> div {
+					margin: 50px auto;
+>>>>>>> 92b0d199ecb616321d00af2f6ebfe03b51c71b20
 					width: 330px;
 					display: flex;
 					flex-direction: column;
@@ -618,12 +626,19 @@
 						display: flex;
 						align-items: center;
 					}
+<<<<<<< HEAD
 					
 					#run_departureSchedule {
 						margin-bottom:0px;
 					}
 					> div {
 						display: flex;
+=======
+		
+					> div {
+						display: flex;
+						flex-direction: column;
+>>>>>>> 92b0d199ecb616321d00af2f6ebfe03b51c71b20
 						margin: 0px 0px 20px 0px;
 						
 						input {
@@ -635,8 +650,14 @@
 						
 						select {
 							@extend input;
+<<<<<<< HEAD
 							margin: 2px 2px;
 						}
+=======
+							margin: 10px 2px;
+						}
+						
+>>>>>>> 92b0d199ecb616321d00af2f6ebfe03b51c71b20
 					}
 				}
 			}

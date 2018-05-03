@@ -1,44 +1,51 @@
 {% extends 'tableau.html.twig' %}
 
 {% block content %}
-    <h3>Trajets en cours</h3>
-    <!-- ETIQUETTES -->
-    <a class="trip" href="#">
-        <button class="delete">X</button> <!-- SUPPRESSION -->
-        <div class="img-rider">
-            {% if app.user.picture != null %}
-                <div class="img-profil-rider" style="background-image:url('{{ app.user.picture }}')"></div>
-            {% else %}
+    <h3>Runs you drive</h3>
+    {% for run in runs %}
+        <a class="trip" href="#">
+            <div class="img-rider">
                 <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
-            {% endif %}
-        </div>
-        <div class="name-step">
-            <p class="name">NOM Prénom</p>
-            <p class="phone">Contact : <span>06 47 71 24 48</span></p>
-            <p class="city">Paris <span>--></span> Toulouse</p>
-        </div>
-        <div class="date-ride">
-            <p class="day">15</p>
-            <p class="month">janvier</p>
-            <p class="hour">17<span>H</span>30</p>
-        </div>
-    </a>
-    <!-- ETIQUETTES -->
-    <a class="trip" href="#">
-        <button class="delete">X</button> <!-- SUPPRESSION -->
-        <div class="img-rider">
-            <div class="img-profil-rider" style="background-image:url(http://placehold.it/100)"></div>
-            <p class="conducteur">Conducteur(.trice)</p>
-        </div>
-        <div class="name-step">
-            <p class="name">NOM Prénom</p>
-            <p class="phone">Contact : <span>06 47 71 24 48</span></p>
-            <p class="city">Toulouse <span>--></span> Saint-Sébastien</p>
-        </div>
-        <div class="date-ride">
-            <p class="day">30</p>
-            <p class="month">Septembre</p>
-            <p class="hour">20<span>H</span>00</p>
-        </div>
-    </a>
+                <p>Conducteur(.trice)</p>
+            </div>
+            <div class="name-step">
+                <p class="name">{{ run.driver.lastname | upper }} {{ run.driver.firstname }}</p>
+                <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
+                <p class="city">{{ run.departure.cityName }}<span>--></span> T{{ run.arrival.cityName }}</p>
+            </div>
+            <div class="date-ride">
+                <p class="day">{{ run.departureSchedule.format('d') }}</p>
+                <p class="month">{{ run.departureSchedule.format('F') }}</p>
+                <p class="hour">{{ run.departureSchedule.format('H') }}<span>H</span>{{ run.departureSchedule.format('i') }}</p>
+            </div>
+        </a>
+    {% else %}
+        <form action="{{ path('addRun') }}">
+            <button>Proposez un trajet</button>
+        </form>
+    {% endfor %}
+
+    <h3>Runs you have reserved</h3>
+    {% for run in app.user.reservedRuns %}
+        <a class="trip" href="#">
+            <div class="img-rider">
+                <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                <p>Conducteur(.trice)</p>
+            </div>
+            <div class="name-step">
+                <p class="name">{{ run.driver.lastname | upper }} {{ run.driver.firstname }}</p>
+                <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
+                <p class="city">{{ run.departure.cityName }}<span>--></span> T{{ run.arrival.cityName }}</p>
+            </div>
+            <div class="date-ride">
+                <p class="day">{{ run.departureSchedule.format('d') }}</p>
+                <p class="month">{{ run.departureSchedule.format('F') }}</p>
+                <p class="hour">{{ run.departureSchedule.format('H') }}<span>H</span>{{ run.departureSchedule.format('i') }}</p>
+            </div>
+        </a>
+    {% else %}
+
+        No runs
+    {% endfor %}
+
 {% endblock %}

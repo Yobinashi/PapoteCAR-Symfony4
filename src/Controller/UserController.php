@@ -1,5 +1,6 @@
 <?php
 namespace App\Controller;
+
 use App\Entity\Member;
 use App\Entity\Run;
 use App\Form\RegisterType;
@@ -9,8 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
 class UserController extends Controller
 {
     /**
@@ -34,16 +37,24 @@ class UserController extends Controller
             //ajoute en bdd
             $em->persist($member);
             $em->flush();
-            return $this->redirectToRoute("home");
+
+            //récupére les credentials apres le register, et se log automatiquement
+            $token = new UsernamePasswordToken($member, null, 'main', $member->getRoles());
+            $this->container->get('security.token_storage')->setToken($token);
+            $this->container->get('session')->set('_security_main', serialize($token));
+
+            //redirecte vers tableau de bord
+            return $this->redirectToRoute("ridecourt");
         }
         return $this->render('user/register.html.twig', ["registerForm"=>$registerForm->createView()]);
     }
+
     /**
      * @Route("/login", name="login")
      */
     public function login(Request $request, AuthenticationUtils $auth){
         if($this->getUser()){
-            return $this->redirectToRoute('account');
+            return $this->redirectToRoute('ridecourt');
         }
         $error = $auth->getLastAuthenticationError();
         $lastUsername = $auth->getLastUsername();

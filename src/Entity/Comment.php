@@ -18,6 +18,7 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\member", inversedBy="comments")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $writer;
 
@@ -26,6 +27,11 @@ class Comment
      * @ORM\JoinColumn(nullable=false)
      */
     private $target;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $note;
 
     /**
      * @ORM\Column(type="text")
@@ -57,6 +63,18 @@ class Comment
     public function setTarget(?member $target): self
     {
         $this->target = $target;
+
+        return $this;
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(float $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }

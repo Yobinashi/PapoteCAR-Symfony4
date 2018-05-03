@@ -8,5 +8,6 @@
 /.idea/
 /.idea
 .idea
+/.idea/workspace.xml
 
 ###< symfony/framework-bundle
