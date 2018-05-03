@@ -20,8 +20,9 @@
             </div>
         </a>
     {% else %}
-
-        No runs
+        <form action="{{ path('addRun') }}">
+            <button>Proposez un trajet</button>
+        </form>
     {% endfor %}
 
     <h3>Runs you have reserved</h3>

@@ -31,7 +31,7 @@
                 {% endif %}
                 {% if not app.user %}
                     <form action="{{ path('login') }}">
-                        <button>Inscrivez-vous</button> <!-- Diriger vers le formulaire Création de trajet-->
+                        <button>Inscrivez-vous</button>
                     </form>
                 {% else %}
                     <p class="not-note">pas de note</p>
@@ -46,8 +46,10 @@
                     <p class="email-profil">{{ app.user.Tel }}</p>
                     <p class="email-profil">{{ app.user.Vehicle }}</p>
                 </div>
-                <button>Modifier votre profil</button>
 
+                <form action="{{ path('editAccount') }}">
+                    <button>Modifiez votre profil</button>
+                </form>
                 {% endif %}
             </div>
             <div class="main-trip">
