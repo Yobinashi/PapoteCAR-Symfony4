@@ -6,37 +6,25 @@
 
     {{ form.formSearch() }}
     <!-- ETIQUETTES -->
+    {% for run in runs %}
     <a class="trip" href="#">
         <div class="img-rider">
             <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
             <p>Conducteur(.trice)</p>
         </div>
         <div class="name-step">
-            <p class="name">NOM Prénom</p>
-            <p class="phone">Nbr de places restantes : <span>3</span></p>
-            <p class="city">Paris <span>--></span> Toulouse</p>
+            <p class="name">{{ run.driver.lastname | upper }} {{ run.driver.firstname }}</p>
+            <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
+            <p class="city">{{ run.departure.cityName }}<span>--></span> T{{ run.arrival.cityName }}</p>
         </div>
         <div class="date-ride">
-            <p class="day">15</p>
-            <p class="month">janvier</p>
-            <p class="hour">17<span>H</span>30</p>
+            <p class="day">{{ run.departureSchedule.format('d') }}</p>
+            <p class="month">{{ run.departureSchedule.format('F') }}</p>
+            <p class="hour">{{ run.departureSchedule.format('H') }}<span>H</span>{{ run.departureSchedule.format('i') }}</p>
         </div>
     </a>
-    <!-- ETIQUETTES -->
-    <a class="trip" href="#">
-        <div class="img-rider">
-            <div class="img-profil-rider" style="background:url('{{ asset('img/dog.jpg') }}'), rgba(0, 0, 0, 0.5)"></div>
-            <p class="conducteur">Conducteur(.trice)</p>
-        </div>
-        <div class="name-step">
-            <p class="name">NOM Prénom</p>
-            <p class="phone">Nbr de places restantes : <span>2</span></p>
-            <p class="city">Toulouse <span>--></span> Saint-Sébastien</p>
-        </div>
-        <div class="date-ride">
-            <p class="day">30</p>
-            <p class="month">Septembre</p>
-            <p class="hour">20<span>H</span>00</p>
-        </div>
-    </a>
+        {% else %}
+
+        No runs
+    {% endfor %}
 {% endblock %}
