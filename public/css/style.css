@@ -621,7 +621,14 @@ footer {
   margin-left: 50px; }
   .map-form-run #map {
     width: 100%;
-    height: 400px; }
+    height: 400px;
+    background-image: url("../img/map.png"); }
+  .map-form-run div {
+    color: #E6146C;
+    font-size: 2rem; }
+  .map-form-run span {
+    display: flex;
+    height: 30px; }
 
 /* END FORM PAGE */
 /* DASHBOARD PAGE */

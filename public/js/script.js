@@ -115,15 +115,12 @@ function onPlaceChanged_arrival() {
         var component = place.address_components[i];
 
         if(component.types[0]=="street_number")
-
             ville_arrival.number_streert = component.long_name;
 
         else if(component.types[0]=="route")
-
             ville_arrival.name_street = component.long_name;
 
         else if(component.types[0]=="locality")
-
             ville_arrival.name_ville = component.long_name;
 
         else if(component.types[0]=="postal_code")
@@ -131,12 +128,10 @@ function onPlaceChanged_arrival() {
 
         else if(component.types[0]=="country")
             ville_arrival.name_country = component.long_name;
-
     }
 
     var location = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
     location_array[1]=location;
-
     if ((typeof location_array[0] != 'undefined')&&(typeof location_array[1] != 'undefined'))
         mapFunction(location_array);
 }
@@ -198,7 +193,6 @@ function mapFunction(location_array) {
 
 function addThisMarker(point,m){
     var marker = new google.maps.Marker({position: point});
-
     return marker;
 }
 
@@ -207,8 +201,9 @@ function affichageFunction(){
     console.log("Ville d'arrivée: " + ville_arrival.name_ville);
     console.log('Temps trajet: ' + time_trip);
     console.log('Distance trajet: ' + distance_trip);
-    document.getElementById("panel_time").innerHTML ='Temps trajet: ' + time_trip;
-    document.getElementById("panel_distance").innerHTML ='Distance trajet: ' + distance_trip;
-
+    /*document.getElementById("panel_time").innerHTML ='Temps trajet: ' + time_trip;
+    document.getElementById("panel_distance").innerHTML ='Distance trajet: ' + distance_trip;*/
+    document.getElementById("panel_time").innerHTML = time_trip;
+    document.getElementById("panel_distance").innerHTML = distance_trip;
 }
 
