@@ -9,11 +9,17 @@
     {% for run in runs %}
     <a class="trip" href="#">
         <div class="img-rider">
-            <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
-            <p>Conducteur(.trice)</p>
+            {% if run.driver.picture == null %}
+                <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+            {% else %}
+                <div class="img-profil-rider" style="background-image:url('{{ asset(run.driver.picture) }}'); -webkit-filter: saturate(40%);"></div>
+            {% endif %}
         </div>
         <div class="name-step">
-            <p class="name"><span class="firstname">{{ run.driver.firstname | upper }}</span> <span class="lastname">{{ run.driver.lastname }}</p>
+            <div>
+                <p class="name"><span class="firstname">{{ run.driver.firstname | upper }}</span> <span class="lastname">{{ run.driver.lastname }}</p>
+                <p class="price">{{ run.price }}</p>
+            </div>
             <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
             <p class="city">{{ run.departure.cityName }}<span>--></span> T{{ run.arrival.cityName }}</p>
         </div>
@@ -25,6 +31,6 @@
     </a>
         {% else %}
 
-        No runs
+        Allez-y 
     {% endfor %}
 {% endblock %}

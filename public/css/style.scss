@@ -644,40 +644,52 @@
 			
 			.register {
 				text-align: center;
+				
 			}
-
+			
+			
 			.input-image {
 				display: flex;
-				align-items: center;
-
-				label {
-					@include border-radius(5px);
-					display: inline;
-					padding: 20px;
-					color: $green;
-					font-size: 1.6rem;
-					cursor: pointer;
-				}
-				label:hover {
-					text-decoration: underline;
-				}
-
-				input[type=file] {
-					display:none;
-				}
-				input:focus {
-					border: none;
-				}
-
+				flex-direction: row;
+				align-items: center;	
+				justify-content: center;
+				
 				#choose-img {
 					@include border-radius(50%);
 					background-size: cover;
 					background-position: center;
 					width: 100px;
 					height: 100px;
+					margin-right: 40px;
+				}
+
+				> div {
+					display: flex;
+					width: 200px;
+	
+					label.required {
+						@include border-radius(5px);
+						display: inline;
+						padding-left: 20px;
+						color: $green;
+						font-size: 1.6rem;
+						cursor: pointer;
+					}
+					label.required:hover {
+						text-decoration: underline;
+					}
+	
+					input[type=file] {
+						display:none;
+					}
+					input:focus {
+						border: none;
+					}
+					
 				}
 			}
-
+			
+				
 			.checked {
 				@extend .input-icon;
 				display: flex;
@@ -702,6 +714,16 @@
 		}
 	}
 
+	.main-add-run {
+		display: flex;
+	}
+
+	.map-form-run {
+		width: 200px;
+		height: 400px;
+		background-color: darkcyan;
+	}
+
 /* END FORM PAGE */
 
 /* DASHBOARD PAGE */
@@ -714,7 +736,7 @@
 
 		h2 {
 			text-align: center;
-		}
+		} 
 
 		.nav-dashboard {
 			@extend .flex-center;
@@ -855,6 +877,11 @@
 				.name-step {
 					width: 100%;
 					margin: 0px 20px;
+
+					> div {
+						display: flex;
+						justify-content: space-between;
+					}
 
 					.name {
 						border-bottom: $borderTitle;
