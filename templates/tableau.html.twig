@@ -50,7 +50,10 @@
                         </p>
                         <p class="email-profil">{{ app.user.email }}</p>
                     </div>
-                    <button>Modifier votre profil</button>
+
+                    <form action="{{ path('editAccount') }}">
+                        <button>Modifiez votre profil</button>
+                    </form>
                 {% endif %}
             </div>
             <div class="main-trip">
