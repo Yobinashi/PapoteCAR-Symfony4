@@ -109,13 +109,14 @@ body {
   align-items: center; }
 
 .alert {
-  height: 80px; }
+  height: 80px;
+  width: 100%; }
 
 .alert-success {
   background-color: #d6efb4;
   color: #88DB15; }
 
-.alert-success {
+.alert-danger {
   background-color: #efb4b4;
   color: #c71b1b; }
 
@@ -628,7 +629,10 @@ footer {
     font-size: 2rem; }
   .map-form-run span {
     display: flex;
-    height: 30px; }
+    height: 30px;
+    align-items: center; }
+    .map-form-run span div {
+      margin-left: 20px; }
 
 /* END FORM PAGE */
 /* DASHBOARD PAGE */

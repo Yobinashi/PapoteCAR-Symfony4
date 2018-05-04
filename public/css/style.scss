@@ -16,6 +16,7 @@
 
 	.alert {
 		height: 80px;
+		width: 100%;
 	}
 
 	.alert-success {
@@ -24,7 +25,7 @@
 	}
 
 	
-	.alert-success {
+	.alert-danger {
 		background-color: #efb4b4;
 		color: $red;
 	}
@@ -762,6 +763,11 @@
 		span {
 			display: flex;
 			height: 30px;
+			align-items: center;
+
+			div {
+				margin-left: 20px;
+			}
 		}
 	}
 

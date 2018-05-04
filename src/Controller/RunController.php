@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Entity\City;
 use App\Entity\Run;
 use App\Form\RunType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -40,7 +39,7 @@ class RunController extends Controller
                 $em->persist($run);
                 $em->flush();
 
-                $this->addFlash('success', 'Your run has been successfully added');
+                $this->addFlash('success', 'Votre trajet à bien été ajouté');
                 return $this->redirectToRoute('ridecourt');
             }
 

@@ -7,13 +7,7 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        {% for label, messages in app.flashes %}
-            {% for message in messages %}
-                <div class="alert alert-{{ label }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endfor %}
+
 
     <!--<a href="{{ path('users') }}">Our Users</a>-->
 
@@ -56,6 +50,14 @@
                 </div>
             {% endif %}
         </header>
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
 
         {% block body %}
 

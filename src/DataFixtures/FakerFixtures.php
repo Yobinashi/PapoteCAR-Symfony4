@@ -8,7 +8,6 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\City;
 use App\Entity\Member;
 use App\Entity\Run;
 use App\Entity\Comment;
@@ -65,16 +64,6 @@ class FakerFixtures extends Fixture implements FixtureInterface
 
             $manager->persist($comment);
 
-            // city
-            $city = new City();
-            $city->setZipcode($faker->numberBetween($min = 10000, $max = 99999));
-            //$city->setCityName($faker->city(3));
-            // permet d'afficher aléatoirement une ville sélectionnée dans le tableau
-            $nbRand = rand(0,9);
-            shuffle($cityTab);
-            $city->setCityName($cityTab[$nbRand]);
-
-            $manager->persist($city);
 
             // run
             $run = new Run();
