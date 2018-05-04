@@ -550,23 +550,9 @@ footer {
       text-align: center; }
     .connect-form form .input-image {
       display: flex;
-      align-items: center; }
-      .connect-form form .input-image label {
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -ms-border-radius: 5px;
-        border-radius: 5px;
-        display: inline;
-        padding: 20px;
-        color: #88DB15;
-        font-size: 1.6rem;
-        cursor: pointer; }
-      .connect-form form .input-image label:hover {
-        text-decoration: underline; }
-      .connect-form form .input-image input[type=file], .connect-form form > div .input-image select[type=file] {
-        display: none; }
-      .connect-form form .input-image input:focus, .connect-form form > div .input-image select:focus {
-        border: none; }
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
       .connect-form form .input-image #choose-img {
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
@@ -575,7 +561,27 @@ footer {
         background-size: cover;
         background-position: center;
         width: 100px;
-        height: 100px; }
+        height: 100px;
+        margin-right: 40px; }
+      .connect-form form .input-image > div {
+        display: flex;
+        width: 200px; }
+        .connect-form form .input-image > div label.required {
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          border-radius: 5px;
+          display: inline;
+          padding-left: 20px;
+          color: #88DB15;
+          font-size: 1.6rem;
+          cursor: pointer; }
+        .connect-form form .input-image > div label.required:hover {
+          text-decoration: underline; }
+        .connect-form form .input-image > div input[type=file], .connect-form form > div .input-image > div select[type=file] {
+          display: none; }
+        .connect-form form .input-image > div input:focus, .connect-form form > div .input-image > div select:focus {
+          border: none; }
     .connect-form form .checked {
       display: flex;
       flex-direction: row;
@@ -590,6 +596,14 @@ footer {
       margin-top: 10px;
       display: inline-block;
       align-items: flex-end; }
+
+.main-add-run {
+  display: flex; }
+
+.map-form-run {
+  width: 200px;
+  height: 400px;
+  background-color: darkcyan; }
 
 /* END FORM PAGE */
 /* DASHBOARD PAGE */
@@ -705,6 +719,9 @@ footer {
       .dashboard .main-trip .trip .name-step {
         width: 100%;
         margin: 0px 20px; }
+        .dashboard .main-trip .trip .name-step > div {
+          display: flex;
+          justify-content: space-between; }
         .dashboard .main-trip .trip .name-step .name {
           border-bottom: 1px solid #88DB15;
           font-size: 2.6rem;

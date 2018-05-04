@@ -42,16 +42,17 @@
                     {% else %}
                         <div class="user-img" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
                     {% endif %}
-                        <div class="menu">
-                            <img class="burger" src="{{ asset('img/menu.png') }}" alt="icon burger du menu utilisateur" size="100">
-                            <ul class="nav">
-                                <li><a href="{{ path('ridecourt') }}">Tableau de bord</a></li>
-                                <li class="border-top"><a href="{{ path('addRun') }}">Proposer un trajet</a></li>
-                                <li class="border-top"><a href="{{ path('searchride') }}">Rechercher un trajet</a></li>
-                                <li class="border-top"><a href="{{ path('account') }}">Mon profil</a></li>
-                                <li class="border-top"><a href="{{ path('logout') }}">Se déconnecter</a></li>
-                            </ul>
-                        </div>
+
+                    <div class="menu">
+                        <img class="burger" src="{{ asset('img/menu.png') }}" alt="icon burger du menu utilisateur" size="100">
+                        <ul class="nav">
+                            <li><a href="{{ path('ridecourt') }}">Tableau de bord</a></li>
+                            <li class="border-top"><a href="{{ path('addRun') }}">Proposer un trajet</a></li>
+                            <li class="border-top"><a href="{{ path('searchride') }}">Rechercher un trajet</a></li>
+                            <li class="border-top"><a href="{{ path('account') }}">Mon profil</a></li>
+                            <li class="border-top"><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                        </ul>
+                    </div>
                 </div>
             {% endif %}
         </header>
@@ -78,7 +79,8 @@
 				</ul>
 			</div>
         </footer>
-        
+        <script type="text/javascript"
+           src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDscvWng091i0lJNUVQo_ozwDUlaATRQpw"></script>
         <script src="{{ asset('js/script.js') }}"></script>
     </body>
 </html>

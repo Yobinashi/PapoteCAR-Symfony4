@@ -17,12 +17,9 @@
         {{ form_row(registerForm.password.first, { 'label': '* Mot de passe' }) }}
         {{ form_row(registerForm.password.second, { 'label': '* Répéter le mot de passe' }) }}
         {{ form_row(registerForm.vehicle, { 'label': 'Vehicule (si vous en avez un)' }) }}
-        <div class="input-icon">
-            <div class="input-image">
-                <label for="image">Choisir une image</label>
-                <input id="image" type="file" name="image" onchange="handle(this)" />
-                <div id="choose-img" style="background-image:url(http://placehold.it/100)"></div>
-            </div>
+        <div class="input-image">
+            {{ form_row(registerForm.picture, { 'label': 'Choisir une image' }) }}
+            <div id="choose-img" style="background-image:url(http://placehold.it/100)"></div>
         </div>
         <div class="checked">
             <input type="checkbox">
