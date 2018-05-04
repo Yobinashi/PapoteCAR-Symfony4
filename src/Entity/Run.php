@@ -41,7 +41,6 @@ class Run
      */
     private $arrival;
 
-
     /**
      * @ORM\Column(type="datetime")
      */

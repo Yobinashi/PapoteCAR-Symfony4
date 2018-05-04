@@ -32,7 +32,6 @@ class FakerFixtures extends Fixture implements FixtureInterface
 
     public function load(ObjectManager $manager)
     {
-
         $cityTab = ["Nantes","Tours","Paris", "Angers", "Lyon", "Marseille", "Toulouse", "Toulon", "Brest", "Avignon"];
 
         // On configure dans quelles langues nous voulons nos données
