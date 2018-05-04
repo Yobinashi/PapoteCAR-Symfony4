@@ -4,6 +4,7 @@
 
 {% block body %}
 
+<<<<<<< HEAD
      <main class="connect-form main-add-run">
         <div class="connect-form">
         <h2>Ajouter un trajet</h2>
@@ -19,6 +20,27 @@
         <div class="map-form-run">
             
         </div>
+=======
+     <main class="connect-form-run">
+         <h2>Ajouter un trajet</h2>
+         <div class="add-run">
+             <div class="connect-form">
+                {{ form_start(runForm) }}
+                {{ form_row(runForm.departure, { 'label': '* Ville de départ' }) }}
+                {{ form_row(runForm.arrival, { 'label': '* Ville d\'arrivée' }) }}
+                {{ form_row(runForm.departureSchedule, { 'label': '* Date et heure du départ' }) }}
+                {{ form_row(runForm.places, { 'label': '* Nbr de places' }) }}
+                {{ form_row(runForm.price, { 'label': '* Prix par personnes en €' }) }}
+                {{ form_row(runForm.submit) }}
+                {{ form_end(runForm) }}
+            </div>
+            <div class="map-form-run">
+                <div id="panel_time"></div>
+                <div id="panel_distance"></div>
+                <div id="map"></div>
+            </div>
+         </div>
+>>>>>>> 7e0532a89775a92d7b0bdf7017ae05549e522bef
     </main>
 
 {% endblock %}

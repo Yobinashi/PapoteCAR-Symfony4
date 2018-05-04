@@ -715,14 +715,43 @@
 		}
 	}
 
-	.main-add-run {
+	.connect-form-run {
+		margin: 1px auto;
+		padding: 100px auto;
+		min-height: 670px;
+		width: 100%;
+		background-color: $grey;
+
+
+		h2 {
+			text-align: center;
+			background-color: $rose;
+			color: $white;
+		}
+
+		.connect-form {
+			width: 330px;
+		}
+
+	}
+
+	.add-run {
+		margin: 0px auto;
 		display: flex;
+		@extend .container;
+		justify-content: space-between;
+
 	}
 
 	.map-form-run {
-		width: 200px;
-		height: 400px;
-		background-color: darkcyan;
+		width: 100%;
+		margin: 70px auto;
+		margin-left: 50px;
+
+		#map {
+			width: 100%;
+			height: 400px;
+		}
 	}
 
 /* END FORM PAGE */
