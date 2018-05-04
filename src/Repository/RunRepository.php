@@ -33,7 +33,7 @@ class RunRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
-    public function searchRunByDepartureArrivalAndDate(City $departure, City $arrival, \DateTime $date){
+    public function searchRunByDepartureArrivalAndDate(Run $departure, Run $arrival, \DateTime $date){
 
         $day = date_format($date,'d');
         $month=date_format($date,'m');

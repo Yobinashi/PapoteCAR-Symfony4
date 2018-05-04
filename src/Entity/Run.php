@@ -30,14 +30,12 @@ class Run
     private $pasengers;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\City", inversedBy="departureRuns")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private $departure;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\City", inversedBy="arrivalRuns")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private $arrival;
 
@@ -104,28 +102,36 @@ class Run
         return $this;
     }
 
-    public function getDeparture(): ?City
+    /**
+     * @return mixed
+     */
+    public function getDeparture()
     {
         return $this->departure;
     }
 
-    public function setDeparture(?City $departure): self
+    /**
+     * @param mixed $departure
+     */
+    public function setDeparture($departure): void
     {
         $this->departure = $departure;
-
-        return $this;
     }
 
-    public function getArrival(): ?City
+    /**
+     * @return mixed
+     */
+    public function getArrival()
     {
         return $this->arrival;
     }
 
-    public function setArrival(?City $arrival): self
+    /**
+     * @param mixed $arrival
+     */
+    public function setArrival($arrival): void
     {
         $this->arrival = $arrival;
-
-        return $this;
     }
     
     public function getDepartureSchedule(): ?\DateTimeInterface
