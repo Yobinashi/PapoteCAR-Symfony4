@@ -6,7 +6,8 @@
 
     {{ form.formSearch() }}
     <!-- ETIQUETTES -->
-    {% for run in runs %}
+    {% for run in runs.departureRuns %}
+
     <a class="trip" href="{{ path('detailRun', {"id":run.id}) }}">
         <div class="img-rider">
             <div class="img-profil-rider" style="background-image:url('{{ asset('img_upload/' ~ run.driver.picture) }}'); -webkit-filter: saturate(40%);"></div>
@@ -23,7 +24,6 @@
             <p class="hour">{{ run.departureSchedule.format('H') }}<span>H</span>{{ run.departureSchedule.format('i') }}</p>
         </div>
     </a>
-
 
         No runs
     {% endfor %}

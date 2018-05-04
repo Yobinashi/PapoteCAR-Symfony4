@@ -809,3 +809,7 @@ footer {
 .account-runs{
   margin-top: 40px;
 }
+
+#register_picture{ /* a ne pas garder */
+  color: red;
+}

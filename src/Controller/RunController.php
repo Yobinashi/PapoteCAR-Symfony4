@@ -23,10 +23,7 @@ class RunController extends Controller
             $form = $this->createForm(RunType::class, $run);
             $form->handleRequest($req);
 
-
-
             if ($form->isSubmitted() && $form->isValid()) {
-
 
                 //si le form est validé, set le driver avec le current user
                 $departure = $em->getRepository(City::class)->findOneBy(['cityName'=> $form->get('departure')->getData()]);
@@ -138,8 +135,6 @@ class RunController extends Controller
             $this->addFlash('warning', 'You have to be logged in to book a run');
             $this->redirectToRoute('login');
         }
-
-
 
     }
 

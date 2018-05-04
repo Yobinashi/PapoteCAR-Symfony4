@@ -42,7 +42,6 @@ class City
     {
         $this->departureRuns = new ArrayCollection();
         $this->arrivalRuns = new ArrayCollection();
-
     }
 
     public function getId()
