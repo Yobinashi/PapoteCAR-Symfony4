@@ -14,6 +14,21 @@
 		align-items: center;
 	}
 
+	.alert {
+		height: 80px;
+	}
+
+	.alert-success {
+		background-color: #d6efb4;
+		color: $green;
+	}
+
+	
+	.alert-success {
+		background-color: #efb4b4;
+		color: $red;
+	}
+
 	.container {
 		width: 70%;
 	}
@@ -576,11 +591,25 @@
 				
 				select {
 					@extend input;
-					margin: 10px 2px;
+					display: inline-block;
+					margin: 0px 2px;
+				}
+
+				select[name="run[places]"] {
+					margin: 0px;
+					width: 50px;
+				}
+
+				#run_departureSchedule_time {
+					margin-bottom: 0px;
+				}
+
+				#run_price {
+					width: 100px;
 				}
 				
 				> div {
-					margin: 50px auto;
+					margin: 5px auto;
 					width: 330px;
 					display: flex;
 					flex-direction: column;
@@ -589,10 +618,12 @@
 						display: flex;
 						align-items: center;
 					}
-		
+					
+					#run_departureSchedule {
+						margin-bottom:0px;
+					}
 					> div {
 						display: flex;
-						flex-direction: column;
 						margin: 0px 0px 20px 0px;
 						
 						input {
@@ -604,9 +635,8 @@
 						
 						select {
 							@extend input;
-							margin: 10px 2px;
+							margin: 2px 2px;
 						}
-						
 					}
 				}
 			}
@@ -882,3 +912,4 @@
 		}
 	}
 /* END DASHBOARD PAGE */
+

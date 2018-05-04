@@ -93,7 +93,7 @@ class FakerFixtures extends Fixture implements FixtureInterface
 
     // installer faker:
     //-> composer req --dev make doctrine/doctrine-fixtures-bundle
-    //->  composer req --dev fzaninotto/faker
+    //-> composer req --dev fzaninotto/faker
     // pour lancer faker:
     //-> php bin/console doctrine:fixtures:load
 

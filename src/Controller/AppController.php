@@ -32,7 +32,8 @@ class AppController extends Controller
      */
     public function searchRide(EntityManagerInterface $em)
     {
-
         return $this->render('tableau/search_ride.html.twig');
     }
+
+
 }

@@ -4,18 +4,18 @@
 
 {% block body %}
 
-<main class="dashboard">
+    <main class="dashboard">
         <h2>Tableau de bord</h2>
         <ul class="nav-dashboard">
-            
-            <li><a 
-                class="{{ app.request.get('_route') == 'ridecourt' ? 'active' }}" 
-                href="{{path('ridecourt')}}">Trajets en cours
-            </a></li>
-            <li><a 
-                class="{{ app.request.get('_route') == 'searchride' ? 'active' }}" 
-                href="{{path('searchride')}}">Rechercher un trajet
-            </a></li>
+
+            <li><a
+                        class="{{ app.request.get('_route') == 'ridecourt' ? 'active' }}"
+                        href="{{path('ridecourt')}}">Trajets en cours
+                </a></li>
+            <li><a
+                        class="{{ app.request.get('_route') == 'searchride' ? 'active' }}"
+                        href="{{path('searchride')}}">Rechercher un trajet
+                </a></li>
             <li><a href="">Les longs trajets</a></li>
             <li><a href="">Les commentaires</a></li>
         </ul>
@@ -23,7 +23,7 @@
         <div class="main-dashboard">
             <div class="column-profil">
                 {% if not app.user %}
-                        <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                    <div class="img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
                 {% else %}
                     {% if app.user.picture != null %}
                         <div class="img-profil" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
@@ -39,25 +39,29 @@
                     </form>
                 {% else %}
                     {#{% if app.user.note != null %}#}
-                        {#<p class="note-profil">{{ app.user.note }} / 5</p> <!-- VOIR LA REQUETE -->#}
+                    {#<p class="note-profil">{{ app.user.note }} / 5</p> <!-- VOIR LA REQUETE -->#}
                     {#{% else %}#}
-                        {#<p class="not-note">pas de note</p>#}
+                    {#<p class="not-note">pas de note</p>#}
                     {#{% endif %}#}
                     <div class="p-profil">
                         <p class="name-profil">
-                            <span class="firstname">{{ app.user.firstname }} </span>
+                            <span class="firstname">{{ app.user.firstname }} </span> -
                             <span class="lastname"> {{ app.user.lastname }}</span>
                         </p>
+                        <span class="account-span">Email:</span>
                         <p class="email-profil">{{ app.user.email }}</p>
+                        <span class="account-span">Tel:</span>
+                        <p class="email-profil">{{ app.user.tel }}</p>
+                        <span class="account-span">Vehicule:</span>
+                        <p class="email-profil">{{ app.user.vehicle }}</p>
                     </div>
-
                     <form action="{{ path('editAccount') }}">
-                        <button>Modifiez votre profil</button>
+                        <button>Modifier votre profil</button>
                     </form>
                 {% endif %}
             </div>
             <div class="main-trip">
-                
+
                 {% block content %}
 
                 {% endblock %}
@@ -66,6 +70,6 @@
         </div>
 
     </main>
-    
+
 
 {% endblock %}
