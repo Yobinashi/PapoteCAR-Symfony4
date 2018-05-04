@@ -29,13 +29,13 @@ class RunController extends Controller
 
 
                 //si le form est validé, set le driver avec le current user
-                $departure = $em->getRepository(City::class)->findOneBy(['cityName'=> $form->get('departure')->getData()]);
-                $arrival = $em->getRepository(City::class)->findOneBy(['cityName'=>$form->get('arrival')->getData()]);
+//                $departure = $em->getRepository(City::class)->findOneBy(['cityName'=> $form->get('departure')->getData()]);
+//                $arrival = $em->getRepository(City::class)->findOneBy(['cityName'=>$form->get('arrival')->getData()]);
 
 
                 $run->setDriver($this->getUser());
-                $run->setDeparture($departure);
-                $run->setArrival($arrival);
+//                $run->setDeparture($departure);
+//                $run->setArrival($arrival);
 
                 $em->persist($run);
                 $em->flush();
