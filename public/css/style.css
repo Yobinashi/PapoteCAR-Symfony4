@@ -119,7 +119,7 @@ body {
   background-color: #efb4b4;
   color: #c71b1b; }
 
-.container, header, .benefits, .proposal, .team .container-team, footer .container-footer, .dashboard .main-dashboard {
+.container, header, .benefits, .proposal, .team .container-team, footer .container-footer, .add-run, .dashboard .main-dashboard {
   width: 70%; }
 
 .flex-end, header .title-header, .form-top .title-form-top {
@@ -597,13 +597,31 @@ footer {
       display: inline-block;
       align-items: flex-end; }
 
-.main-add-run {
-  display: flex; }
+.connect-form-run {
+  margin: 1px auto;
+  padding: 100px auto;
+  min-height: 670px;
+  width: 100%;
+  background-color: #F7F7F7; }
+  .connect-form-run h2 {
+    text-align: center;
+    background-color: #E6146C;
+    color: #fff; }
+  .connect-form-run .connect-form {
+    width: 330px; }
+
+.add-run {
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between; }
 
 .map-form-run {
-  width: 200px;
-  height: 400px;
-  background-color: darkcyan; }
+  width: 100%;
+  margin: 70px auto;
+  margin-left: 50px; }
+  .map-form-run #map {
+    width: 100%;
+    height: 400px; }
 
 /* END FORM PAGE */
 /* DASHBOARD PAGE */
