@@ -149,12 +149,11 @@ class UserController extends Controller
 
             //trouve l'user à éditer et hydrate une variable $member avec les info
             $member = $em->getRepository(Member::class)->find($this->getUser()->getId());
-            $member->setPicture(
-                new File($this->getParameter('img_upload').'/'.$member->getPicture())
-            );
+
 
             //donne au formulaire les infos de $member afin de préremplir les champs et traite le formulaire
             $registerForm = $this->createForm(RegisterType::class, $member);
+            $originalPicture = $member->getPicture();
             $registerForm->handleRequest($req);
 
 
@@ -168,6 +167,28 @@ class UserController extends Controller
 
                     }
 
+                    if($registerForm->get('picture')->getData() == null){
+
+                            new File($this->getParameter('img_upload').'/'.$originalPicture);
+                            $member->setPicture($originalPicture);
+                    }else{
+
+
+                        $originalFileAddress = $this->getParameter('img_upload').'/'.$originalPicture;
+
+                        if (file_exists($originalFileAddress)){
+                            unlink($originalFileAddress);
+
+                        }
+                        /** @var UploadedFile $file */
+                        $file = $registerForm->get('picture')->getData();
+                        $fileName = md5(date('Y-m-d H:i:s:u')).'.'.$file->guessExtension();
+
+                        $file->move($this->getParameter('img_upload'), $fileName);
+
+                        $member->setPicture($fileName);
+
+                    }
 
 
                     $em->flush();
