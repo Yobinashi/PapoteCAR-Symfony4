@@ -15,8 +15,12 @@
 	}
 
 	.alert {
-		height: 80px;
+		height: 50px;
 		width: 100%;
+		display: flex;
+		justify-content: center;
+		text-align: center;
+		align-items: center;
 	}
 
 	.alert-success {
@@ -606,8 +610,10 @@
 					width: 50px;
 				}
 
-				#run_departureSchedule_time {
+				#run_departureTime {
 					margin-bottom: 0px;
+					display: flex;
+					flex-direction: row;
 				}
 
 				#run_price {
@@ -625,7 +631,7 @@
 						align-items: center;
 					}
 					
-					#run_departureSchedule {
+					#run_departureTime {
 						margin-bottom:0px;
 					}
 					> div {

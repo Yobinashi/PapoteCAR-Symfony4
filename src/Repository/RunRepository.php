@@ -29,7 +29,7 @@ class RunRepository extends ServiceEntityRepository
         $qb->setParameter(':driver', $user);
         $qb->setParameter(':now', new \DateTime());
         $qb->addOrderBy('r.departureDate', 'ASC');
-        $qb->addOrderBy('r.departureTime', 'ASC');
+        $qb->addOrderBy('r.departureTime', 'DESC');
 
         $query = $qb->getQuery();
         return $query->getResult();

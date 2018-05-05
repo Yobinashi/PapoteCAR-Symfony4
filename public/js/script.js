@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+
 // UPLOAD IMAGE DANS INSCRPTION.HTML
 
 /* function handle(input) {
@@ -206,4 +206,3 @@ function affichageFunction(){
     document.getElementById("panel_time").innerHTML = time_trip;
     document.getElementById("panel_distance").innerHTML = distance_trip;
 }
-});

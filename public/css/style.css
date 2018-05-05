@@ -109,8 +109,12 @@ body {
   align-items: center; }
 
 .alert {
-  height: 80px;
-  width: 100%; }
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center; }
 
 .alert-success {
   background-color: #d6efb4;
@@ -528,8 +532,10 @@ footer {
       .connect-form form > div select[name="run[places]"] {
         margin: 0px;
         width: 50px; }
-      .connect-form form > div #run_departureSchedule_time {
-        margin-bottom: 0px; }
+      .connect-form form > div #run_departureTime {
+        margin-bottom: 0px;
+        display: flex;
+        flex-direction: row; }
       .connect-form form > div #run_price {
         width: 100px; }
       .connect-form form > div > div {
@@ -540,7 +546,7 @@ footer {
         .connect-form form > div > div .input-date-time {
           display: flex;
           align-items: center; }
-        .connect-form form > div > div #run_departureSchedule {
+        .connect-form form > div > div #run_departureTime {
           margin-bottom: 0px; }
         .connect-form form > div > div > div {
           display: flex;
