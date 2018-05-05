@@ -60,7 +60,7 @@ class Run
     private $places;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="integer")
      */
     private $price;
 

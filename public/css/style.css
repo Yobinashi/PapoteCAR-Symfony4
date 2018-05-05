@@ -210,8 +210,7 @@ input[placeholder], .connect-form form > div select[placeholder] {
   text-transform: none; }
 
 input[type="date"], .connect-form form > div select[type="date"] {
-  width: 130px;
-  color: rgba(0, 0, 0, 0.6); }
+  width: 130px; }
 
 input[type="time"], .connect-form form > div select[type="time"] {
   width: 70px;

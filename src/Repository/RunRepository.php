@@ -23,13 +23,10 @@ class RunRepository extends ServiceEntityRepository
     public function selectRunsByDriversWhereDepartureSupNow(Member $user){
         $qb = $this->createQueryBuilder('r');
 
-        $qb->andWhere("r.departureDate > :now");
-        $qb->andWhere("r.departureTime > :now");
         $qb->andWhere("r.driver = :driver");
         $qb->setParameter(':driver', $user);
-        $qb->setParameter(':now', new \DateTime());
         $qb->addOrderBy('r.departureDate', 'ASC');
-        $qb->addOrderBy('r.departureTime', 'DESC');
+        $qb->addOrderBy('r.departureTime', 'ASC');
 
         $query = $qb->getQuery();
         return $query->getResult();

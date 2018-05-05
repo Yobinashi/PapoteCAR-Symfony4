@@ -6,7 +6,6 @@ use App\Entity\Run;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use App\Repository\RunRepository;
 
 
 class AppController extends Controller
@@ -34,8 +33,7 @@ class AppController extends Controller
      */
     public function searchRide(EntityManagerInterface $em)
     {
-        $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($this->getUser());
-        return $this->render('tableau/search_ride.html.twig');
+
     }
 
 

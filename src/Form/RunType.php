@@ -28,8 +28,7 @@ class RunType extends AbstractType
             ->add('departure')
             ->add('arrival')
             ->add('departureDate', DateType::class, [
-                'widget' => 'single_text',
-                'data' => $dateOfDay
+                'widget' => 'single_text'
             ])
             ->add('departureTime', TimeType::class, [
                 'data' => $dateOfDay,
