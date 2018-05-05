@@ -32,7 +32,9 @@ class AppController extends Controller
      */
     public function searchRide(EntityManagerInterface $em)
     {
-
+        $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($this->getUser());
         return $this->render('tableau/search_ride.html.twig');
     }
+
+
 }

@@ -7,12 +7,14 @@ use App\Form\RegisterType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class UserController extends Controller
 {
@@ -34,9 +36,23 @@ class UserController extends Controller
             $member->setPassword($encoded);
             $member->setRoles(["ROLE_USER"]);
 
-            //ajoute en bdd
+            //Upload d'images
+            /** @var UploadedFile $file */
+            $file = $registerForm->get('picture')->getData();
+            $fileName = md5(date('Y-m-d H:i:s:u')).'.'.$file->guessExtension();
+
+            $file->move(
+                $this->getParameter('img_upload'),
+                $fileName
+            );
+
+            $member->setPicture($fileName);
+
+
             $em->persist($member);
+            //ajoute en bdd
             $em->flush();
+
 
             //récupére les credentials apres le register, et se log automatiquement
             $token = new UsernamePasswordToken($member, null, 'main', $member->getRoles());
@@ -103,9 +119,12 @@ class UserController extends Controller
                     $session = new Session();
                     $session->invalidate();
 
+                    unlink($this->getParameter('img_upload').$this->getUser()->getPicture());
+
                     //supprime l'utilisateur
                     $em->remove($this->getUser());
                     $em->flush();
+
 
                     $this->addFlash('success', 'Account successfully deleted');
                     return $this->redirectToRoute('home');
@@ -131,8 +150,10 @@ class UserController extends Controller
             //trouve l'user à éditer et hydrate une variable $member avec les info
             $member = $em->getRepository(Member::class)->find($this->getUser()->getId());
 
+
             //donne au formulaire les infos de $member afin de préremplir les champs et traite le formulaire
             $registerForm = $this->createForm(RegisterType::class, $member);
+            $originalPicture = $member->getPicture();
             $registerForm->handleRequest($req);
 
 
@@ -145,6 +166,30 @@ class UserController extends Controller
                         $member->setPassword($encoded);
 
                     }
+
+                    if($registerForm->get('picture')->getData() == null){
+
+                            new File($this->getParameter('img_upload').'/'.$originalPicture);
+                            $member->setPicture($originalPicture);
+                    }else{
+
+
+                        $originalFileAddress = $this->getParameter('img_upload').'/'.$originalPicture;
+
+                        if (file_exists($originalFileAddress)){
+                            unlink($originalFileAddress);
+
+                        }
+                        /** @var UploadedFile $file */
+                        $file = $registerForm->get('picture')->getData();
+                        $fileName = md5(date('Y-m-d H:i:s:u')).'.'.$file->guessExtension();
+
+                        $file->move($this->getParameter('img_upload'), $fileName);
+
+                        $member->setPicture($fileName);
+
+                    }
+
 
                     $em->flush();
                     return $this->redirectToRoute("home");

@@ -7,12 +7,14 @@
     {{ form.formSearch() }}
     <!-- ETIQUETTES -->
     {% for run in runs %}
-    <a class="trip" href="#">
+
+    <a class="trip" href="{{ path('detailRun', {"id":run.id}) }}">
         <div class="img-rider">
+            <p>Conducteur(.trice)</p>
             {% if run.driver.picture == null %}
                 <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
             {% else %}
-                <div class="img-profil-rider" style="background-image:url('{{ asset(run.driver.picture) }}'); -webkit-filter: saturate(40%);"></div>
+                <div class="img-profil-rider" style="background-image:url('{{ asset('img_upload/' ~ run.driver.picture) }}'); -webkit-filter: saturate(40%);"></div>
             {% endif %}
         </div>
         <div class="name-step">
@@ -21,7 +23,7 @@
                 <p class="price">{{ run.price }}</p>
             </div>
             <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
-            <p class="city">{{ run.departure.cityName }}<span>--></span> T{{ run.arrival.cityName }}</p>
+            <p class="city">{{ run.departure }}<span>--></span> {{ run.arrival }}</p>
         </div>
         <div class="date-ride">
             <p class="day">{{ run.departureSchedule.format('d') }}</p>
@@ -29,7 +31,6 @@
             <p class="hour">{{ run.departureSchedule.format('H') }}<span>H</span>{{ run.departureSchedule.format('i') }}</p>
         </div>
     </a>
-        {% else %}
 
         Allez-y 
     {% endfor %}
