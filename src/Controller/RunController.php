@@ -58,10 +58,10 @@ class RunController extends Controller
             if ($run->getDriver() === $this->getUser()) {
                 $em->remove($run);
                 $em->flush();
-                $this->addFlash('success', 'This run has been removed, an email has been sent to pasengers');
+                $this->addFlash('success', 'Votre trajet a bien été annulé');
                 return $this->redirectToRoute('account');
             }else{
-                $this->addFlash('danger', 'You can\'t remove this run');
+                $this->addFlash('danger', 'Vous ne pouvez pas supprimer ce trajet');
                 return $this->redirectToRoute('account');
             }
         }else{
@@ -85,14 +85,14 @@ class RunController extends Controller
 
                 if($form->isSubmitted() && $form->isValid()){
                     $em->flush();
-                    $this->addFlash('success', 'Run updated successfully');
+                    $this->addFlash('success', 'Le trajet à bien été mis à jour');
                     return $this->redirectToRoute('account');
                 }
 
                 return $this->render('run/addRun.html.twig', ['runForm'=> $form->createView()]);
 
             }else{
-                $this->addFlash('danger', 'You can\'t update this run');
+                $this->addFlash('danger', 'Vous ne pouvez pas mettre ce trajet à jour');
                 return $this->redirectToRoute('account');
             }
         }else{

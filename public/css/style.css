@@ -120,6 +120,10 @@ body {
   background-color: #efb4b4;
   color: #c71b1b; }
 
+.alert-warning {
+  background-color: #F0E68C;
+  color: #FFFF00; }
+
 .container, header, .benefits, .proposal, .team .container-team, footer .container-footer, .add-run, .dashboard .main-dashboard {
   width: 70%; }
 
@@ -685,6 +689,8 @@ footer {
       .dashboard .main-dashboard .column-profil .not-note {
         color: #CCCCCC;
         font-style: italic; }
+      .dashboard .main-dashboard .column-profil .elements-profil span {
+        color: #E6146C; }
       .dashboard .main-dashboard .column-profil .img-profil {
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;

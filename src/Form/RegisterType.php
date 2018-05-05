@@ -21,7 +21,7 @@ class RegisterType extends AbstractType
             ->add('lastname')
             ->add('email', EmailType::class)
             ->add('password', RepeatedType::class, ['type' => PasswordType::class,
-                'invalid_message' => 'The password fields must match.',
+                'invalid_message' => 'Les champs de mot de passe doivent correspondre.',
                 'required' => true,
                 'mapped' => false,
                 'first_options'  => ['label' => 'Mot de passe'],

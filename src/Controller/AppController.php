@@ -6,6 +6,8 @@ use App\Entity\Run;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use App\Repository\RunRepository;
+
 
 class AppController extends Controller
 {

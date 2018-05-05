@@ -27,12 +27,95 @@ class Run
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Member", inversedBy="runsAttended")
      */
-    private $pasengers;
+    private $passengers;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $departure;
+
+    /**
+     * @return mixed
+     */
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $arrival;
+
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $departureDate;
+
+    /**
+     * @ORM\Column(type="time")
+     */
+    private $departureTime;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $places;
+
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $price;
+
+    public function __construct()
+    {
+        $this->passengers = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDriver()
+    {
+        return $this->driver;
+    }
+
+    /**
+     * @param mixed $driver
+     */
+    public function setDriver($driver): void
+    {
+        $this->driver = $driver;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassengers()
+    {
+        return $this->passengers;
+    }
+
+    /**
+     * @param mixed $passengers
+     */
+    public function setPassengers($passengers): void
+    {
+        $this->passengers = $passengers;
+    }
 
     /**
      * @return mixed
@@ -67,108 +150,71 @@ class Run
     }
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @return mixed
      */
-    private $arrival;
-
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $departureSchedule;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $places;
-
-    /**
-     * @ORM\Column(type="float")
-     */
-    private $price;
-
-    public function __construct()
+    public function getDepartureDate(): ?\DateTimeInterface
     {
-        $this->pasengers = new ArrayCollection();
+        return $this->departureDate;
     }
 
-    public function getId()
+    /**
+     * @param mixed $departureDate
+     */
+    public function setDepartureDate(\DateTimeInterface $departureDate): self
     {
-        return $this->id;
-    }
-
-    public function getDriver(): ?Member
-    {
-        return $this->driver;
-    }
-
-    public function setDriver(?Member $driver): self
-    {
-        $this->driver = $driver;
+        $this->departureDate = $departureDate;
 
         return $this;
     }
 
     /**
-     * @return Collection|Member[]
+     * @return mixed
      */
-    public function getPasengers(): Collection
+    public function getDepartureTime(): ?\DateTimeInterface
     {
-        return $this->pasengers;
+        return $this->departureTime;
     }
 
-    public function addPasenger(Member $pasenger): self
+    /**
+     * @param mixed $departureTime
+     */
+    public function setDepartureTime(\DateTimeInterface $departureTime): self
     {
-        if (!$this->pasengers->contains($pasenger)) {
-            $this->pasengers[] = $pasenger;
-        }
+        $this->departureTime = $departureTime;
 
         return $this;
     }
 
-    public function removePasenger(Member $pasenger): self
-    {
-        if ($this->pasengers->contains($pasenger)) {
-            $this->pasengers->removeElement($pasenger);
-        }
-
-        return $this;
-    }
-
-    
-    public function getDepartureSchedule(): ?\DateTimeInterface
-    {
-        return $this->departureSchedule;
-    }
-
-    public function setDepartureSchedule(\DateTimeInterface $departureSchedule): self
-    {
-        $this->departureSchedule = $departureSchedule;
-
-        return $this;
-    }
-
-    public function getPlaces(): ?int
+    /**
+     * @return mixed
+     */
+    public function getPlaces()
     {
         return $this->places;
     }
 
-    public function setPlaces(int $places): self
+    /**
+     * @param mixed $places
+     */
+    public function setPlaces($places): void
     {
         $this->places = $places;
-
-        return $this;
     }
 
-    public function getPrice(): ?float
+    /**
+     * @return mixed
+     */
+    public function getPrice()
     {
         return $this->price;
     }
 
-    public function setPrice(float $price): self
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price): void
     {
         $this->price = $price;
-
-        return $this;
     }
+
 }

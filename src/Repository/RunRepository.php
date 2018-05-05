@@ -23,7 +23,8 @@ class RunRepository extends ServiceEntityRepository
     public function selectRunsByDriversWhereDepartureSupNow(Member $user){
         $qb = $this->createQueryBuilder('r');
 
-        $qb->andWhere("r.departureSchedule > :now");
+        $qb->andWhere("r.departureDate > :now");
+        $qb->andWhere("r.departureTime > :now");
         $qb->andWhere("r.driver = :driver");
         $qb->setParameter(':driver', $user);
         $qb->setParameter(':now', new \DateTime());
@@ -36,23 +37,16 @@ class RunRepository extends ServiceEntityRepository
 
     public function searchRunByDepartureArrivalAndDate(Run $run ){
 
-        $day = date_format($date,'d');
-        $month=date_format($date,'m');
-        $year = date_format($date,'Y');
         $qb = $this->createQueryBuilder('r');
 //        $dateDay = explode('-',);
 //        var_dump($dateDay[1]);
         $qb->andWhere("r.departure = :departure");
         $qb->andWhere("r.arrival = :arrival");
         $qb->andWhere("r.departure");
-        $qb->andWhere('DAY(r.departureSchedule) = :day');
-        $qb->andWhere("month(r.departureSchedule) = :month ");
-        $qb->andWhere("year(r.departureSchedule) = :year ");
+        $qb->andWhere('r.departureDate = :departureDate');
         $qb->setParameter(":departure",$departure);
         $qb->setParameter(":arrival",$arrival);
-        $qb->setParameter(":day", $day);
-        $qb->setParameter(":month",$month);
-        $qb->setParameter(":year",$year);
+        $qb->setParameter(":departureDate", $departureDate);
 
         $query  = $qb->getQuery();
         return $query->getResult();

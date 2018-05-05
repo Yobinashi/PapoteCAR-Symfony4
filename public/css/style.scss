@@ -30,6 +30,11 @@
 		color: $red;
 	}
 
+	.alert-warning {
+		background-color: #F0E68C;
+		color: #FFFF00;
+	}
+
 	.container {
 		width: 70%;
 	}
@@ -836,6 +841,10 @@
 				.not-note {
 					color: $greyBorder;
 					font-style: italic; 
+				}
+
+				.elements-profil span {
+					color: $rose;
 				}
 
 				.img-profil {

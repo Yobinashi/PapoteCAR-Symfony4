@@ -126,7 +126,7 @@ class UserController extends Controller
                     $em->flush();
 
 
-                    $this->addFlash('success', 'Account successfully deleted');
+                    $this->addFlash('success', 'Votre compte à bien été supprimé');
                     return $this->redirectToRoute('home');
 
                 } catch (\PDOException $e) {

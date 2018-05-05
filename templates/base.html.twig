@@ -30,7 +30,7 @@
             {% else %}
                 <div id="user-connected">
                     {% if app.user.picture != null %}
-                        <div class="user-img" style="background-image:url( '{{ app.user.picture }}' )"></div>
+                        <div class="user-img" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
                     {% else %}
                         <div class="user-img" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
                     {% endif %}

@@ -21,9 +21,9 @@
                 <p class="city">{{ run.departure }}<span>--></span> {{ run.arrival }}</p>
             </div>
             <div class="date-ride">
-                <p class="day">{{ run.departureSchedule.format('d') }}</p>
-                <p class="month">{{ run.departureSchedule.format('F') }}</p>
-                <p class="hour">{{ run.departureSchedule.format('H') }}<span>H</span>{{ run.departureSchedule.format('i') }}</p>
+                <p class="day">{{ run.departureDate.format('d') }}</p>
+                <p class="month">{{ run.departureDate.format('F') }}</p>
+                <p class="hour">{{ run.departureTime.format('H') }}<span>H</span>{{ run.departureTime.format('i') }}</p>
             </div>
         </a>
         </div>
