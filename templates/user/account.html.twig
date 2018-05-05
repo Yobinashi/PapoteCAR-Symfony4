@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Account | {{ parent() }} {% endblock %}
+
+{% block body %}
+
+    <main class="dashboard account-main">
+
+        <h1 id="account-title">Bienvenue {{ app.user.lastname }} <span>{{ app.user.firstname }}</span></h1>
+
+        <div class="account-liens">
+            <a href="{{ path('home') }}">Home</a> |
+            <a href="{{ path('logout') }}">Deconnexion</a> |
+            <a href="{{ path('suppAccount') }}"><span style="color:#ff614a">Supprimer le compte</span></a> |
+            <a href="{{ path('editAccount') }}">Editer / Modifier</a>
+        </div>
+
+        <div class="account-detail">
+            <div class="account-img">
+                {% if app.user.picture != null %}
+                    <div class="account-img-profil" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
+                {% else %}
+                    <div class="account-img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                {% endif %}
+            </div>
+            <div class="account-list">
+                <ul>
+                    <li><span class="account-span">Nom:</span> {{ app.user.firstname | upper }}</li>
+                    <li><span class="account-span">Prenom:</span> {{ app.user.lastname }}</li>
+                    <li><span class="account-span">Email:</span> {{ app.user.email }}</li>
+                    <li><span class="account-span">Tel:</span> {{ app.user.tel }}</li>
+                    <li><span class="account-span">Vehicule:</span> {{ app.user.vehicle }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <form action="{{ path('editAccount') }}">
+            <button>Modifiez votre profil</button>
+        </form>
+
+        <!--<h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>-->
+
+        <div class="account-runs">
+            <h2> Runs where I drive</h2>
+
+            {% for run in runs %}
+
+                <h4>{{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h4>
+
+                <p>DEPART = {{ run.departure.cityName }}</p>
+                <p>ARRIVEE = {{ run.arrival.cityName }}</p>
+
+                <button><a href="{{ path('deleteRun', {'id': run.id}) }}">SUPP</a></button>
+                <button><a href="{{ path('editRun', {'id': run.id}) }}">EDIT</a></button>
+                <hr>
+                {% else %}
+
+                <p> No runs where you drive !</p>
+            {% endfor %}
+        </div>
+
+    </main>
+
+{% endblock %}

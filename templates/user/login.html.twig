@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Login | {{ parent() }} {% endblock %}
+
+{% block body %}
+
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <main class="connect-form">
+            <h2>Connexion</h2>
+            <form action="{{ path('login') }}" method="POST"> <!-- Action : page avec le résultat - Method : get -->
+                <div class="input-icon">
+                    <label for="username">Email</label>
+                    <input  type="email" id="username" name="_username" value="{{ last_username }}">
+                </div>
+                <div class="input-icon">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="_password" />
+                    <input type="hidden" name="_target_path" value="/tableau-de-bord/trajet-en-cours" />
+                    <a href="#">mot de passe oublié ?</a>
+                </div>
+        
+                <button type="submit">login</button> <!-- Diriger vers la recherche -->
+                <p class="register">Vous n'avez pas de compte ? <a href="{{ path('register') }}">S'inscrire</a> </p>
+            </form>
+        </main>
+
+{% endblock %}

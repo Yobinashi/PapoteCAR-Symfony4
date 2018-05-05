@@ -1,0 +1,13 @@
+
+###> symfony/framework-bundle 
+###
+/.env
+/public/bundles/
+/var/
+/vendor/
+/.idea/
+/.idea
+.idea
+/.idea/workspace.xml
+
+###< symfony/framework-bundle

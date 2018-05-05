@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un Trajet{% endblock %}
+
+{% block body %}
+
+     {#<main class="connect-form main-add-run">
+        <div class="connect-form">
+        <h2>Ajouter un trajet</h2>
+            {{ form_start(runForm) }}
+            {{ form_row(runForm.departure, { 'label': '* Ville de départ', 'attr': {'id': 'form_person_edit'} }) }}
+            {{ form_row(runForm.arrival, { 'label': '* Ville d\'arrivée' }) }}
+            {{ form_row(runForm.departureSchedule, { 'label': '* Date et heure du départ' }) }}
+            {{ form_row(runForm.places, { 'label': '* Nbr de places' }) }}
+            {{ form_row(runForm.price, { 'label': '* Prix par personnes en €' }) }}
+            {{ form_row(runForm.submit) }}
+            {{ form_end(runForm) }}
+        </div>
+        <div class="map-form-run">
+            
+        </div>#}
+
+     <main class="connect-form-run">
+         <h2>Ajouter un trajet</h2>
+         <div class="add-run">
+             <div class="connect-form">
+                {{ form_start(runForm) }}
+                {{ form_row(runForm.departure, { 'label': '* Ville de départ' }) }}
+                {{ form_row(runForm.arrival, { 'label': '* Ville d\'arrivée' }) }}
+                {{ form_row(runForm.departureDate, { 'label': '* Date du départ' }) }}
+                {{ form_row(runForm.departureTime, { 'label': '* Heure du départ' }) }}
+                {{ form_row(runForm.places, { 'label': '* Nbr de places' }) }}
+                {{ form_row(runForm.price, { 'label': '* Prix par personnes en €' }) }}
+                {{ form_row(runForm.submit) }}
+                {{ form_end(runForm) }}
+            </div>
+            <div class="map-form-run">
+                <span>Temps :<div id="panel_time"></div></span>
+                <span>Distance :<div id="panel_distance"></div></span>
+                <div id="map" class="map"></div>
+            </div>
+         </div>
+     </main>
+
+{% endblock %}

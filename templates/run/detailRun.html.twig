@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>{{ run.departure }} -> {{ run.arrival }}</h1>
+
+    Pasengers:
+    <ul>
+    {% for pasenger in run.pasengers %}
+       <li> {{ pasenger.firstname }}</li>
+    {% else %}
+    {% endfor %}
+
+    </ul>
+{% endblock %}

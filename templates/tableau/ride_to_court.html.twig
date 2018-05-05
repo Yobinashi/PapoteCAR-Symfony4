@@ -1,0 +1,43 @@
+{% extends 'tableau.html.twig' %}
+
+{% block content %}
+
+    <h3>Vos trajets</h3>
+    {% for run in runs %}
+        <div class="trip-div">
+
+        <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
+            <button class="delete" onclick="deleteRun()">x</button>
+            <div class="img-rider">
+                {% if app.user.picture != null %}
+                    <div class="img-profil-rider" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
+                {% else %}
+                    <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                {% endif %}
+            </div>
+            <div class="name-step">
+                <p class="name">{{ run.driver.lastname | upper }} {{ run.driver.firstname }}</p>
+                <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
+                <p class="city">{{ run.departure }}<span>--></span> {{ run.arrival }}</p>
+            </div>
+            <div class="date-ride">
+                <p class="day">{{ run.departureSchedule.format('d') }}</p>
+                <p class="month">{{ run.departureSchedule.format('F') }}</p>
+                <p class="hour">{{ run.departureSchedule.format('H') }}<span>H</span>{{ run.departureSchedule.format('i') }}</p>
+            </div>
+        </a>
+        </div>
+    {% else %}
+        <p>Pas de trajets pour le moment</p>
+    {% endfor %}
+
+
+    <form action="{{ path('searchride') }}">
+        <button style="width: 250px;">Rechercher un trajet</button>
+    </form>
+    <p style="margin: 2px 125px;">ou</p>
+    <form action="{{ path('addRun') }}">
+        <button style="width: 250px;">Proposez un trajet</button>
+    </form>
+
+{% endblock %}
