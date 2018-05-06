@@ -777,14 +777,16 @@ footer {
             color: #E6146C;
             font-size: 1.6rem; }
         .dashboard .main-trip .trip .name-step .city {
-          color: #1b1b1b;
+          color: #E6146C;
           text-transform: uppercase;
           font-size: 1.7rem;
           padding-top: 10px;
           padding-left: 10px;
-          list-style: circle; }
+          list-style: circle;
+          font-family: "latoBlack", arial, sans-serif; }
           .dashboard .main-trip .trip .name-step .city span {
-            margin: 0px 10px; }
+            margin: 0px 10px;
+            color: #1b1b1b; }
       .dashboard .main-trip .trip .date-ride {
         flex-direction: column;
         width: 150px; }
@@ -792,12 +794,13 @@ footer {
           padding-top: 10px;
           line-height: 2rem;
           color: #E6146C;
-          font-size: 4rem; }
+          font-size: 3rem; }
         .dashboard .main-trip .trip .date-ride .month {
           color: #787878;
           text-transform: uppercase; }
         .dashboard .main-trip .trip .date-ride .hour {
-          color: #1b1b1b; }
+          color: #E6146C;
+          font-size: 2rem; }
 
 /* END DASHBOARD PAGE */
 
