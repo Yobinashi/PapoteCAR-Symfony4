@@ -31,4 +31,18 @@ class RunRepository extends ServiceEntityRepository
         $query = $qb->getQuery();
         return $query->getResult();
     }
+
+
+    public function searchRun(){
+        $qb = $this->createQueryBuilder('r');
+
+        $qb->addOrderBy('r.departureDate', 'ASC');
+        $qb->addOrderBy('r.departureTime', 'ASC');
+        $qb->leftJoin('r.driver', 'd')->addSelect('d');
+
+        $qb->setMaxResults(50);
+
+        $query = $qb->getQuery();
+        return $query->getResult();
+    }
 }
