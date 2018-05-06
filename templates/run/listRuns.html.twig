@@ -4,7 +4,7 @@
 {% block body %}
     <h2> LES RUNS MA GUEULE</h2>
 {% for run in runs  %}
-    <h3>{{ run.driver.firstname }} {{ run.driver.lastname }} | {{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h3>
+    <h3>{{ run.driver.firstname }} {{ run.driver.lastname }} | {{ run.departureDate |date("d-m-Y") }} - {{ run.departureTime |date("H:i") }}</h3>
     {{ run.departure.cityName }} -> {{ run.arrival.cityName }}
 
   Place restantes: {{ run.places }}

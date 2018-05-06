@@ -31,22 +31,4 @@ class RunRepository extends ServiceEntityRepository
         $query = $qb->getQuery();
         return $query->getResult();
     }
-
-    public function searchRunByDepartureArrivalAndDate(Run $run ){
-
-        $qb = $this->createQueryBuilder('r');
-//        $dateDay = explode('-',);
-//        var_dump($dateDay[1]);
-        $qb->andWhere("r.departure = :departure");
-        $qb->andWhere("r.arrival = :arrival");
-        $qb->andWhere("r.departure");
-        $qb->andWhere('r.departureDate = :departureDate');
-        $qb->setParameter(":departure",$departure);
-        $qb->setParameter(":arrival",$arrival);
-        $qb->setParameter(":departureDate", $departureDate);
-
-        $query  = $qb->getQuery();
-        return $query->getResult();
-
-    }
 }

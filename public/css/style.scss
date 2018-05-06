@@ -948,6 +948,13 @@
 						border-bottom: $borderTitle;
 						font-size: 2.6rem;
 						color: $black;
+						display: flex;
+						justify-content: space-between;
+
+						.drive_price {
+							color: $rose;
+						}
+
 					}
 
 					.phone {
@@ -955,7 +962,7 @@
 						font-size: 1rem;
 
 						span {
-							color: $black;
+							color: $rose;
 							font-size: 1.6rem;
 						}
 					}

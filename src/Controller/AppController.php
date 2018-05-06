@@ -19,21 +19,22 @@ class AppController extends Controller
     }
 
     /**
-     * @Route("/tableau-de-bord/trajet-en-cours", name="ridecourt")
+     * @Route("/tableau-de-bord/trajet-en-cours", name="myRun")
      */
     public function rideToCourt(EntityManagerInterface $em)
     {
         $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($this->getUser());
-        return $this->render('tableau/ride_to_court.html.twig', ['runs'=>$runs]);
+        return $this->render('tableau/my_run.html.twig', ['runs'=>$runs]);
     }
 
     
     /**
-     * @Route("/tableau-de-bord/rechercher-un-trajet", name="searchride")
+     * @Route("/tableau-de-bord/rechercher-un-trajet", name="searchRun")
      */
     public function searchRide(EntityManagerInterface $em)
     {
-
+        $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($this->getUser());
+        return $this->render('tableau/search_run.html.twig', ['runs'=>$runs]);
     }
 
 

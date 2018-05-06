@@ -16,8 +16,8 @@
                 {% endif %}
             </div>
             <div class="name-step">
-                <p class="name">{{ run.driver.lastname | upper }} {{ run.driver.firstname }}</p>
-                <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
+                <p class="name">{{ run.driver.firstname | upper }} {{ run.driver.lastname }}</p>
+                <p class="phone">Contact : <span>0{{ run.driver.tel }}</span></p>
                 <p class="city">{{ run.departure }}<span>--></span> {{ run.arrival }}</p>
             </div>
             <div class="date-ride">
@@ -32,7 +32,7 @@
     {% endfor %}
 
 
-    <form action="{{ path('searchride') }}">
+    <form action="{{ path('searchRun') }}">
         <button style="width: 250px;">Rechercher un trajet</button>
     </form>
     <p style="margin: 2px 125px;">ou</p>

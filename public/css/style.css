@@ -765,12 +765,16 @@ footer {
         .dashboard .main-trip .trip .name-step .name {
           border-bottom: 1px solid #88DB15;
           font-size: 2.6rem;
-          color: #1b1b1b; }
+          color: #1b1b1b;
+          display: flex;
+          justify-content: space-between; }
+          .dashboard .main-trip .trip .name-step .name .drive_price {
+            color: #E6146C; }
         .dashboard .main-trip .trip .name-step .phone {
           color: #787878;
           font-size: 1rem; }
           .dashboard .main-trip .trip .name-step .phone span {
-            color: #1b1b1b;
+            color: #E6146C;
             font-size: 1.6rem; }
         .dashboard .main-trip .trip .name-step .city {
           color: #1b1b1b;
