@@ -38,24 +38,36 @@
             <button>Modifiez votre profil</button>
         </form>
 
-        <!--<h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>-->
+        {#<h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>-->#}
 
         <div class="account-runs">
-            <h2> Runs where I drive</h2>
+            <h2>Mes trajets</h2> <!-- Runs where I drive-->
+            <hr/>
 
             {% for run in runs %}
-
-                <h4>{{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h4>
-
-                <p>DEPART = {{ run.departure.cityName }}</p>
-                <p>ARRIVEE = {{ run.arrival.cityName }}</p>
-
-                <button><a href="{{ path('deleteRun', {'id': run.id}) }}">SUPP</a></button>
-                <button><a href="{{ path('editRun', {'id': run.id}) }}">EDIT</a></button>
-                <hr>
+                {% if runs is null %} {# NE MARCHE PAS ??? #}
+                    <div style="height:200px; width:400px;">
+                        <h4>Vous n'avez pas encore proposé de trajets</h4>
+                    </div>
                 {% else %}
+                    
+                    <div class="account-runs-detail">
+                        <h3>{{ run.departureDate | date("d-m-Y") }} - {{ run.departureTime | date("H:i") }}</h3>
 
-                <p> No runs where you drive !</p>
+                        <p><span class="account-span">Départ:</span> {{ run.departure }}</p>
+                        <p><span class="account-span">Arrivée:</span> {{ run.arrival }}</p>
+                        <p><span class="account-span">Arrivée:</span> {{ run.id }}</p>
+
+                        <div class="account-style-btn">
+                            <form action="{{ path('deleteRun', {'id': run.id}) }}">
+                                <button class="account-btn"><a href="{{ path('deleteRun', {'id': run.id}) }}"></a>Supprimer</button>
+                            </form>
+                            <form action="{{ path('detailRun', {'id':run.id}) }}">
+                                <button class="account-btn"><a href="{{ path('detailRun', {'id':run.id}) }}"></a>Editer</button>
+                            </form>
+                        </div>               
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
 

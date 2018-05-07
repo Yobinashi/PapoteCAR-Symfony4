@@ -28,7 +28,6 @@ class UserController extends Controller
         $registerForm = $this->createForm(RegisterType::class, $member);
         $registerForm->handleRequest($req);
 
-
         if($registerForm->isSubmitted() && $registerForm->isValid()){
 
             //encode le mdp si le formulaire a bien été traité et est validé
@@ -48,11 +47,9 @@ class UserController extends Controller
 
             $member->setPicture($fileName);
 
-
             $em->persist($member);
             //ajoute en bdd
             $em->flush();
-
 
             //récupére les credentials apres le register, et se log automatiquement
             $token = new UsernamePasswordToken($member, null, 'main', $member->getRoles());
@@ -98,8 +95,6 @@ class UserController extends Controller
         $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($this->getUser());
         return $this->render('user/account.html.twig',['runs'=> $runs]);
     }
-
-
     /**
      * @Route("/account/delete", name="suppAccount")
      */
@@ -136,8 +131,6 @@ class UserController extends Controller
         }else{
             return $this->redirectToRoute('home');
         }
-
-
     }
 
     /**
@@ -198,8 +191,7 @@ class UserController extends Controller
                 return $this->render('user/register.html.twig', ["registerForm"=>$registerForm->createView()]);
             }else{
                 return $this->redirectToRoute('home');
-            }
-
+        }
     }
 
     /**
@@ -209,8 +201,6 @@ class UserController extends Controller
         $users = $em->getRepository(Member::class)->findAll();
 
         return $this->render('user/list.html.twig', ['users' => $users]);
-
-
     }
 
     /**
@@ -224,6 +214,5 @@ class UserController extends Controller
         }else{
             return $this->render('user/userProfile.html.twig', ['user'=>$user, 'runs'=> $runs]);
         }
-
     }
 }

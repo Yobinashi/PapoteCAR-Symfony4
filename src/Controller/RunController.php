@@ -47,7 +47,6 @@ class RunController extends Controller
 
 }
 
-
     /**
      * @Route("/run/delete/{id}", name="deleteRun")
      */
@@ -67,7 +66,6 @@ class RunController extends Controller
         }else{
             return $this->redirectToRoute('home');
         }
-
     }
 
     /**

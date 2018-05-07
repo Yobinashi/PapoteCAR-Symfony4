@@ -56,7 +56,7 @@
                         <p class="elements-profil"><span class="account-span">Vehicule: </span> {% if app.user.vehicle != null %} {{ app.user.vehicle }} {% else %} <span class="not-note">pas de vehicule</span> {%  endif %}</p>
                     </div>
                     <form action="{{ path('editAccount') }}">
-                        <button>Modifier votre profil</button>
+                        <button style="height:50px;">Modifier votre profil</button>
                     </form>
                 {% endif %}
             </div>

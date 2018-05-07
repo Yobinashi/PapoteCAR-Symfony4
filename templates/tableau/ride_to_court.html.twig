@@ -7,7 +7,9 @@
         <div class="trip-div">
 
         <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
-            <button class="delete" onclick="deleteRun()">x</button>
+            <form action="{{ path('deleteRun', {'id': run.id}) }}">
+                <button class="delete" onclick="suppRun()">x</button>
+            </form>
             <div class="img-rider">
                 {% if app.user.picture != null %}
                     <div class="img-profil-rider" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
@@ -17,8 +19,8 @@
             </div>
             <div class="name-step">
                 <p class="name">{{ run.driver.lastname | upper }} {{ run.driver.firstname }}</p>
-                <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span></p>
-                <p class="city">{{ run.departure }}<span>--></span> {{ run.arrival }}</p>
+                <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span> Prix : <span>{{ run.price }} €</span></p>
+                <p class="city">{{ run.departure }}<span>--></span>{{ run.arrival }}</p>
             </div>
             <div class="date-ride">
                 <p class="day">{{ run.departureDate.format('d') }}</p>

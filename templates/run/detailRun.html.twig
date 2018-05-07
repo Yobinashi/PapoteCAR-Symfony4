@@ -2,13 +2,13 @@
 
 {% block body %}
 
-    <h1>{{ run.departure }} -> {{ run.arrival }}</h1>
+    <h1>{{ run.departure }} --> {{ run.arrival }}</h1>
 
     Pasengers:
     <ul>
-    {% for pasenger in run.pasengers %}
-       <li> {{ pasenger.firstname }}</li>
-    {% else %}
+    {% for pasenger in run.passengers %}
+       <li> {{ passenger.firstname }} {{ passenger.lastname }}</li>
+
     {% endfor %}
 
     </ul>
