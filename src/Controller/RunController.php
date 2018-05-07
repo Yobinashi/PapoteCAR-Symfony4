@@ -39,7 +39,7 @@ class RunController extends Controller
                 $this->addFlash('success', 'Votre trajet à bien été ajouté');
                 return $this->redirectToRoute('ridecourt');
             }
-
+            
             return $this->render('run/addRun.html.twig', ["runForm" => $form->createView()]);
         } else{
             return $this->redirectToRoute('login');
@@ -86,7 +86,7 @@ class RunController extends Controller
                     $this->addFlash('success', 'Le trajet à bien été mis à jour');
                     return $this->redirectToRoute('account');
                 }
-
+                
                 return $this->render('run/addRun.html.twig', ['runForm'=> $form->createView()]);
 
             }else{

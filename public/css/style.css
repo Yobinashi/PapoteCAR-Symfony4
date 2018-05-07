@@ -1332,7 +1332,7 @@ footer .container-footer ul li a:hover {
 .account-runs-detail {
     margin-top: 20px;
     margin-bottom: 30px;
-    border: 1px solid palevioletred;
+    border: 1px solid #CCCCCC;
     background-color: white;
     border-radius: 6px;
     display: flex;
@@ -1353,7 +1353,10 @@ footer .container-footer ul li a:hover {
     width: 150px;
 }
 
-.account-runs-detail>h3 {}
+.account-noRun {
+    color: #7eb630;
+    font-size: 2rem;
+}
 
 #register_picture {
     /* a ne pas garder */

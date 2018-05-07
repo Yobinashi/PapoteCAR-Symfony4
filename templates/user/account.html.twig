@@ -44,21 +44,19 @@
             <h2>Mes trajets</h2> <!-- Runs where I drive-->
             <hr/>
 
-            {% for run in runs %}
-                {% if runs is null %} {# NE MARCHE PAS ??? #}
-                    <div style="height:200px; width:400px;">
-                        <h4>Vous n'avez pas encore proposé de trajets</h4>
-                    </div>
-                {% else %}
-                    
+            {% if not runs %}        
+                <div class="account-runs-detail">
+                    <p><span class="account-noRun">Vous n'avez pas encore proposé de trajets</span></h2>
+                </div>
+            {% else %}
+                {% for run in runs %}
                     <div class="account-runs-detail">
                         <h3>{{ run.departureDate | date("d-m-Y") }} - {{ run.departureTime | date("H:i") }}</h3>
 
                         <p><span class="account-span">Départ:</span> {{ run.departure }}</p>
                         <p><span class="account-span">Arrivée:</span> {{ run.arrival }}</p>
-                        <p><span class="account-span">Arrivée:</span> {{ run.id }}</p>
 
-                        <div class="account-style-btn">
+                    <div class="account-style-btn">
                             <form action="{{ path('deleteRun', {'id': run.id}) }}">
                                 <button class="account-btn"><a href="{{ path('deleteRun', {'id': run.id}) }}"></a>Supprimer</button>
                             </form>
@@ -66,9 +64,9 @@
                                 <button class="account-btn"><a href="{{ path('detailRun', {'id':run.id}) }}"></a>Editer</button>
                             </form>
                         </div>               
-                    </div>
-                {% endif %}
-            {% endfor %}
+                    </div>  
+                {% endfor %}
+            {% endif %}
         </div>
 
     </main>
