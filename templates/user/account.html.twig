@@ -45,10 +45,10 @@
 
             {% for run in runs %}
 
-                <h4>{{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}</h4>
+                <h4>{{ run.departureDate |date("d-m-Y") }} - {{ run.departureTime |date("H:i") }}</h4>
 
-                <p>DEPART = {{ run.departure.cityName }}</p>
-                <p>ARRIVEE = {{ run.arrival.cityName }}</p>
+                <p>DEPART = {{ run.departure }}</p>
+                <p>ARRIVEE = {{ run.arrival }}</p>
 
                 <button><a href="{{ path('deleteRun', {'id': run.id}) }}">SUPP</a></button>
                 <button><a href="{{ path('editRun', {'id': run.id}) }}">EDIT</a></button>
