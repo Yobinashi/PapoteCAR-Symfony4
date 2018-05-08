@@ -997,6 +997,11 @@ footer .container-footer ul li a:hover {
     justify-content: space-between;
 }
 
+#map {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
 .map-form-run {
     width: 100%;
     margin: 70px auto;

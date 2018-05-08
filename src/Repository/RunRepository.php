@@ -32,7 +32,7 @@ class RunRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
-    public function searchRunByDepartureArrivalAndDate(Run $run ){
+    public function searchRunByDepartureArrivalAndDate(Run $run){
 
         $qb = $this->createQueryBuilder('r');
 //        $dateDay = explode('-',);

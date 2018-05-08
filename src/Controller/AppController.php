@@ -33,7 +33,8 @@ class AppController extends Controller
      */
     public function searchRide(EntityManagerInterface $em)
     {
-
+        $runs = $em->getRepository(Run::class)->searchRunByDepartureArrivalAndDate($this->getID());
+        return $this->render('tableau/search-ride.html.twig', ['runs'=>$runs]);
     }
 
 
