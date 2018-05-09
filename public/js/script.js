@@ -206,3 +206,30 @@ function affichageFunction(){
     document.getElementById("panel_time").innerHTML = time_trip;
     document.getElementById("panel_distance").innerHTML = distance_trip;
 }
+
+document.getElementById('search-run-date').valueAsDate = new Date();
+
+$(document).ready( function() {
+    
+     $('#search-run-button').click(function (e) {
+         var departure = $('#search-run-departure').val();
+         var arrival = $('#search-run-arrival').val();
+         var date = $('#search-run-date').val();
+         console.log(date); // renvoi bien la date
+         console.log(departure); // renvoi bien la ville de départ
+         console.log(arrival); // renvoi bien la ville d'arrivée
+
+        $.ajax({
+            type: 'POST',
+            url: "{{ path('searchRun') }}",
+            data: 'departure=' + departure + '&arrival=' + arrival + '&date=' + date,
+            success: function (data) {
+                $('#search-run-departure').val(departure);
+                $('#search-run-arrival').val(arrival);
+                $('#search-run-date').val(date);
+            }
+        });
+
+    });
+
+});

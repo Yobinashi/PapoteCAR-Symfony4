@@ -210,7 +210,9 @@ input[placeholder], .connect-form form > div select[placeholder] {
   text-transform: none; }
 
 input[type="date"], .connect-form form > div select[type="date"] {
-  width: 130px; }
+  width: 130px;
+  font-size: 1.2rem;
+  cursor: pointer; }
 
 input[type="time"], .connect-form form > div select[type="time"] {
   width: 70px;
@@ -221,13 +223,12 @@ input[name="place"], .connect-form form > div select[name="place"] {
   width: 30px; }
 
 .input-icon, .connect-form form .checked {
-  padding: 0 10px;
   position: relative; }
   .input-icon img, .connect-form form .checked img {
     position: absolute;
     width: 15px;
     height: 15px;
-    left: 20px; }
+    left: 15px; }
 
 button {
   -webkit-border-radius: 70px;
@@ -264,7 +265,9 @@ button:hover {
 
 .form-search .input-icon input, .form-search .connect-form form .checked input, .connect-form form .form-search .checked input, .form-search .input-icon .connect-form form > div select, .connect-form form > div .form-search .input-icon select, .form-search .connect-form form > div .checked select, .connect-form form > div .form-search .checked select {
   padding-left: 30px;
-  max-width: 150px; }
+  max-width: 150px;
+  margin: auto 5px;
+  flex: 1; }
 
 .firstname {
   text-transform: uppercase; }

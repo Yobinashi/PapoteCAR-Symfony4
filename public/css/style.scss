@@ -121,6 +121,8 @@
 
 	input[type="date"] {
 		width: 130px;
+		font-size: 1.2rem;
+		cursor: pointer;
 	}
 
 	input[type="time"] {
@@ -134,14 +136,13 @@
 	}
 
 	.input-icon {
-		padding: 0 10px;
 		position: relative;
 
 		img {
 			position: absolute;
 			width: 15px;
 			height: 15px;
-			left: 20px;
+			left: 15px;
 		}
 	}
 
@@ -190,6 +191,8 @@
 			input {	
 				padding-left: 30px;
 				max-width: 150px;
+				margin: auto 5px;
+				flex: 1;
 			}
 		}
 	}
@@ -361,6 +364,7 @@
 
 			.form-search {
 				margin-bottom: 30px;
+
 			}
 		}
 
