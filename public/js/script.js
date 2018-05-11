@@ -208,7 +208,3 @@ function affichageFunction(){
 }
 
 document.getElementById('search-run-date').valueAsDate = new Date();
-
-function deleteMyRun() {
-    alert('en êtes vous sur ?');
-}

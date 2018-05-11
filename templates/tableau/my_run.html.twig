@@ -5,7 +5,7 @@
     <h3>Vos trajets</h3>
     {% for run in runs %}
         <div class="trip-div">
-            <form  class="delete-my-run" action="{{ path('deleteRun', {'id' : run.id}) }}">
+            <form id="delete-run"  class="delete-my-run">
                 <button onclick="deleteMyRun()">x</button>
             </form>
 
@@ -30,6 +30,20 @@
             </div>
         </a>
         </div>
+
+        <script>
+            function deleteMyRun() {
+                if (confirm("Êtes vous sur de vouloir supprimer le trajet ?")) {
+                    // $('#delete-run').attr('action', $id);
+                    document.getElementById("delete-run").action = "{{ path('deleteRun', {'id' : run.id}) }}";
+                    document.getElementById("delete-run").submit();
+                }
+                else {
+
+                }
+            }
+        </script>
+
     {% else %}
         <p>Pas de trajets pour le moment</p>
     {% endfor %}
