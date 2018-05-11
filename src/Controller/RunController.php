@@ -126,14 +126,28 @@ class RunController extends Controller
             $run = $em->getRepository(Run::class)->find($id);
 
             $run->setPlaces($run->getPlaces()-1);
-            $run->addPasenger($this->getUser());
+            $run->addPassenger($this->getUser());
             $em->persist($run);
             $em->flush();
-            return $this->redirectToRoute('listRuns');
+            return $this->redirectToRoute('myRun');
         }else{
-            $this->addFlash('warning', 'You have to be logged in to book a run');
-            $this->redirectToRoute('login');
+            $this->addFlash('warning', 'Inscrivez vous pour réserver');
+            return $this->redirectToRoute('login');
         }
+
+    }
+    /**
+     * @Route("/run/remove/{id}", name="removePlace")
+     */
+    public function removePlace(EntityManagerInterface $em, $id){
+
+        $run = $em->getRepository(Run::class)->find($id);
+
+        $run->setPlaces($run->getPlaces()+1);
+        $run->removePassenger($this->getUser());
+        $em->persist($run);
+        $em->flush();
+        return $this->redirectToRoute('myRun');
 
     }
 

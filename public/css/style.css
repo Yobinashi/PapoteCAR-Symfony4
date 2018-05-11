@@ -125,8 +125,8 @@ body {
   color: #c71b1b; }
 
 .alert-warning {
-  background-color: #F0E68C;
-  color: #FFFF00; }
+  background-color: #FAFAD2;
+  color: #FFD700; }
 
 .container, header, .benefits, .proposal, .team .container-team, footer .container-footer, .add-run, .dashboard .main-dashboard {
   width: 70%; }
@@ -721,7 +721,8 @@ footer {
       margin-left: 70px; }
     .dashboard .main-trip a:hover {
       text-decoration: none; }
-    .dashboard .main-trip .trip-div:hover .delete-my-run {
+    .dashboard .main-trip .trip-div:hover .delete-my-run,
+    .dashboard .main-trip .trip-div:hover .reserve-run {
       visibility: visible;
       z-index: 100; }
     .dashboard .main-trip .trip-div {
@@ -735,6 +736,15 @@ footer {
           font-size: 1.4rem;
           padding: 0px 5px;
           background-color: #c71b1b; }
+      .dashboard .main-trip .trip-div .reserve-run {
+        visibility: hidden;
+        position: absolute;
+        top: 5px;
+        right: 10px; }
+        .dashboard .main-trip .trip-div .reserve-run button {
+          font-size: 1.4rem;
+          padding: 0px 5px;
+          background-color: #88DB15; }
     .dashboard .main-trip .trip {
       display: flex;
       justify-content: space-between;

@@ -35,8 +35,8 @@
 	}
 
 	.alert-warning {
-		background-color: #F0E68C;
-		color: #FFFF00;
+		background-color: #FAFAD2;
+		color: #FFD700;
 	}
 
 	.container {
@@ -889,7 +889,8 @@
 				text-decoration: none
 			}
 
-			.trip-div:hover .delete-my-run {
+			.trip-div:hover .delete-my-run,
+			.trip-div:hover .reserve-run {
 				visibility: visible;
 				z-index: 100;
 			}
@@ -907,6 +908,19 @@
 						font-size: 1.4rem;
 						padding: 0px 5px;
 						background-color: $red;
+					}
+				}
+
+				.reserve-run {
+					visibility: hidden;
+					position: absolute;
+					top: 5px;
+					right: 10px;
+
+					button {
+						font-size: 1.4rem;
+						padding: 0px 5px;
+						background-color: $green;
 					}
 				}
 			}
