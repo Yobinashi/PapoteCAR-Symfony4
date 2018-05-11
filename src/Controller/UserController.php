@@ -143,21 +143,17 @@ class UserController extends Controller
             //trouve l'user à éditer et hydrate une variable $member avec les info
             $member = $em->getRepository(Member::class)->find($this->getUser()->getId());
 
-
             //donne au formulaire les infos de $member afin de préremplir les champs et traite le formulaire
             $registerForm = $this->createForm(RegisterType::class, $member);
             $originalPicture = $member->getPicture();
             $registerForm->handleRequest($req);
 
-
                 if($registerForm->isSubmitted() && $registerForm->isValid()){
-
                     //si le user a rempli le champ "password", le change
                     //s'il n'a pas rempli le champs, le laisse comme à l'origine
                     if(!$registerForm->get('password')->getData() === null){
                         $encoded= $enc->encodePassword($member, $registerForm->get('password')->getData());
                         $member->setPassword($encoded);
-
                     }
 
                     if($registerForm->get('picture')->getData() == null){
@@ -165,8 +161,6 @@ class UserController extends Controller
                             new File($this->getParameter('img_upload').'/'.$originalPicture);
                             $member->setPicture($originalPicture);
                     }else{
-
-
                         $originalFileAddress = $this->getParameter('img_upload').'/'.$originalPicture;
 
                         if (file_exists($originalFileAddress)){
@@ -180,9 +174,7 @@ class UserController extends Controller
                         $file->move($this->getParameter('img_upload'), $fileName);
 
                         $member->setPicture($fileName);
-
                     }
-
 
                     $em->flush();
                     return $this->redirectToRoute("home");

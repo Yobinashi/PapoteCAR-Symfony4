@@ -49,4 +49,21 @@ class RunRepository extends ServiceEntityRepository
         return $query->getResult();
 
     }
+
+    // créer un objet json de la table run
+    /*public function objectJson(){
+        try 
+        {
+            $dbh = new PDO('mysql://root@127.0.0.1:3306/papotecar');
+    
+            $rq = $dbh->query('SELECT * FROM run');
+            $obj = $rq->fetchAll();
+    
+            // conversion en json
+            $json_output = json_encode($obj);
+        }
+        catch(PDOException $e) {
+            echo $e->getMessage();
+        }
+    }*/
 }

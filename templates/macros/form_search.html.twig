@@ -14,6 +14,8 @@
             <img src="{{ asset('img/calendar.png') }}" alt="Une icone de calendrier">
             <input type="date" name="departure-schedule" placeholder="date de départ">
         </div>
-        <button type="submit">Rechercher</button> <!-- Diriger vers la recherche -->
+        <form action="{{ path('listRuns') }}">
+            <button type="submit">Rechercher</button> <!-- Diriger vers la recherche -->
+        </form>
     </form>
 {% endmacro %}

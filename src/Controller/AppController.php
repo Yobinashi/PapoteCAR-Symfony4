@@ -31,11 +31,9 @@ class AppController extends Controller
     /**
      * @Route("/tableau-de-bord/rechercher-un-trajet", name="searchride")
      */
-    public function searchRide(EntityManagerInterface $em)
+    public function searchRide(EntityManagerInterface $em) // NE MARCHE PAS
     {
         $runs = $em->getRepository(Run::class)->searchRunByDepartureArrivalAndDate($this->getID());
         return $this->render('tableau/search-ride.html.twig', ['runs'=>$runs]);
     }
-
-
 }
