@@ -9,13 +9,13 @@
          <div class="add-run">
              <div class="connect-form">
                 {{ form_start(runForm) }}
-                {{ form_row(runForm.departure, { 'label': '* Ville de départ' }) }}
-                {{ form_row(runForm.arrival, { 'label': '* Ville d\'arrivée' }) }}
-                {{ form_row(runForm.departureDate, { 'label': '* Date du départ' }) }}
-                {{ form_row(runForm.departureTime, { 'label': '* Heure du départ' }) }}
-                {{ form_row(runForm.places, { 'label': '* Nbr de places' }) }}
-                {{ form_row(runForm.price, { 'label': '* Prix par personnes en €' }) }}
-                {{ form_row(runForm.submit) }}
+                    {{ form_row(runForm.departure, { 'label': '* Ville de départ' }) }}
+                    {{ form_row(runForm.arrival, { 'label': '* Ville d\'arrivée' }) }}
+                    {{ form_row(runForm.departureDate, { 'label': '* Date du départ' }) }}
+                    {{ form_row(runForm.departureTime, { 'label': '* Heure du départ' }) }}
+                    {{ form_row(runForm.places, { 'label': '* Nbr de places' }) }}
+                    {{ form_row(runForm.price, { 'label': '* Prix par personnes en €' }) }}
+                    {{ form_row(runForm.submit) }}
                 {{ form_end(runForm) }}
             </div>
             <div class="map-form-run">

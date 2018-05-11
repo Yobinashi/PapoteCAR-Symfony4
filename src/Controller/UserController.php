@@ -57,7 +57,7 @@ class UserController extends Controller
             $this->container->get('session')->set('_security_main', serialize($token));
 
             //redirecte vers tableau de bord
-            return $this->redirectToRoute("ridecourt");
+            return $this->redirectToRoute("myRun");
         }
         return $this->render('user/register.html.twig', ["registerForm"=>$registerForm->createView()]);
     }
@@ -67,7 +67,7 @@ class UserController extends Controller
      */
     public function login(Request $request, AuthenticationUtils $auth){
         if($this->getUser()){
-            return $this->redirectToRoute('ridecourt');
+            return $this->redirectToRoute('myRun');
         }
         $error = $auth->getLastAuthenticationError();
         $lastUsername = $auth->getLastUsername();

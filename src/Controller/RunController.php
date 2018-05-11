@@ -37,7 +37,7 @@ class RunController extends Controller
                 $em->flush();
 
                 $this->addFlash('success', 'Votre trajet à bien été ajouté');
-                return $this->redirectToRoute('ridecourt');
+                return $this->redirectToRoute('myRun');
             }
             
             return $this->render('run/addRun.html.twig', ["runForm" => $form->createView()]);
@@ -91,7 +91,7 @@ class RunController extends Controller
 
             }else{
                 $this->addFlash('danger', 'Vous ne pouvez pas mettre ce trajet à jour');
-                return $this->redirectToRoute('account');
+                return $this->redirectToRoute('myRun');
             }
         }else{
             return $this->redirectToRoute('home');
@@ -111,7 +111,7 @@ class RunController extends Controller
      */
     public function listRuns(EntityManagerInterface $em){
         $runs = $em->getRepository(Run::class)->findAll();
-        return $this->render('tableau/search_ride.html.twig', ['runs'=> $runs]);
+        return $this->render('tableau/search_run.html.twig', ['runs'=> $runs]);
 
     }
 

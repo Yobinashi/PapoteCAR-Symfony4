@@ -6,6 +6,7 @@ use App\Entity\Member;
 use App\Entity\Run;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @method Run|null find($id, $lockMode = null, $lockVersion = null)
@@ -21,33 +22,42 @@ class RunRepository extends ServiceEntityRepository
     }
 
     public function selectRunsByDriversWhereDepartureSupNow(Member $user){
+        $date = new \DateTime('-3 days', new \DateTimeZone('Europe/Paris'));
         $qb = $this->createQueryBuilder('r');
 
         $qb->andWhere("r.driver = :driver");
+        $qb->andWhere("r.departureDate >= :date");
+        $qb->setParameter(':date', $date);
         $qb->setParameter(':driver', $user);
-        $qb->addOrderBy('r.departureDate', 'ASC');
+        $qb->addOrderBy('r.departureDate', 'DESC');
         $qb->addOrderBy('r.departureTime', 'ASC');
 
         $query = $qb->getQuery();
         return $query->getResult();
     }
 
-    public function searchRunByDepartureArrivalAndDate(Run $run){
+    public function searchRun(string $departure, string $arrival, \DateTime $date){
+
+        $date = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         $qb = $this->createQueryBuilder('r');
-//        $dateDay = explode('-',);
-//        var_dump($dateDay[1]);
-        $qb->andWhere("r.departure = :departure");
-        $qb->andWhere("r.arrival = :arrival");
-        $qb->andWhere("r.departure");
-        $qb->andWhere('r.departureDate = :departureDate');
-        $qb->setParameter(":departure",$departure);
-        $qb->setParameter(":arrival",$arrival);
-        $qb->setParameter(":departureDate", $departureDate);
 
-        $query  = $qb->getQuery();
+        $qb->andWhere("r.departureDate >= :date");
+        $qb->setParameter(':date', $date);
+
+        $qb->andWhere("r.departure LIKE :departure");
+        $qb->andWhere("r.arrival LIKE :arrival");
+
+        $qb->setParameter(':departure', $departure.'%');
+        $qb->setParameter(':arrival', $arrival.'%');
+        $qb->addOrderBy('r.departureDate', 'ASC');
+        $qb->addOrderBy('r.departureTime', 'ASC');
+        $qb->leftJoin('r.driver', 'd')->addSelect('d');
+
+        $qb->setMaxResults(50);
+
+        $query = $qb->getQuery();
         return $query->getResult();
-
     }
 
     // créer un objet json de la table run

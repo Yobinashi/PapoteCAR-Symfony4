@@ -5,6 +5,7 @@
     <h3>Vos trajets</h3>
     {% for run in runs %}
         <div class="trip-div">
+<<<<<<< HEAD:templates/tableau/ride_to_court.html.twig
             <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
                 <form action="{{ path('deleteRun', {'id': run.id}) }}">
                     <button class="delete">x</button>
@@ -31,11 +32,34 @@
         {% else %}
         <div class="account-runs-detail">
             <p><span class="account-noRun">Vous n'avez pas encore proposé de trajets</span></h2>
+=======
+
+        <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
+            <button class="delete" onclick="deleteRun()">x</button>
+            <div class="img-rider">
+                {% if app.user.picture != null %}
+                    <div class="img-profil-rider" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
+                {% else %}
+                    <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                {% endif %}
+            </div>
+            <div class="name-step">
+                <p class="name">{{ run.driver.firstname | upper }} {{ run.driver.lastname }}</p>
+                <p class="phone">Contact : <span>0{{ run.driver.tel }}</span></p>
+                <p class="city">{{ run.departure }}<span>--></span> {{ run.arrival }}</p>
+            </div>
+            <div class="date-ride">
+                <p class="day">{{ run.departureDate.format('d') }}</p>
+                <p class="month">{{ run.departureDate.format('F') }}</p>
+                <p class="hour">{{ run.departureTime.format('H') }}<span>H</span>{{ run.departureTime.format('i') }}</p>
+            </div>
+        </a>
+>>>>>>> origin-Jor/master:templates/tableau/my_run.html.twig
         </div>
     {% endfor %}
 
 
-    <form action="{{ path('searchride') }}">
+    <form action="{{ path('searchRun') }}">
         <button style="width: 250px;">Rechercher un trajet</button>
     </form>
     <p style="margin: 2px 125px;">ou</p>

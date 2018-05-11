@@ -121,6 +121,8 @@
 
 	input[type="date"] {
 		width: 130px;
+		font-size: 1.2rem;
+		cursor: pointer;
 	}
 
 	input[type="time"] {
@@ -134,14 +136,13 @@
 	}
 
 	.input-icon {
-		padding: 0 10px;
 		position: relative;
 
 		img {
 			position: absolute;
 			width: 15px;
 			height: 15px;
-			left: 20px;
+			left: 15px;
 		}
 	}
 
@@ -190,6 +191,8 @@
 			input {	
 				padding-left: 30px;
 				max-width: 150px;
+				margin: auto 5px;
+				flex: 1;
 			}
 		}
 	}
@@ -361,6 +364,7 @@
 
 			.form-search {
 				margin-bottom: 30px;
+
 			}
 		}
 
@@ -948,6 +952,13 @@
 						border-bottom: $borderTitle;
 						font-size: 2.6rem;
 						color: $black;
+						display: flex;
+						justify-content: space-between;
+
+						.drive_price {
+							color: $rose;
+						}
+
 					}
 
 					.phone {
@@ -955,21 +966,23 @@
 						font-size: 1rem;
 
 						span {
-							color: $black;
+							color: $rose;
 							font-size: 1.6rem;
 						}
 					}
 
 					.city {
-						color: $black;
+						color: $rose;
 						text-transform: uppercase;
 						font-size: 1.7rem;
 						padding-top: 10px;
 						padding-left: 10px;
 						list-style: circle;
+						font-family: $latoBlack;
 
 						span {
 							margin: 0px 10px;
+							color: $black;
 						}
 					}
 				}
@@ -978,12 +991,12 @@
 					@extend .flex-center;
 					flex-direction: column;
 					width: 150px;
-					
+
 					.day {
 						padding-top: 10px;
 						line-height: 2rem;
 						color: $rose;
-						font-size: 4rem;
+						font-size: 3.5rem;
 					}
 
 					.month {
@@ -992,7 +1005,8 @@
 					}
 
 					.hour {
-						color: $black;
+						color: $rose;
+						font-size: 2rem;
 					}
 				}
 

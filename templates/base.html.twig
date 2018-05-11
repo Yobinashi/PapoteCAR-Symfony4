@@ -39,9 +39,9 @@
                     <div class="menu">
                         <img class="burger" src="{{ asset('img/menu.png') }}" alt="icon burger du menu utilisateur" size="100">
                         <ul class="nav">
-                            <li><a href="{{ path('ridecourt') }}">Tableau de bord</a></li>
+                            <li><a href="{{ path('myRun') }}">Tableau de bord</a></li>
                             <li class="border-top"><a href="{{ path('addRun') }}">Proposer un trajet</a></li>
-                            <li class="border-top"><a href="{{ path('searchride') }}">Rechercher un trajet</a></li>
+                            <li class="border-top"><a href="{{ path('searchRun') }}">Rechercher un trajet</a></li>
                             <li class="border-top"><a href="{{ path('account') }}">Mon profil</a></li>
                             <li class="border-top"><a href="{{ path('logout') }}">Se déconnecter</a></li>
                         </ul>
@@ -80,9 +80,33 @@
 				</ul>
 			</div>
         </footer>
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
         <script type="text/javascript"
            src="https://maps.googleapis.com/maps/api/js?libraries=places&types=(cities)&language=fr&region=fr&amp;key=AIzaSyDn3sbn2UzlDbSiTJxLib51hkW-aSk8mmo">
         </script>
         <script src="{{ asset('js/script.js') }}"></script>
+        <script>
+            $(document).ready( function() {
+
+                $('#search-run-submit').on("submit", function (e) {
+                    // e.preventDefault();
+                    var data = $(this).serialize();
+
+                    console.log(data);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ path('searchRunAjax') }}",
+                        data: data,
+                        success: function () {
+                        }
+                    });
+                });
+
+            });
+        </script>
     </body>
 </html>
