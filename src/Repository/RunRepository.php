@@ -22,11 +22,14 @@ class RunRepository extends ServiceEntityRepository
     }
 
     public function selectRunsByDriversWhereDepartureSupNow(Member $user){
+        $date = new \DateTime('-3 days', new \DateTimeZone('Europe/Paris'));
         $qb = $this->createQueryBuilder('r');
 
         $qb->andWhere("r.driver = :driver");
+        $qb->andWhere("r.departureDate >= :date");
+        $qb->setParameter(':date', $date);
         $qb->setParameter(':driver', $user);
-        $qb->addOrderBy('r.departureDate', 'ASC');
+        $qb->addOrderBy('r.departureDate', 'DESC');
         $qb->addOrderBy('r.departureTime', 'ASC');
 
         $query = $qb->getQuery();
@@ -36,18 +39,12 @@ class RunRepository extends ServiceEntityRepository
 
     public function searchRun(string $departure, string $arrival, \DateTime $date){
 
-        $datedefault = new \DateTime('now 00:00');
-        $timedefault = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
+        $date = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         $qb = $this->createQueryBuilder('r');
 
-        $qb->andWhere("r.departureDate = :date");
+        $qb->andWhere("r.departureDate >= :date");
         $qb->setParameter(':date', $date);
-
-        if ($date == $datedefault) {
-            $qb->andWhere("r.departureTime > :nowtime");
-            $qb->setParameter(':nowtime', $timedefault);
-        }
 
         $qb->andWhere("r.departure LIKE :departure");
         $qb->andWhere("r.arrival LIKE :arrival");

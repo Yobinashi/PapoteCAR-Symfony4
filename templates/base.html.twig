@@ -86,5 +86,25 @@
         <script type="text/javascript"
            src="https://maps.googleapis.com/maps/api/js?libraries=places&types=(cities)&language=fr&region=fr&amp;key=AIzaSyDn3sbn2UzlDbSiTJxLib51hkW-aSk8mmo"></script>
         <script src="{{ asset('js/script.js') }}"></script>
+        <script>
+            $(document).ready( function() {
+
+                $('#search-run-submit').on("submit", function (e) {
+                    e.preventDefault();
+                    var data = $(this).serialize();
+
+                    console.log(data);
+
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ path('searchRunAjax') }}",
+                        data: data,
+                        success: function () {
+                        }
+                    });
+                });
+
+            });
+        </script>
     </body>
 </html>

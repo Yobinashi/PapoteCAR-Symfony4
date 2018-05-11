@@ -28,28 +28,19 @@ class AppController extends Controller
         $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($this->getUser());
         return $this->render('tableau/my_run.html.twig', ['runs'=>$runs]);
     }
-    
+
     /**
      * @Route("/tableau-de-bord/rechercher-un-trajet", name="searchRun")
-     * @Method({"GET", "POST"})
+     *
      */
-    public function searchRide(EntityManagerInterface $em, Request $request)
+    public function searchRide(EntityManagerInterface $em)
     {
-        if($request->isXmlHttpRequest())
-        {
-            $departure = $request->request->get('departure');
-            $arrival = $request->request->get('arrival');
-            $dateEnter = $request->request->get('date');
-            $date = new \DateTime($dateEnter);
-        } else {
-            $departure = "";
-            $arrival = "";
-            $date = new \DateTime('now 00:00');
-        }
+        $departure = "";
+        $arrival = "";
+        $date = new \DateTime('now 00:00');
 
         $runs = $em->getRepository(Run::class)->searchRun($departure, $arrival, $date);
-        return $this->render('tableau/search_run.html.twig', ['runs'=>$runs]);
-
+            return $this->render('tableau/search_run.html.twig', ['runs' => $runs]);
 
     }
 
