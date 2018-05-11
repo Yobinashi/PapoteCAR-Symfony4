@@ -8,26 +8,13 @@
         </div>
         <div class="input-icon">
             <img src="{{ asset('img/destination.png') }}" alt="Une icone pour la destination">
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <input id="search-run-arrival" type="text" name="search-run-departure" placeholder="où allez-vous ?" value="{{ 'ok' }}">
-=======
-            <input id="search-run-arrival" type="text" name="arrival" placeholder="où allez-vous ?" required>
->>>>>>> origin-Jor/master
-=======
+            <!--<input id="search-run-arrival" type="text" name="arrival" placeholder="où allez-vous ?" required>-->
             <input id="search-run-arrival" type="text" name="arrival" placeholder="où allez-vous ?" onclick="this.value = '';">
->>>>>>> origin-Jor/master
         </div>
         <div class="input-icon">
             <img src="{{ asset('img/calendar.png') }}" alt="Une icone de calendrier">
             <input id="search-run-date" type="date" name="date" placeholder="date de départ">
         </div>
-<<<<<<< HEAD
-        <form action="{{ path('listRuns') }}">
-            <button type="submit">Rechercher</button> <!-- Diriger vers la recherche -->
-        </form>
-=======
         <button type="submit">Rechercher</button>
->>>>>>> origin-Jor/master
     </form>
 {% endmacro %}

@@ -68,7 +68,6 @@ class FakerFixtures extends Fixture implements FixtureInterface
             $city = '';
             $nbRand = rand(0,9);
             shuffle($cityTab);
-            $city = $cityTab[$nbRand];
 
             //$manager->persist($city);
 
@@ -77,11 +76,13 @@ class FakerFixtures extends Fixture implements FixtureInterface
             $run->setDriver($member);
             $run->setPlaces($faker->numberBetween($min = 1, $max = 5));
             $run->setPrice($faker->randomFloat(2,10,200));
+            $city = $cityTab[$nbRand];
             $run->setDeparture($city);
+            $nbRand = rand(0,9);
+            $city = $cityTab[$nbRand];
             $run->setArrival($city);
-            var_dump($city[0]);
             //$run->setDepartureSchedule($faker->dateTime('now',null));
-            $run->setDepartureDate($faker->dateTime('now',null));
+            $run->setDepartureDate($faker->dateTimeBetween('now', '+2 years', null));
             $run->setDepartureTime($faker->dateTime('now',null));
 
             $manager->persist($run);

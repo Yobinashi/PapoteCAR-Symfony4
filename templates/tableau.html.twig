@@ -11,16 +11,13 @@
             <li><a
                 class="{{ app.request.get('_route') == 'myRun' ? 'active' }}"
                 href="{{path('myRun')}}">Trajets en cours
-                </a></li>
+                </a>
+            </li>
             <li><a
-<<<<<<< HEAD
-                class="{{ app.request.get('_route') == 'searchRun' ? 'active' }}"
+                class="{{ app.request.get('_route') == 'searchRun' ? 'active' }} {{ app.request.get('_route') == 'searchRunAjax' ? 'active' }}"
                 href="{{path('searchRun')}}">Rechercher un trajet
-=======
-                        class="{{ app.request.get('_route') == 'searchRun' ? 'active' }} {{ app.request.get('_route') == 'searchRunAjax' ? 'active' }}"
-                        href="{{path('searchRun')}}">Rechercher un trajet
->>>>>>> origin-Jor/master
-                </a></li>
+                </a>
+            </li>
             <li><a href="">Les longs trajets</a></li>
             <li><a href="">Les commentaires</a></li>
         </ul>
@@ -37,7 +34,6 @@
                     {% endif %}
                 {% endif %}
 
-
                 {% if not app.user %}
                     <form action="{{ path('login') }}">
                         <button>Inscrivez-vous</button>
@@ -50,14 +46,11 @@
                     {#{% endif %}#}
                     <div class="p-profil">
                         <p class="name-profil">
-                            <span class="firstname">{{ app.user.firstname }} </span>
+                            <span class="firstname">{{ app.user.firstname }}</span>
                             <span class="lastname"> {{ app.user.lastname }}</span>
                         </p>
-
                         <p class="elements-profil"><span class="account-span">Email: </span>{{ app.user.email }}</p>
-
                         <p class="elements-profil"><span class="account-span">Tel: </span>0{{ app.user.tel }}</p>
-
                         <p class="elements-profil"><span class="account-span">Vehicule: </span> {% if app.user.vehicle != null %} {{ app.user.vehicle }} {% else %} <span class="not-note">pas de vehicule</span> {%  endif %}</p>
                     </div>
                     <form action="{{ path('editAccount') }}">

@@ -5,12 +5,10 @@
     <h3>Vos trajets</h3>
     {% for run in runs %}
         <div class="trip-div">
-<<<<<<< HEAD
-<<<<<<< HEAD:templates/tableau/ride_to_court.html.twig
             <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
-                <form action="{{ path('deleteRun', {'id': run.id}) }}">
-                    <button class="delete">x</button>
-                </form>
+            <form  class="delete-my-run" action="{{ path('deleteRun', {'id' : run.id}) }}">
+                <button onclick="deleteMyRun()">x</button>
+            </form>
                 <div class="img-rider">
                     {% if app.user.picture != null %}
                         <div class="img-profil-rider" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
@@ -19,7 +17,7 @@
                     {% endif %}
                 </div>
                 <div class="name-step">
-                    <p class="name"><span style="color: #E6146C;">{{ run.driver.firstname | upper }}</span> {{ run.driver.lastname }}</p>
+                    <p class="name">{{ run.driver.firstname | upper }} {{ run.driver.lastname }}</p>
                     <p class="phone">Nbr de places restantes : <span>{{ run.places }}</span> Prix : <span>{{ run.price }} €</span></p>
                     <p class="city">{{ run.departure }}<span>--></span>{{ run.arrival }}</p>
                 </div>
@@ -33,37 +31,11 @@
         {% else %}
         <div class="account-runs-detail">
             <p><span class="account-noRun">Vous n'avez pas encore proposé de trajets</span></h2>
-=======
-=======
-            <form  class="delete-my-run" action="{{ path('deleteRun', {'id' : run.id}) }}">
+            {#<form  class="delete-my-run" action="{{ path('deleteRun', {'id' : run.id}) }}">
                 <button onclick="deleteMyRun()">x</button>
-            </form>
-
->>>>>>> origin-Jor/master
-
-        <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
-            <div class="img-rider">
-                {% if app.user.picture != null %}
-                    <div class="img-profil-rider" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
-                {% else %}
-                    <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
-                {% endif %}
-            </div>
-            <div class="name-step">
-                <p class="name">{{ run.driver.firstname | upper }} {{ run.driver.lastname }}</p>
-                <p class="phone">Contact : <span>0{{ run.driver.tel }}</span></p>
-                <p class="city">{{ run.departure }}<span>--></span> {{ run.arrival }}</p>
-            </div>
-            <div class="date-ride">
-                <p class="day">{{ run.departureDate.format('d') }}</p>
-                <p class="month">{{ run.departureDate.format('F') }}</p>
-                <p class="hour">{{ run.departureTime.format('H') }}<span>H</span>{{ run.departureTime.format('i') }}</p>
-            </div>
-        </a>
->>>>>>> origin-Jor/master:templates/tableau/my_run.html.twig
+            </form>#}
         </div>
     {% endfor %}
-
 
     <form action="{{ path('searchRun') }}">
         <button style="width: 250px;">Rechercher un trajet</button>

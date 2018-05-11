@@ -33,19 +33,13 @@ class AppController extends Controller
      * @Route("/tableau-de-bord/rechercher-un-trajet", name="searchRun")
      *
      */
-    public function searchRide(EntityManagerInterface $em) // NE MARCHE PAS
+    public function searchRide(EntityManagerInterface $em)
     {
-<<<<<<< HEAD
-        $runs = $em->getRepository(Run::class)->searchRunByDepartureArrivalAndDate($this->getID());
-        return $this->render('tableau/search-ride.html.twig', ['runs'=>$runs]);
-=======
         $departure = "";
         $arrival = "";
         $date = new \DateTime('now 00:00');
 
         $runs = $em->getRepository(Run::class)->searchRun($departure, $arrival, $date);
             return $this->render('tableau/search_run.html.twig', ['runs' => $runs]);
-
->>>>>>> origin-Jor/master
     }
 }
