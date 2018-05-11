@@ -5,7 +5,8 @@ namespace App\Controller;
 use App\Entity\Run;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
+use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class SearchRunController extends Controller
@@ -17,8 +18,6 @@ class SearchRunController extends Controller
      */
     public function searchRun(Request $request)
     {
-        var_dump($request);
-        if($request->isXmlHttpRequest()) {
             $departure = $request->request->get('departure');
             $arrival = $request->request->get('arrival');
             $dateEnter = $request->request->get('date');
@@ -31,7 +30,6 @@ class SearchRunController extends Controller
 
             $runs = $repository->searchRun($departure, $arrival, $date);
             return $this->render('tableau/search_run.html.twig', ['runs' => $runs]);
-        }
 
     }
 }
