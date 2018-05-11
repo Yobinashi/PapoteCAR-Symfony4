@@ -64,7 +64,7 @@ class RunController extends Controller
                 return $this->redirectToRoute('account');
             }
         }else{
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('myRun');
         }
     }
 

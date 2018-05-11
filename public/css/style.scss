@@ -121,7 +121,7 @@
 
 	input[type="date"] {
 		width: 130px;
-		font-size: 1.2rem;
+		font-size: 1.4rem;
 		cursor: pointer;
 	}
 
@@ -854,6 +854,7 @@
 
 				.elements-profil span {
 					color: $rose;
+					font-size: 1.2rem;
 				}
 
 				.img-profil {
@@ -887,9 +888,27 @@
 			a:hover {
 				text-decoration: none
 			}
-			a:hover button.delete {
+
+			.trip-div:hover .delete-my-run {
 				visibility: visible;
 				z-index: 100;
+			}
+
+			.trip-div {
+				position: relative;
+
+				.delete-my-run {
+					visibility: hidden;
+					position: absolute;
+					top: 5px;
+					right: 10px;
+
+					button {
+						font-size: 1.4rem;
+						padding: 0px 5px;
+						background-color: $red;
+					}
+				}
 			}
 
 			.trip {
@@ -899,20 +918,9 @@
 				padding:10px 20px;
 				background-color: $white;
 				margin: 20px;
-				position: relative;
 
 				.form-search {
 					margin: 30px auto;
-				}
-				
-				button.delete {
-					font-size: 1.4rem;
-					position: absolute;
-					top: 5px;
-					right: -10px;
-					padding: 0px 5px;
-					visibility: hidden;
-					background-color: $red;
 				}
 
 				p {

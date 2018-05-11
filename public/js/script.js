@@ -209,10 +209,8 @@ function affichageFunction() {
     document.getElementById("panel_distance").innerHTML = distance_trip;
 }
 
-<<<<<<< HEAD
-/**
- * Requestes AJAX pour la recherche d'un trajet
- */
-=======
 document.getElementById('search-run-date').valueAsDate = new Date();
->>>>>>> origin-Jor/master
+
+function deleteMyRun() {
+    alert('en êtes vous sur ?');
+}

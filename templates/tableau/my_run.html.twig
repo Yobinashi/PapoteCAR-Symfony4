@@ -5,6 +5,7 @@
     <h3>Vos trajets</h3>
     {% for run in runs %}
         <div class="trip-div">
+<<<<<<< HEAD
 <<<<<<< HEAD:templates/tableau/ride_to_court.html.twig
             <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
                 <form action="{{ path('deleteRun', {'id': run.id}) }}">
@@ -33,9 +34,14 @@
         <div class="account-runs-detail">
             <p><span class="account-noRun">Vous n'avez pas encore proposé de trajets</span></h2>
 =======
+=======
+            <form  class="delete-my-run" action="{{ path('deleteRun', {'id' : run.id}) }}">
+                <button onclick="deleteMyRun()">x</button>
+            </form>
+
+>>>>>>> origin-Jor/master
 
         <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
-            <button class="delete" onclick="deleteRun()">x</button>
             <div class="img-rider">
                 {% if app.user.picture != null %}
                     <div class="img-profil-rider" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>

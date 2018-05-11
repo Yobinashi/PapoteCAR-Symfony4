@@ -91,9 +91,11 @@
         <script>
             $(document).ready( function() {
 
-                $('#search-run-submit').on("submit", function (e) {
-                    // e.preventDefault();
+                $('#search-run-submit').on("click", function (e) {
                     var data = $(this).serialize();
+                    $('#search-run-departure').val($('#search-run-departure').val());
+                    $('#search-run-arrival').val($('#search-run-arrival').val());
+                    $('#search-run-date').val();
 
                     console.log(data);
 

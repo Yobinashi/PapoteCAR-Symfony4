@@ -306,7 +306,6 @@ h4 {
 }
 
 a {
-<<<<<<< HEAD
     color: #88DB15;
 }
 
@@ -344,6 +343,8 @@ input[placeholder],
 input[type="date"],
 .connect-form form>div select[type="date"] {
     width: 130px;
+    font-size: 1.4rem;
+    cursor: pointer;
 }
 
 input[type="time"],
@@ -360,7 +361,6 @@ input[name="place"],
 
 .input-icon,
 .connect-form form .checked {
-    padding: 0 10px;
     position: relative;
 }
 
@@ -369,56 +369,8 @@ input[name="place"],
     position: absolute;
     width: 15px;
     height: 15px;
-    left: 20px;
+    left: 15px;
 }
-=======
-  color: #88DB15; }
-
-input, .connect-form form > div select, .connect-form form > div > div > div select {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-  border: 0.5px solid #CCCCCC;
-  height: 34px;
-  outline: none;
-  font-size: 1.6rem; }
-
-input:focus, .connect-form form > div select:focus {
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-  border: 0.5px solid #88DB15;
-  -webkit-box-shadow: 0px 0px 3px #88DB15;
-  -moz-box-shadow: 0px 0px 3px #88DB15;
-  -ms-box-shadow: 0px 0px 3px #88DB15;
-  box-shadow: 0px 0px 3px #88DB15; }
-
-input[placeholder], .connect-form form > div select[placeholder] {
-  text-transform: none; }
-
-input[type="date"], .connect-form form > div select[type="date"] {
-  width: 130px;
-  font-size: 1.2rem;
-  cursor: pointer; }
-
-input[type="time"], .connect-form form > div select[type="time"] {
-  width: 70px;
-  color: rgba(0, 0, 0, 0.6);
-  margin-right: 0px; }
-
-input[name="place"], .connect-form form > div select[name="place"] {
-  width: 30px; }
-
-.input-icon, .connect-form form .checked {
-  position: relative; }
-  .input-icon img, .connect-form form .checked img {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    left: 15px; }
->>>>>>> origin-Jor/master
 
 button {
     -webkit-border-radius: 70px;
@@ -443,7 +395,6 @@ button:hover {
 }
 
 .title-h2 {
-<<<<<<< HEAD
     border-bottom: 1px solid #88DB15;
     display: inline-block;
     margin-bottom: 30px;
@@ -472,26 +423,9 @@ button:hover {
 .connect-form form>div .form-search .checked select {
     padding-left: 30px;
     max-width: 150px;
+    margin: auto 5px;
+    flex: 1;
 }
-=======
-  border-bottom: 1px solid #88DB15;
-  display: inline-block;
-  margin-bottom: 30px; }
-  .title-h2 .title-h2-inline {
-    display: flex; }
-    .title-h2 .title-h2-inline div {
-      display: flex;
-      align-items: flex-end; }
-      .title-h2 .title-h2-inline div img {
-        max-width: 100px;
-        padding-right: 20px; }
-
-.form-search .input-icon input, .form-search .connect-form form .checked input, .connect-form form .form-search .checked input, .form-search .input-icon .connect-form form > div select, .connect-form form > div .form-search .input-icon select, .form-search .connect-form form > div .checked select, .connect-form form > div .form-search .checked select {
-  padding-left: 30px;
-  max-width: 150px;
-  margin: auto 5px;
-  flex: 1; }
->>>>>>> origin-Jor/master
 
 .firstname {
     text-transform: uppercase;
@@ -1176,6 +1110,7 @@ footer .container-footer ul li a:hover {
 
 .dashboard .main-dashboard .column-profil .elements-profil span {
     color: #E6146C;
+    font-size: 1.2rem;
 }
 
 .dashboard .main-dashboard .column-profil .img-profil {
@@ -1199,7 +1134,6 @@ footer .container-footer ul li a:hover {
 
 .dashboard .main-trip {
     margin-left: 50px;
-<<<<<<< HEAD
     width: 100%;
 }
 
@@ -1212,9 +1146,26 @@ footer .container-footer ul li a:hover {
     text-decoration: none;
 }
 
-.dashboard .main-trip a:hover button.delete {
+.dashboard .main-trip .trip-div:hover .delete-my-run {
     visibility: visible;
     z-index: 100;
+}
+
+.dashboard .main-trip .trip-div {
+    position: relative;
+}
+
+.dashboard .main-trip .trip-div .delete-my-run {
+    visibility: hidden;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.dashboard .main-trip .trip-div .delete-my-run button {
+    font-size: 1.4rem;
+    padding: 0px 5px;
+    background-color: #c71b1b;
 }
 
 .dashboard .main-trip .trip {
@@ -1223,21 +1174,10 @@ footer .container-footer ul li a:hover {
     padding: 10px 20px;
     background-color: #fff;
     margin: 20px;
-    position: relative;
 }
 
 .dashboard .main-trip .trip .form-search {
     margin: 30px auto;
-}
-
-.dashboard .main-trip .trip button.delete {
-    font-size: 1.4rem;
-    position: absolute;
-    top: 5px;
-    right: -10px;
-    padding: 0px 5px;
-    visibility: hidden;
-    background-color: #c71b1b;
 }
 
 .dashboard .main-trip .trip p {
@@ -1281,6 +1221,12 @@ footer .container-footer ul li a:hover {
     border-bottom: 1px solid #88DB15;
     font-size: 2.6rem;
     color: #1b1b1b;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard .main-trip .trip .name-step .name .drive_price {
+    color: #E6146C;
 }
 
 .dashboard .main-trip .trip .name-step .phone {
@@ -1289,21 +1235,23 @@ footer .container-footer ul li a:hover {
 }
 
 .dashboard .main-trip .trip .name-step .phone span {
-    color: #1b1b1b;
+    color: #E6146C;
     font-size: 1.6rem;
 }
 
 .dashboard .main-trip .trip .name-step .city {
-    color: #1b1b1b;
+    color: #E6146C;
     text-transform: uppercase;
     font-size: 1.7rem;
     padding-top: 10px;
     padding-left: 10px;
     list-style: circle;
+    font-family: "latoBlack", arial, sans-serif;
 }
 
 .dashboard .main-trip .trip .name-step .city span {
     margin: 0px 10px;
+    color: #1b1b1b;
 }
 
 .dashboard .main-trip .trip .date-ride {
@@ -1315,7 +1263,7 @@ footer .container-footer ul li a:hover {
     padding-top: 10px;
     line-height: 2rem;
     color: #E6146C;
-    font-size: 4rem;
+    font-size: 3.5rem;
 }
 
 .dashboard .main-trip .trip .date-ride .month {
@@ -1324,101 +1272,10 @@ footer .container-footer ul li a:hover {
 }
 
 .dashboard .main-trip .trip .date-ride .hour {
-    color: #1b1b1b;
+    color: #E6146C;
+    font-size: 2rem;
 }
 
-=======
-    width: 100%; }
-    .dashboard .main-trip h3 {
-      font-weight: normal;
-      margin-left: 70px; }
-    .dashboard .main-trip a:hover {
-      text-decoration: none; }
-    .dashboard .main-trip a:hover button.delete {
-      visibility: visible;
-      z-index: 100; }
-    .dashboard .main-trip .trip {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 20px;
-      background-color: #fff;
-      margin: 20px;
-      position: relative; }
-      .dashboard .main-trip .trip .form-search {
-        margin: 30px auto; }
-      .dashboard .main-trip .trip button.delete {
-        font-size: 1.4rem;
-        position: absolute;
-        top: 5px;
-        right: -10px;
-        padding: 0px 5px;
-        visibility: hidden;
-        background-color: #c71b1b; }
-      .dashboard .main-trip .trip p {
-        margin: 0px auto; }
-      .dashboard .main-trip .trip .img-rider {
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        width: 100px; }
-        .dashboard .main-trip .trip .img-rider .img-profil-rider {
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          -ms-border-radius: 50%;
-          border-radius: 50%;
-          background-size: cover;
-          background-position: center;
-          height: 100px;
-          width: 100px; }
-        .dashboard .main-trip .trip .img-rider p {
-          color: #787878;
-          font-size: 1rem; }
-      .dashboard .main-trip .trip .name-step {
-        width: 100%;
-        margin: 0px 20px; }
-        .dashboard .main-trip .trip .name-step > div {
-          display: flex;
-          justify-content: space-between; }
-        .dashboard .main-trip .trip .name-step .name {
-          border-bottom: 1px solid #88DB15;
-          font-size: 2.6rem;
-          color: #1b1b1b;
-          display: flex;
-          justify-content: space-between; }
-          .dashboard .main-trip .trip .name-step .name .drive_price {
-            color: #E6146C; }
-        .dashboard .main-trip .trip .name-step .phone {
-          color: #787878;
-          font-size: 1rem; }
-          .dashboard .main-trip .trip .name-step .phone span {
-            color: #E6146C;
-            font-size: 1.6rem; }
-        .dashboard .main-trip .trip .name-step .city {
-          color: #E6146C;
-          text-transform: uppercase;
-          font-size: 1.7rem;
-          padding-top: 10px;
-          padding-left: 10px;
-          list-style: circle;
-          font-family: "latoBlack", arial, sans-serif; }
-          .dashboard .main-trip .trip .name-step .city span {
-            margin: 0px 10px;
-            color: #1b1b1b; }
-      .dashboard .main-trip .trip .date-ride {
-        flex-direction: column;
-        width: 150px; }
-        .dashboard .main-trip .trip .date-ride .day {
-          padding-top: 10px;
-          line-height: 2rem;
-          color: #E6146C;
-          font-size: 3.5rem; }
-        .dashboard .main-trip .trip .date-ride .month {
-          color: #787878;
-          text-transform: uppercase; }
-        .dashboard .main-trip .trip .date-ride .hour {
-          color: #E6146C;
-          font-size: 2rem; }
->>>>>>> origin-Jor/master
 
 /* END DASHBOARD PAGE */
 
