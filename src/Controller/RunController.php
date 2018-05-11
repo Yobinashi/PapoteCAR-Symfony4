@@ -59,10 +59,10 @@ class RunController extends Controller
                 $em->remove($run);
                 $em->flush();
                 $this->addFlash('success', 'Votre trajet a bien été annulé');
-                return $this->redirectToRoute('account');
+                return $this->redirectToRoute('myRun');
             }else{
                 $this->addFlash('danger', 'Vous ne pouvez pas supprimer ce trajet');
-                return $this->redirectToRoute('account');
+                return $this->redirectToRoute('myRun');
             }
         }else{
             return $this->redirectToRoute('myRun');
