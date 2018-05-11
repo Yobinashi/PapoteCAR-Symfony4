@@ -21,7 +21,6 @@ class RunType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-
         $dateOfDay = new \DateTime("now", new \DateTimeZone('Europe/Sofia'));
 
         $builder

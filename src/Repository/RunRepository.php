@@ -37,7 +37,6 @@ class RunRepository extends ServiceEntityRepository
     }
 
     public function searchRun(string $departure, string $arrival, \DateTime $date){
-
         $date = new \DateTime('now', new \DateTimeZone('Europe/Paris'));
 
         $qb = $this->createQueryBuilder('r');
