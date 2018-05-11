@@ -13,7 +13,7 @@
                         href="{{path('myRun')}}">Trajets en cours
                 </a></li>
             <li><a
-                        class="{{ app.request.get('_route') == 'searchRun' ? 'active' }}"
+                        class="{{ app.request.get('_route') == 'searchRun' ? 'active' }} {{ app.request.get('_route') == 'searchRunAjax' ? 'active' }}"
                         href="{{path('searchRun')}}">Rechercher un trajet
                 </a></li>
             <li><a href="">Les longs trajets</a></li>

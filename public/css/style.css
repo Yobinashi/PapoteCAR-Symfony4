@@ -211,7 +211,7 @@ input[placeholder], .connect-form form > div select[placeholder] {
 
 input[type="date"], .connect-form form > div select[type="date"] {
   width: 130px;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   cursor: pointer; }
 
 input[type="time"], .connect-form form > div select[type="time"] {
@@ -698,7 +698,8 @@ footer {
         color: #CCCCCC;
         font-style: italic; }
       .dashboard .main-dashboard .column-profil .elements-profil span {
-        color: #E6146C; }
+        color: #E6146C;
+        font-size: 1.2rem; }
       .dashboard .main-dashboard .column-profil .img-profil {
         -webkit-border-radius: 50%;
         -moz-border-radius: 50%;
@@ -720,26 +721,28 @@ footer {
       margin-left: 70px; }
     .dashboard .main-trip a:hover {
       text-decoration: none; }
-    .dashboard .main-trip a:hover button.delete {
+    .dashboard .main-trip .trip-div:hover .delete-my-run {
       visibility: visible;
       z-index: 100; }
+    .dashboard .main-trip .trip-div {
+      position: relative; }
+      .dashboard .main-trip .trip-div .delete-my-run {
+        visibility: hidden;
+        position: absolute;
+        top: 5px;
+        right: 10px; }
+        .dashboard .main-trip .trip-div .delete-my-run button {
+          font-size: 1.4rem;
+          padding: 0px 5px;
+          background-color: #c71b1b; }
     .dashboard .main-trip .trip {
       display: flex;
       justify-content: space-between;
       padding: 10px 20px;
       background-color: #fff;
-      margin: 20px;
-      position: relative; }
+      margin: 20px; }
       .dashboard .main-trip .trip .form-search {
         margin: 30px auto; }
-      .dashboard .main-trip .trip button.delete {
-        font-size: 1.4rem;
-        position: absolute;
-        top: 5px;
-        right: -10px;
-        padding: 0px 5px;
-        visibility: hidden;
-        background-color: #c71b1b; }
       .dashboard .main-trip .trip p {
         margin: 0px auto; }
       .dashboard .main-trip .trip .img-rider {

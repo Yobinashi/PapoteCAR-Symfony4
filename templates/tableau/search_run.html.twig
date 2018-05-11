@@ -35,5 +35,9 @@
 
         <p>Pas de trajets pour cette date</p>
 
+        <form action="{{ path('addRun') }}">
+            <button>Proposer un trajet</button> <!-- Diriger vers le formulaire Création de trajet-->
+        </form>
+
     {% endfor %}
 {% endblock %}
