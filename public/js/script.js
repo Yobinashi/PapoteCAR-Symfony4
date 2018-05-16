@@ -1,17 +1,17 @@
 // UPLOAD IMAGE DANS INSCRPTION.HTML
 
-/* function handle(input) {
+function handle(input) {
     console.log(input);
     if (input.files && input.files[0]) {
         var reader = new FileReader();
-        reader.onload = function (e) {
+        reader.onload = function(e) {
             var img = document.getElementById('choose-img');
-            img.setAttribute('style', 'background-image:url('+e.target.result+')');
+            img.setAttribute('style', 'background-image:url(' + e.target.result + ')');
         }
         reader.readAsDataURL(input.files[0]);
         console.log("Image chargé");
-    } 
-};*/
+    }
+};
 
 /**
  * form-search.html.twig

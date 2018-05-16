@@ -19,13 +19,21 @@
         {{ form_row(registerForm.vehicle, { 'label': 'Vehicule (si vous en avez un)' }) }}
         <div class="input-image">
             {{ form_row(registerForm.picture, { 'label': 'Choisir une image' }) }}
-            <div id="choose-img" style="background-image:url(http://placehold.it/100)"></div>
+             {% if app.user == null %}
+                <div id="choose-img" style="background-image:url(http://placehold.it/100)"></div>
+            {% else %}
+                <div id="choose-img" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
+            {% endif %}
         </div>
         <div class="checked">
             <input type="checkbox">
             <p>j'accepte <a href="#">les conditions générales</a></p>
         </div>
-        {{ form_row(registerForm.submit) }}
+        {% if app.user == null %}
+            {{ form_row(registerForm.submit) }}
+        {% else %}
+            {{ form_row(registerForm.submit, {'label': 'Modifier mon profil'}) }}
+        {% endif %}
         {{ form_end(registerForm) }}
     </main>
 {% endblock %}
