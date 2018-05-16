@@ -79,7 +79,7 @@ class Member implements UserInterface
     private $runsWhereIAmDriver;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Run", mappedBy="pasengers")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Run", mappedBy="passengers")
      */
     private $reservedRuns;
 
@@ -311,7 +311,7 @@ class Member implements UserInterface
     {
         if (!$this->reservedRuns->contains($reservedRun)) {
             $this->reservedRuns[] = $reservedRun;
-            $reservedRun->addPasenger($this);
+            $reservedRun->addPassenger($this);
         }
 
         return $this;
@@ -321,7 +321,7 @@ class Member implements UserInterface
     {
         if ($this->reservedRuns->contains($reservedRun)) {
             $this->reservedRuns->removeElement($reservedRun);
-            $reservedRun->removePasenger($this);
+            $reservedRun->removePassenger($this);
         }
 
         return $this;

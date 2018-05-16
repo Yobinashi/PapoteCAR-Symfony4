@@ -50,7 +50,7 @@
                             <span class="lastname"> {{ app.user.lastname }}</span>
                         </p>
                         <p class="elements-profil"><span class="account-span">Email: </span>{{ app.user.email }}</p>
-                        <p class="elements-profil"><span class="account-span">Tel: </span>0{{ app.user.tel }}</p>
+                        <p class="elements-profil"><span class="account-span">Tel: </span>{{ app.user.tel }}</p>
                         <p class="elements-profil"><span class="account-span">Vehicule: </span> {% if app.user.vehicle != null %} {{ app.user.vehicle }} {% else %} <span class="not-note">pas de vehicule</span> {%  endif %}</p>
                     </div>
                     <form action="{{ path('editAccount') }}">

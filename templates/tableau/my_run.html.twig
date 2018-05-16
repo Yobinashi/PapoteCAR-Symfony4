@@ -2,13 +2,15 @@
 
 {% block content %}
 
-    <h3>Vos trajets</h3>
+    <h3 class="title-dashboard">Vos trajets proposés</h3>
     {% for run in runs %}
         <div class="trip-div">
-            <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
-            <form  class="delete-my-run" action="{{ path('deleteRun', {'id' : run.id}) }}">
-                <button onclick="deleteMyRun()">x</button>
-            </form>
+           <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
+             <!--<form  class="delete-my-run" action="{{ path('deleteRun', {'id' : run.id}) }}">-->
+
+                <form id="delete-run"  class="delete-my-run" action="{{ path('deleteRun', {'id' : run.id}) }}">
+                    <button>x</button>
+                </form>
                 <div class="img-rider">
                     {% if app.user.picture != null %}
                         <div class="img-profil-rider" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
@@ -35,6 +37,65 @@
                 <button onclick="deleteMyRun()">x</button>
             </form>#}
         </div>
+
+        {#<script>
+            function deleteMyRun() {
+                if (confirm("Êtes vous sur de vouloir supprimer le trajet ?")) {
+                    // $('#delete-run').attr('action', $id);
+                    document.getElementById("delete-run").action="{{ path('deleteRun', {'id' : run.id}) }}";
+                    document.getElementById("delete-run").submit();
+                }
+                else {
+
+                }
+            }
+        </script>#}
+    {% endfor %}
+
+    <h3 class="title-dashboard">Vos trajets réservés</h3>
+    {% for run in app.user.reservedRuns %}
+        <div class="trip-div">
+            <form id="delete-place"  class="delete-my-run" action="{{ path('removePlace', {'id' : run.id}) }}">
+                <button>x</button>
+            </form>
+
+            <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
+                <div class="img-rider">
+                    {% if run.driver.picture != null %}
+                        <div class="img-profil-rider" style="background-image:url( '{{ asset('img_upload/' ~ run.driver.picture) }}' )"></div>
+                    {% else %}
+                        <div class="img-profil-rider" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                    {% endif %}
+                </div>
+                <div class="name-step">
+                    <p class="name">{{ run.driver.firstname | upper }} {{ run.driver.lastname }}</p>
+                    <p class="phone">Contact : <span>0{{ run.driver.tel }}</span></p>
+                    <p class="city">{{ run.departure }}<span>--></span> {{ run.arrival }}</p>
+                </div>
+                <div class="date-ride">
+                    <p class="day">{{ run.departureDate.format('d') }}</p>
+                    <p class="month">{{ run.departureDate.format('F') }}</p>
+                    <p class="hour">{{ run.departureTime.format('H') }}<span>H</span>{{ run.departureTime.format('i') }}</p>
+                </div>
+            </a>
+        </div>
+         {% else %}
+        <div class="account-runs-detail">
+            <p><span class="account-noRun">Vous n'avez pas de trajets réservés</span></h2>
+        </div>
+
+        {#<script>
+            function removeMyPlace() {
+                if (confirm("Êtes vous sur de vouloir supprimer le trajet ?")) {
+                    // $('#delete-run').attr('action', $id);
+                    document.getElementById("delete-place").action="{{ path('removePlace', {'id' : run.id}) }}";
+                    document.getElementById("delete-place").submit();
+                }
+                else {
+
+                }
+            }
+        </script>#}
     {% endfor %}
 
     <form action="{{ path('searchRun') }}">

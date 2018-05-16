@@ -102,21 +102,26 @@ class Run
     }
 
     /**
-     * @return mixed
+     * @return Collection|Member[]
      */
-    public function getPassengers()
+    public function getPassengers(): Collection
     {
         return $this->passengers;
     }
-
-    /**
-     * @param mixed $passengers
-     */
-    public function setPassengers($passengers): void
+    public function addPassenger(Member $passenger): self
     {
-        $this->passengers = $passengers;
+        if (!$this->passengers->contains($passenger)) {
+            $this->passengers[] = $passenger;
+        }
+        return $this;
     }
-
+    public function removePassenger(Member $passenger): self
+    {
+        if ($this->passengers->contains($passenger)) {
+            $this->passengers->removeElement($passenger);
+        }
+        return $this;
+    }
     /**
      * @return mixed
      */

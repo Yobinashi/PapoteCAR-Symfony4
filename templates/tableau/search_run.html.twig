@@ -9,6 +9,9 @@
     {% for run in runs %}
 
         <div class="trip-div">
+            <form class="reserve-run" action="{{ path('reserveRun', {'id' : run.id}) }}">
+                <button>+</button>
+            </form>
 
             <a class="trip" href="{{ path('detailRun', {'id':run.id}) }}">
                 <div class="img-rider">

@@ -208,8 +208,8 @@ body {
 }
 
 .alert-warning {
-    background-color: #F0E68C;
-    color: #FFFF00;
+    background-color: #FAFAD2;
+    color: #FFD700;
 }
 
 .container,
@@ -1146,7 +1146,8 @@ footer .container-footer ul li a:hover {
     text-decoration: none;
 }
 
-.dashboard .main-trip .trip-div:hover .delete-my-run {
+.dashboard .main-trip .trip-div:hover .delete-my-run,
+.dashboard .main-trip .trip-div:hover .reserve-run {
     visibility: visible;
     z-index: 100;
 }
@@ -1166,6 +1167,19 @@ footer .container-footer ul li a:hover {
     font-size: 1.4rem;
     padding: 0px 5px;
     background-color: #c71b1b;
+}
+
+.dashboard .main-trip .trip-div .reserve-run {
+    visibility: hidden;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+.dashboard .main-trip .trip-div .reserve-run button {
+    font-size: 1.4rem;
+    padding: 0px 5px;
+    background-color: #88DB15;
 }
 
 .dashboard .main-trip .trip {
@@ -1385,4 +1399,10 @@ footer .container-footer ul li a:hover {
 #register_picture {
     /* a ne pas garder */
     color: red;
+}
+
+.title-dashboard {
+    color: #E6146C;
+    ;
+    font-weight: bold;
 }
