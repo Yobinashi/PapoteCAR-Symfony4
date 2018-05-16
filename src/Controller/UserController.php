@@ -95,6 +95,7 @@ class UserController extends Controller
         $runs = $em->getRepository(Run::class)->selectRunsByDriversWhereDepartureSupNow($this->getUser());
         return $this->render('user/account.html.twig',['runs'=> $runs]);
     }
+    
     /**
      * @Route("/account/delete", name="suppAccount")
      */
