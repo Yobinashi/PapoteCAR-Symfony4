@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <main class="connect-form">
+        {% if app.user == null %}
+            <h2>INSCRIPTION</h2>
+        {% else %}
+            <h2>MODIFICATION</h2>
+        {% endif %}
+        {{ form_start(registerForm, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_row(registerForm.firstname, { 'label': '* Nom' }) }}
+        {{ form_row(registerForm.lastname, { 'label': '* Prénom' }) }}
+        {{ form_row(registerForm.email, { 'label': '* Email' }) }}
+        {{ form_row(registerForm.tel, { 'label': '* Téléphone' }) }}
+        {{ form_row(registerForm.password.first, { 'label': '* Mot de passe' }) }}
+        {{ form_row(registerForm.password.second, { 'label': '* Répéter le mot de passe' }) }}
+        {{ form_row(registerForm.vehicle, { 'label': 'Vehicule (si vous en avez un)' }) }}
+        <div class="input-image">
+            {{ form_row(registerForm.picture, { 'label': 'Choisir une image' }) }}
+             {% if app.user == null %}
+                <div id="choose-img" style="background-image:url(http://placehold.it/100)"></div>
+            {% else %}
+                <div id="choose-img" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
+            {% endif %}
+        </div>
+        <div class="checked">
+            <input type="checkbox">
+            <p>j'accepte <a href="#">les conditions générales</a></p>
+        </div>
+        {% if app.user == null %}
+            {{ form_row(registerForm.submit) }}
+        {% else %}
+            {{ form_row(registerForm.submit, {'label': 'Modifier mon profil'}) }}
+        {% endif %}
+        {{ form_end(registerForm) }}
+
+        <script>
+            /* Permet d'afficher l'image après l'avoir chargée */
+            var img = document.getElementById('choose-img');
+            var input = document.getElementById('register_picture');
+            input.setAttribute('onchange', 'previewFile()');
+
+            function previewFile() {
+                var file = document.getElementById('register_picture').files[0];
+                var reader = new FileReader();
+
+                reader.addEventListener("load", function (e) {
+                   img.setAttribute('style', 'background-image:url(' + e.target.result + ')'); 
+                }, false);
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            }
+        </script>
+    </main>
+{% endblock %}

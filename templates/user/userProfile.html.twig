@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ user.firstname }}{{ user.lastname | upper }}{% endblock %}
+
+{% block body %}
+<h2>{{ user.firstname }}{{ user.lastname | upper }} </h2>
+
+
+    <h3> HIS RUNS</h3>
+    {% for run in runs %}
+        {{ run.departureSchedule |date("d-m-Y") }} - {{ run.departureSchedule |date("H:i") }}
+        Depart: {{ run.departure.cityName }}
+        Arrivée: {{ run.arrival.cityName }}
+        <hr>
+    {% else %}
+
+    {% endfor %}
+{% endblock %}
+
+
+

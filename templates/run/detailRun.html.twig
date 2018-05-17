@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>{{ run.departure }} --> {{ run.arrival }}</h1>
+
+    Passagers:
+    <ul>
+    {% for pasenger in run.passengers %}
+       <li> {{ passenger.firstname }} {{ passenger.lastname }}</li>
+    {% endfor %}
+
+    </ul>
+{% endblock %}

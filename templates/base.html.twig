@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/png" href="{{ asset('img/favicon-196.png') }}" />
+    </head>
+    <body>
+
+
+        <header class="header-home">
+            <div class="title-button-header">
+                <div class="title-header">
+                    <a href="{{ path('home') }}">
+                        <img src="{{ asset('img/logo.png') }}" alt="le logo de PapoteCAR"> <!-- chemin vers ACCUEIL ici -->
+                    </a>
+                    <h1>Papote<span>car</span></h1>
+                </div>
+                <form action="{{ path('addRun') }}">
+                        <button>Proposer un trajet</button> <!-- Diriger vers le formulaire Création de trajet-->
+                </form>
+            </div>
+            {% if not app.user %}
+                <div id="connect">
+                    <a href="{{ path('login') }}">Se connecter</a> <!-- chemin vers formulaire INSCRIPTION ici -->
+                    <span> | </span>
+                    <a href="{{ path('register') }}">S'inscrire</a> <!-- chemin vers formulaire CONNEXION ici -->
+                </div>
+            {% else %}
+                <div id="user-connected">
+                    {% if app.user.picture != null %}
+                        <div class="user-img" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
+                    {% else %}
+                        <div class="user-img" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                    {% endif %}
+
+                    <div class="menu">
+                        <img class="burger" src="{{ asset('img/menu.png') }}" alt="icon burger du menu utilisateur" size="100">
+                        <ul class="nav">
+                            <li><a href="{{ path('myRun') }}">Tableau de bord</a></li>
+                            <li class="border-top"><a href="{{ path('addRun') }}">Proposer un trajet</a></li>
+                            <li class="border-top"><a href="{{ path('searchRun') }}">Rechercher un trajet</a></li>
+                            <li class="border-top"><a href="{{ path('account') }}">Mon profil</a></li>
+                            <li class="border-top"><a href="{{ path('logout') }}">Se déconnecter</a></li>
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+        </header>
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        {% block body %}
+
+        {% endblock %}
+
+        {% block javascripts %}{% endblock %}
+
+        <footer>
+			<div class="container-footer">
+				<div>
+					<img src="{{ asset('img/logo-blanc.png') }}" alt="le logo PapoteCAR en Blanc">
+					<p>PapoteCAR, 2018&copy;</p>
+				</div>
+				<ul>
+					<li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">A propos</a></li>
+                    {% if not app.user %}
+					<li><a href="{{ path('login') }}">Se connecter</a></li>
+                    <li><a href="{{ path('register') }}">S'inscrire'</a></li>
+                    {% endif %}
+				</ul>
+			</div>
+        </footer>
+
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+        <script type="text/javascript"
+           src="https://maps.googleapis.com/maps/api/js?libraries=places&types=(cities)&language=fr&region=fr&amp;key=AIzaSyDn3sbn2UzlDbSiTJxLib51hkW-aSk8mmo">
+        </script>
+        <script src="{{ asset('js/script.js') }}"></script>
+        <script>
+            $(document).ready( function() {
+                $('#search-run-submit').on("click", function (e) {
+                    var data = $(this).serialize();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ path('searchRunAjax') }}",
+                        data: data,
+                        success: function () {
+                        }
+                    });
+                });
+
+            });
+        </script>
+    </body>
+</html>

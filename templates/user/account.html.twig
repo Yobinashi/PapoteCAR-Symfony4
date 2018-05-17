@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Account | {{ parent() }} {% endblock %}
+
+{% block body %}
+
+    <main class="dashboard account-main">
+
+        <h1 id="account-title">Bienvenue {{ app.user.lastname }} <span>{{ app.user.firstname }}</span></h1>
+
+        <div class="account-liens">
+            <a href="{{ path('home') }}">Home</a> |
+            <a href="{{ path('logout') }}">Deconnexion</a> |
+            <a href="{{ path('suppAccount') }}"><span style="color:#ff614a">Supprimer le compte</span></a> |
+            <a href="{{ path('editAccount') }}">Editer / Modifier</a>
+        </div>
+
+        <div class="account-detail">
+            <div class="account-img">
+                {% if app.user.picture != null %}
+                    <div class="account-img-profil" style="background-image:url( '{{ asset('img_upload/' ~ app.user.picture) }}' )"></div>
+                {% else %}
+                    <div class="account-img-profil" style="background-image:url('{{ asset('img/dog.jpg') }}'); -webkit-filter: saturate(40%);"></div>
+                {% endif %}
+            </div>
+            <div class="account-list">
+                <ul>
+                    <li><span class="account-span">Nom:</span> {{ app.user.firstname | upper }}</li>
+                    <li><span class="account-span">Prenom:</span> {{ app.user.lastname }}</li>
+                    <li><span class="account-span">Email:</span> {{ app.user.email }}</li>
+                    <li><span class="account-span">Tel:</span> {{ app.user.tel }}</li>
+                    <li><span class="account-span">Vehicule:</span> {{ app.user.vehicle }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <form action="{{ path('editAccount') }}">
+            <button>Modifiez votre profil</button>
+        </form>
+
+        {#<h3><a href="{{ path('addRun') }}">Rechercher un trajet</a></h3>-->#}
+
+        <div class="account-runs">
+            <h2>Mes trajets</h2> <!-- Runs where I drive-->
+            <hr/>
+
+            {% if not runs %}        
+                <div class="account-runs-detail">
+                    <p><span class="account-noRun">Vous n'avez pas encore proposé de trajets</span></h2>
+                </div>
+            {% else %}
+                {% for run in runs %}
+                    <div class="account-runs-detail">
+                        <h3>{{ run.departureDate | date("d-m-Y") }} - {{ run.departureTime | date("H:i") }}</h3>
+
+                        <p><span class="account-span">Départ:</span> {{ run.departure }}</p>
+                        <p><span class="account-span">Arrivée:</span> {{ run.arrival }}</p>
+
+                        <div class="account-style-btn">
+                            <form action="{{ path('deleteRun', {'id': run.id}) }}">
+                                <button class="account-btn"><a href="{{ path('deleteRun', {'id': run.id}) }}"></a>Supprimer</button>
+                            </form>
+                            <form action="{{ path('detailRun', {'id':run.id}) }}">
+                                <button class="account-btn"><a href="{{ path('detailRun', {'id':run.id}) }}"></a>Editer</button>
+                            </form>
+                        </div>               
+                    </div>  
+                {% endfor %}
+            {% endif %}
+        </div>
+
+    </main>
+
+{% endblock %}

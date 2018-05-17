@@ -1,0 +1,49 @@
+/* GENERAL THEME */
+	/* FONTS */
+		@font-face {
+			font-family: "latoRegular";
+			src: url('fonts/Lato-Regular.ttf');
+		}
+		@font-face {
+			font-family: "latoLight";
+			src: url('fonts/Lato-Light.ttf');
+		}
+		@font-face {
+			font-family: "latoBold";
+			src: url('fonts/Lato-Bold.ttf');
+		}
+		@font-face {
+			font-family: "latoBlack";
+			src: url('fonts/Lato-Black.ttf');
+		}
+	/* END FONTS */
+
+	/* COLORS */
+
+		$rose : #E6146C;
+		$green : #88DB15;
+		$black : #1b1b1b;
+		$grey : #F7F7F7;
+		$greyBorder : #CCCCCC;
+		$greyDark : #787878;
+		$white : #fff;
+		$red: #c71b1b;
+		
+		/* END COLORS */
+		
+		/* FONTS */
+		
+		$latoRegular : "latoRegular", arial, sans-serif;
+		$latoLight : "latoLight", arial, sans-serif;
+		$latoBold : "latoBold", arial, sans-serif;
+		$latoBlack : "latoBlack", arial, sans-serif;
+		
+		/* END FONTS */
+		
+		/* STYLE */
+		
+		$borderTitle : 1px solid $green;
+		$borderGrey : 0.5px solid $greyBorder;
+		
+
+	/* END STYLE */
