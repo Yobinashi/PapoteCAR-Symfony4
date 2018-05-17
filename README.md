@@ -29,18 +29,18 @@
             - en bas à droite (flêche vers le haut), clic gauche sur le W > clic PHP > Version > 7.2
     
     * Cloner le fichier dans un dossier dans C:\wamp\www: (")
-    ![img1]( img1.png "avec la commande git clone https://github.com/Yobinashi/PapoteCAR-Symfony4.git")
+   ![img1]( img1.png "avec la commande git clone https://github.com/Yobinashi/PapoteCAR-Symfony4.git")
 
     * Rendez-vous dans le dossier, toujours avec le terminal. Puis:
-    ![img2](img2.png "cd papoteCAR-swatalpha")
+   ![img2](img2.png "cd papoteCAR-swatalpha")
 
     * Enfin, afin d'installer les différents composants nécessaire au fonctionnement du projet, faire un:
-    ![img3](img3.png "composer install")
+   ![img3](img3.png "composer install")
 
     * Vous pouvez désormais vous rendre dans le champ url du navigateur de votre choix et taper http://localhost/papoteCAR-swatalpha/public, afin d'accéder à l'aplication web.
 
 
-    ## Bonne navigation !
+## Bonne navigation !
 
 ### Les participants
 
