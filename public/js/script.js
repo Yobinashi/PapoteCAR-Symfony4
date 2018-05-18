@@ -1,6 +1,6 @@
 // UPLOAD IMAGE DANS INSCRPTION.HTML
 
-function handle(input) {
+/*function handle(input) {
     console.log(input);
     if (input.files && input.files[0]) {
         var reader = new FileReader();
@@ -11,14 +11,8 @@ function handle(input) {
         reader.readAsDataURL(input.files[0]);
         console.log("Image chargé");
     }
-};
+}*/
 
-/**
- * form-search.html.twig
- */
-let dateDepart = new Date();
-console.log(dateDepart);
-document.getElementById('search-run-date').valueAsDate = dateDepart;
 
 /**
  * API GOOGLE MAP JAVASCRIPT
@@ -215,3 +209,10 @@ function affichageFunction() {
     document.getElementById("panel_time").innerHTML = time_trip;
     document.getElementById("panel_distance").innerHTML = distance_trip;
 }
+
+/**
+ * form-search.html.twig
+ */
+let dateDepart = new Date();
+console.log(dateDepart);
+//document.getElementById('search-run-date').valueAsDate = dateDepart;

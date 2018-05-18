@@ -81,14 +81,17 @@
 			</div>
         </footer>
 
-        <script
-                src="https://code.jquery.com/jquery-3.3.1.min.js"
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"
                 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
+                crossorigin="anonymous">
+        </script>
+        
         <script type="text/javascript"
            src="https://maps.googleapis.com/maps/api/js?libraries=places&types=(cities)&language=fr&region=fr&amp;key=AIzaSyDn3sbn2UzlDbSiTJxLib51hkW-aSk8mmo">
         </script>
+        
         <script src="{{ asset('js/script.js') }}"></script>
+        
         <script>
             $(document).ready( function() {
                 $('#search-run-submit').on("click", function (e) {
@@ -101,8 +104,8 @@
                         }
                     });
                 });
-
             });
         </script>
+        
     </body>
 </html>
