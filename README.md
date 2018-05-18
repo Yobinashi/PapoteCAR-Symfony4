@@ -3,6 +3,7 @@
 ![logo](favicon.png "logo du projet")
 
 Projet fil rouge de la POEC Web &amp; Mobile, au sein de l'**IMIE** | https://numerique.imie.fr/ 
+ 
  Appli web de type BlaBlaCar en Symfony 4 | Projet du groupe **SwatAlpha**.
 
 ### Consignes préalables à l'élaboration de l'application web
