@@ -2,9 +2,8 @@
 
 ![logo](favicon.png "logo du projet")
 
-Projet fil rouge de la POEC Web &amp; Mobile, au sein de l'**IMIE** | https://numerique.imie.fr/ 
- 
- Appli web de type BlaBlaCar en Symfony 4 | Projet du groupe **SwatAlpha**.
+Projet fil rouge de la POEC Web &amp; Mobile, au sein de l'**IMIE** | https://numerique.imie.fr/  
+Appli web de type BlaBlaCar en Symfony 4 | Projet du groupe **SwatAlpha**.
 
 ### Consignes préalables à l'élaboration de l'application web
    
@@ -20,9 +19,9 @@ Projet fil rouge de la POEC Web &amp; Mobile, au sein de l'**IMIE** | https://nu
     
 ### Installation
     
-1. Installer composer.
+1. Installer composer.  
   https://getcomposer.org/download/
-2. Installer un serveur local du genre Wamp.
+2. Installer un serveur local du genre Wamp.  
   https://sourceforge.net/projects/wampserver/files/
 3. Configurer PHP à une version suppérieure ou égal à la 7.2.
     - exemple sous windows: 
@@ -37,9 +36,9 @@ Projet fil rouge de la POEC Web &amp; Mobile, au sein de l'**IMIE** | https://nu
 6. Enfin, afin d'installer les différents composants nécessaire au fonctionnement du projet, faire un:
 ![img3](img3.png "composer install")
 
-7. Vous pouvez désormais vous rendre dans le champ url du navigateur de votre choix et taper: 
- http://localhost/papoteCAR-swatalpha/public  
-  Ceci, afin d'accéder à l'aplication web.
+7. Vous pouvez désormais vous rendre dans le champ url du navigateur de votre choix et taper:  
+   http://localhost/papoteCAR-swatalpha/public  
+   Ceci, afin d'accéder à l'aplication web.
     ## Bonne navigation !
 
 ### Listes des différentes fonctionalités:
