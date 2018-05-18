@@ -2,13 +2,13 @@
 
 ![logo](favicon.png "logo du projet")
 
-Projet fil rouge de la POEC Web &amp; Mobile, au sein de l'**IMIE** | https://numerique.imie.fr/
+Projet fil rouge de la POEC Web &amp; Mobile, au sein de l'**IMIE** | https://numerique.imie.fr/ 
 Appli web de type BlaBlaCar en Symfony 4 | Projet du groupe **SwatAlpha**.
 
 ### Consignes préalables à l'élaboration de l'application web
    
    - **Application de co-voiturage** de type BlaBLaCar avec les principales fonctionalités. 
-    - Durée du projet: 4 jours, présentation incluse.
+    - Durée du projet de 4 jours, présentation incluse.
     
 ### Langages utilisés:
 
@@ -36,7 +36,8 @@ Appli web de type BlaBlaCar en Symfony 4 | Projet du groupe **SwatAlpha**.
 6. Enfin, afin d'installer les différents composants nécessaire au fonctionnement du projet, faire un:
 ![img3](img3.png "composer install")
 
-7. Vous pouvez désormais vous rendre dans le champ url du navigateur de votre choix et taper http://localhost/papoteCAR-swatalpha/public, afin d'accéder à l'aplication web.
+7. Vous pouvez désormais vous rendre dans le champ url du navigateur de votre choix et taper:  http://localhost/papoteCAR-swatalpha/public 
+, afin d'accéder à l'aplication web.
     ## Bonne navigation !
 
 ### Listes des différentes fonctionalités:
@@ -54,12 +55,12 @@ Appli web de type BlaBlaCar en Symfony 4 | Projet du groupe **SwatAlpha**.
 
 ### Les participants
  
- > Laetitia
- > Jordan
- > Ali
- > Valentin
- > Mickael
- > Nicolas
+ > Laetitia | 
+ > Jordan | 
+ > Ali | 
+ > Valentin | 
+ > Mickael | 
+ > Nicolas | 
  > et enfin , notre superviseur en chef, Emmanuel
 
 ### 
